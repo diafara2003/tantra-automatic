@@ -357,6 +357,10 @@ class TantraAutomatic(tk.Tk):
                         variable=self.modo_mago,
                         command=self._al_cambiar_mago).grid(row=0, column=5, padx=(10, 0))
 
+        self.modo_quieto = tk.BooleanVar(value=False)
+        ttk.Checkbutton(frame_basico, text="Quieto",
+                        variable=self.modo_quieto).grid(row=0, column=6, padx=(10, 0))
+
         # ── Recoger Items ──
         frame_recoger = ttk.LabelFrame(tab, text="Recoger Items (tecla F)", padding=5)
         frame_recoger.pack(fill="x", pady=(0, 6))
@@ -774,8 +778,8 @@ class TantraAutomatic(tk.Tk):
         except (ValueError, tk.TclError):
             intervalo = 1000
 
-        # No atacar si esta huyendo
-        if not self.huyendo:
+        # Quieto: no enviar E (no busca nuevos targets, solo dispara al actual)
+        if not self.huyendo and not self.modo_quieto.get():
             enviar_tecla(self.hwnd_objetivo, VK_CODES['E'])
         self.basic_e_timer_id = self.after(intervalo, self._tick_e)
 
@@ -1000,6 +1004,7 @@ class TantraAutomatic(tk.Tk):
         config = {
             "basico_activado": self.basico_activado.get(),
             "modo_mago": self.modo_mago.get(),
+            "modo_quieto": self.modo_quieto.get(),
             "intervalo_e": self.intervalo_e.get(),
             "intervalo_r": self.intervalo_r.get(),
             "recoger_activado": self.recoger_activado.get(),
@@ -1030,6 +1035,7 @@ class TantraAutomatic(tk.Tk):
     def _aplicar_config(self, config):
         self.basico_activado.set(config.get("basico_activado", True))
         self.modo_mago.set(config.get("modo_mago", False))
+        self.modo_quieto.set(config.get("modo_quieto", False))
 
         self.intervalo_e.delete(0, tk.END)
         self.intervalo_e.insert(0, config.get("intervalo_e", "1"))
