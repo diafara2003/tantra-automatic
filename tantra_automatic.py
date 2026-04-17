@@ -590,11 +590,23 @@ class TantraAutomatic(tk.Tk):
         titulos = [titulo for _, titulo in ventanas]
         self.combo_proceso['values'] = titulos
 
-        for i, titulo in enumerate(titulos):
-            if 'kathana' in titulo.lower() or 'tantra' in titulo.lower():
-                self.combo_proceso.current(i)
-                self._al_seleccionar_proceso(None)
-                break
+        # Auto-conectar a Kathana
+        hwnd = FindWindow(None, 'Kathana - The Coming of the Dark Ages')
+        if hwnd:
+            self.hwnd_objetivo = hwnd
+            self.titulo_objetivo = 'Kathana - The Coming of the Dark Ages'
+            for i, titulo in enumerate(titulos):
+                if 'kathana' in titulo.lower():
+                    self.combo_proceso.current(i)
+                    break
+            self.entry_renombrar.delete(0, tk.END)
+            self.entry_renombrar.insert(0, self.titulo_objetivo)
+        else:
+            for i, titulo in enumerate(titulos):
+                if 'kathana' in titulo.lower() or 'tantra' in titulo.lower():
+                    self.combo_proceso.current(i)
+                    self._al_seleccionar_proceso(None)
+                    break
 
     def _al_seleccionar_proceso(self, event):
         idx = self.combo_proceso.current()
