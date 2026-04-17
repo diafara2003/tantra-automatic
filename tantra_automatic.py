@@ -47,7 +47,7 @@ except Exception:
 WM_KEYDOWN = 0x0100
 
 VK_CODES = {
-    'E': 0x45, 'R': 0x52, 'F': 0x46,
+    'E': 0x45, 'R': 0x52, 'F': 0x46, 'T': 0x54,
     'W': 0x57, 'A': 0x41, 'S': 0x53, 'D': 0x44,
     '0': 0x30, '1': 0x31, '2': 0x32, '3': 0x33, '4': 0x34,
     '5': 0x35, '6': 0x36, '7': 0x37, '8': 0x38, '9': 0x39,
@@ -721,6 +721,7 @@ class TantraAutomatic(tk.Tk):
             self.label_target_actual.config(text="Target actual: (ninguno)")
 
         if not nombre:
+            # Sin target - intentar seleccionar uno con E
             self.intentos_fallidos += 1
             self.label_filtro_estado.config(
                 text=f"Sin target ({self.intentos_fallidos}/{self.MAX_INTENTOS})",
@@ -728,15 +729,18 @@ class TantraAutomatic(tk.Tk):
             self._verificar_mover()
             self._target_cache_result = False
         elif self._nombre_coincide(nombre):
+            # Target correcto - atacar
             self.intentos_fallidos = 0
             self.label_filtro_estado.config(
                 text=f"ATACANDO: {nombre}", foreground="green")
             self._target_cache_result = True
         else:
+            # Target incorrecto - deseleccionar con T y buscar otro
             self.intentos_fallidos += 1
             self.label_filtro_estado.config(
-                text=f"IGNORADO: {nombre} ({self.intentos_fallidos}/{self.MAX_INTENTOS})",
+                text=f"IGNORADO: {nombre} -> deseleccionando ({self.intentos_fallidos}/{self.MAX_INTENTOS})",
                 foreground="orange")
+            enviar_tecla(self.hwnd_objetivo, VK_CODES['T'])  # deseleccionar
             self._verificar_mover()
             self._target_cache_result = False
 
@@ -747,35 +751,11 @@ class TantraAutomatic(tk.Tk):
         return getattr(self, '_target_cache_result', True)
 
     def _verificar_mover(self):
-        """Si se alcanzaron los intentos maximos, mover al personaje en direccion aleatoria."""
+        """Si se alcanzaron los intentos maximos, resetea el contador y sigue buscando."""
         if self.intentos_fallidos >= self.MAX_INTENTOS:
             self.intentos_fallidos = 0
-            self._mover_personaje()
-
-    def _mover_personaje(self):
-        """Mueve al personaje en una direccion aleatoria (W/A/S/D)."""
-        import random
-        direcciones = ['W', 'A', 'S', 'D']
-        tecla = random.choice(direcciones)
-        nombres = {'W': 'adelante', 'A': 'izquierda', 'S': 'atras', 'D': 'derecha'}
-
-        self.label_filtro_estado.config(
-            text=f"MOVIENDO: {nombres[tecla]}...", foreground="blue")
-
-        vk = VK_CODES[tecla]
-
-        def _hacer_movimiento():
-            # Traer juego al frente y esperar antes de enviar tecla
-            try:
-                SetForegroundWindow(self.hwnd_objetivo)
-            except Exception:
-                pass
-            time.sleep(0.3)
-            user32.keybd_event(vk, 0, 0, 0)
-            time.sleep(0.8)
-            user32.keybd_event(vk, 0, 2, 0)
-
-        threading.Thread(target=_hacer_movimiento, daemon=True).start()
+            self.label_filtro_estado.config(
+                text="No encontrado, sigue buscando...", foreground="blue")
 
     # ─── Timers de Ataque Basico ──────────────────────────────────
 
@@ -971,40 +951,21 @@ class TantraAutomatic(tk.Tk):
                 self._detener_huida()
                 self.label_hp_estado.config(text=f"HP: ~{hp_pct}% OK", foreground="green")
 
-        self.autopot_timer_id = self.after(500, self._tick_autopot)
+        self.autopot_timer_id = self.after(200, self._tick_autopot)
 
     def _iniciar_huida(self):
-        """Empieza a correr hacia adelante (W)."""
-        def _correr():
-            try:
-                SetForegroundWindow(self.hwnd_objetivo)
-            except Exception:
-                pass
-            time.sleep(0.3)
-            user32.keybd_event(VK_CODES['W'], 0, 0, 0)
-
-        threading.Thread(target=_correr, daemon=True).start()
+        """Cuando HP esta bajo, deja de atacar y spamea pociones."""
         self._tick_huida()
 
     def _tick_huida(self):
-        """Mantiene W presionado mientras huye. Sigue enviando pociones."""
+        """Sigue enviando pociones mientras HP esta bajo."""
         if not self.activo or not self.huyendo:
             return
-        # Enviar pocion de HP mientras corre
         enviar_tecla(self.hwnd_objetivo, VK_CODES['9'])
         self.huida_timer_id = self.after(500, self._tick_huida)
 
     def _detener_huida(self):
-        """Deja de correr."""
-        def _soltar():
-            try:
-                SetForegroundWindow(self.hwnd_objetivo)
-            except Exception:
-                pass
-            time.sleep(0.1)
-            user32.keybd_event(VK_CODES['W'], 0, 2, 0)
-
-        threading.Thread(target=_soltar, daemon=True).start()
+        """HP recuperado, volver a atacar."""
         if self.huida_timer_id:
             self.after_cancel(self.huida_timer_id)
             self.huida_timer_id = None
