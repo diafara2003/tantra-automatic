@@ -1,0 +1,5280 @@
+Automatic.dep.json:
+
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0/win-x64",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {},
+    ".NETCoreApp,Version=v6.0/win-x64": {
+      "Automatic/1.0.0": {
+        "dependencies": {
+          "Microsoft.NET.ILLink.Analyzers": "7.0.100-1.23211.1",
+          "Microsoft.NET.ILLink.Tasks": "7.0.100-1.23211.1",
+          "ILMerge": "3.0.41"
+        },
+        "runtime": {
+          "Automatic.dll": {}
+        }
+      },
+      "ILMerge/3.0.41": {},
+      "Microsoft.NET.ILLink.Analyzers/7.0.100-1.23211.1": {},
+      "Microsoft.NET.ILLink.Tasks/7.0.100-1.23211.1": {}
+    }
+  },
+  "libraries": {
+    "Automatic/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ILMerge/3.0.41": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-u9n45xs40bSGoNFcmMYJkh3zkGYKR4BqzQaX2uHc2Ay4drdiQOTeo/1ECps3ttDXOu4Q6qbTnsIbQWb/06ShqA==",
+      "path": "ilmerge/3.0.41",
+      "hashPath": "ilmerge.3.0.41.nupkg.sha512"
+    },
+    "Microsoft.NET.ILLink.Analyzers/7.0.100-1.23211.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-0GvbEgDGcUQA9KuWcQU1WwYHXt1tBzNr1Nls/M57rM7NA/AndFwCaCEoJpJkmxRY7xLlPDBnmGp8h5+FNqUngg==",
+      "path": "microsoft.net.illink.analyzers/7.0.100-1.23211.1",
+      "hashPath": "microsoft.net.illink.analyzers.7.0.100-1.23211.1.nupkg.sha512"
+    },
+    "Microsoft.NET.ILLink.Tasks/7.0.100-1.23211.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-tvG8XZYLjT0o3WicCyKBZysVWo1jC9HdCFmNRmddx3WbAz0UCsd0qKZqpiEo99VLA8Re+FzWK51OcRldQPbt2Q==",
+      "path": "microsoft.net.illink.tasks/7.0.100-1.23211.1",
+      "hashPath": "microsoft.net.illink.tasks.7.0.100-1.23211.1.nupkg.sha512"
+    }
+  }
+}
+
+Automatic.runtimeConfig.json:
+{
+  "runtimeOptions": {
+    "tfm": "net6.0",
+    "frameworks": [
+      {
+        "name": "Microsoft.NETCore.App",
+        "version": "6.0.0"
+      },
+      {
+        "name": "Microsoft.WindowsDesktop.App",
+        "version": "6.0.0"
+      }
+    ],
+    "configProperties": {
+      "System.Reflection.Metadata.MetadataUpdater.IsSupported": false
+    }
+  }
+}
+
+form1:
+// Automatic, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+// Automatic.Form1
+using System;
+using System.ComponentModel;
+using System.Diagnostics;
+using System.Drawing;
+using System.IO;
+using System.Net;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
+using System.Threading;
+using System.Windows.Forms;
+using Automatic;
+using Automatic.My;
+using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.CompilerServices;
+
+[DesignerGenerated]
+public class Form1 : Form
+{
+	private IContainer components;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("ButtonHP")]
+	private Button _ButtonHP;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("skill1")]
+	private TextBox _skill1;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("skill2")]
+	private TextBox _skill2;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("skill3")]
+	private TextBox _skill3;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("skill5")]
+	private TextBox _skill5;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("skill0")]
+	private TextBox _skill0;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("skill9")]
+	private TextBox _skill9;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("skill8")]
+	private TextBox _skill8;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("skill7")]
+	private TextBox _skill7;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("skill6")]
+	private TextBox _skill6;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("skillf10")]
+	private TextBox _skillf10;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("skillf9")]
+	private TextBox _skillf9;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("skillf8")]
+	private TextBox _skillf8;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("skillf7")]
+	private TextBox _skillf7;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("skillf6")]
+	private TextBox _skillf6;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("skillf5")]
+	private TextBox _skillf5;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("skillf4")]
+	private TextBox _skillf4;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("skillf3")]
+	private TextBox _skillf3;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("skillf2")]
+	private TextBox _skillf2;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("skillf1")]
+	private TextBox _skillf1;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("start")]
+	private Button _start;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("CheckBoxautopots")]
+	private CheckBox _CheckBoxautopots;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("TimerE")]
+	private System.Windows.Forms.Timer _TimerE;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("skill4")]
+	private TextBox _skill4;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("skillr")]
+	private TextBox _skillr;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("skille")]
+	private TextBox _skille;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("TimerR")]
+	private System.Windows.Forms.Timer _TimerR;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("Timerprincipal")]
+	private System.Windows.Forms.Timer _Timerprincipal;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("TimerSkill1")]
+	private System.Windows.Forms.Timer _TimerSkill1;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("Timerskill2")]
+	private System.Windows.Forms.Timer _Timerskill2;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("TimerSkill3")]
+	private System.Windows.Forms.Timer _TimerSkill3;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("Timerskill4")]
+	private System.Windows.Forms.Timer _Timerskill4;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("TimerSkill5")]
+	private System.Windows.Forms.Timer _TimerSkill5;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("Timerskill6")]
+	private System.Windows.Forms.Timer _Timerskill6;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("TimerSkill7")]
+	private System.Windows.Forms.Timer _TimerSkill7;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("Timerskill8")]
+	private System.Windows.Forms.Timer _Timerskill8;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("TimerSkill9")]
+	private System.Windows.Forms.Timer _TimerSkill9;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("Timerskill0")]
+	private System.Windows.Forms.Timer _Timerskill0;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("TimerSkillF1")]
+	private System.Windows.Forms.Timer _TimerSkillF1;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("TimerskillF2")]
+	private System.Windows.Forms.Timer _TimerskillF2;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("TimerSkillF3")]
+	private System.Windows.Forms.Timer _TimerSkillF3;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("TimerskillF4")]
+	private System.Windows.Forms.Timer _TimerskillF4;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("TimerSkillF5")]
+	private System.Windows.Forms.Timer _TimerSkillF5;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("TimerskillF6")]
+	private System.Windows.Forms.Timer _TimerskillF6;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("TimerSkillF7")]
+	private System.Windows.Forms.Timer _TimerSkillF7;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("TimerskillF8")]
+	private System.Windows.Forms.Timer _TimerskillF8;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("TimerSkillF9")]
+	private System.Windows.Forms.Timer _TimerSkillF9;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("TimerskillF10")]
+	private System.Windows.Forms.Timer _TimerskillF10;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("Buttonmana")]
+	private Button _Buttonmana;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("TimerHP")]
+	private System.Windows.Forms.Timer _TimerHP;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("TimerMana")]
+	private System.Windows.Forms.Timer _TimerMana;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("Button1")]
+	private Button _Button1;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("TimerPotas")]
+	private System.Windows.Forms.Timer _TimerPotas;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("ListBox1")]
+	private ListBox _ListBox1;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("Button2")]
+	private Button _Button2;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("TextBoxrecojer")]
+	private TextBox _TextBoxrecojer;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("Timerrecojer")]
+	private System.Windows.Forms.Timer _Timerrecojer;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("Button3")]
+	private Button _Button3;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("checkboxmago")]
+	private CheckBox _checkboxmago;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("Button4")]
+	private Button _Button4;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("Button5")]
+	private Button _Button5;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("LinkLabel1")]
+	private LinkLabel _LinkLabel1;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("BackgroundWorker1")]
+	private BackgroundWorker _BackgroundWorker1;
+
+	[CompilerGenerated]
+	[AccessedThroughProperty("PictureBox7")]
+	private PictureBox _PictureBox7;
+
+	private bool cancelRequested;
+
+	private Process[] processlist;
+
+	private string myProcess;
+
+	private string seleccionado;
+
+	private int seleccionadoID;
+
+	private Process proceso;
+
+	private bool activo;
+
+	private int coorHPX;
+
+	private int coorHPY;
+
+	private int coorManaX;
+
+	private int coorManaY;
+
+	private string version;
+
+	private string ruta;
+
+	private IntPtr handle;
+
+	public const int KEY_E = 69;
+
+	public const int KEY_R = 82;
+
+	public const int KEY_F = 70;
+
+	public const int KEY_W = 87;
+
+	public const int KEY_F1 = 112;
+
+	public const int KEY_F2 = 113;
+
+	public const int KEY_F3 = 114;
+
+	public const int KEY_F4 = 115;
+
+	public const int KEY_F5 = 116;
+
+	public const int KEY_F6 = 117;
+
+	public const int KEY_F7 = 118;
+
+	public const int KEY_F8 = 119;
+
+	public const int KEY_F9 = 120;
+
+	public const int KEY_F10 = 121;
+
+	public const int KEY_0 = 48;
+
+	public const int KEY_1 = 49;
+
+	public const int KEY_2 = 50;
+
+	public const int KEY_3 = 51;
+
+	public const int KEY_4 = 52;
+
+	public const int KEY_5 = 53;
+
+	public const int KEY_6 = 54;
+
+	public const int KEY_7 = 55;
+
+	public const int KEY_8 = 56;
+
+	public const int KEY_9 = 57;
+
+	internal virtual Button ButtonHP
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _ButtonHP;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			EventHandler value2 = selectHP;
+			Button button = _ButtonHP;
+			if (button != null)
+			{
+				button.Click -= value2;
+			}
+			_ButtonHP = value;
+			button = _ButtonHP;
+			if (button != null)
+			{
+				button.Click += value2;
+			}
+		}
+	}
+
+	internal virtual TextBox skill1
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _skill1;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			KeyPressEventHandler value2 = textbox1_KeyPress;
+			TextBox textBox = _skill1;
+			if (textBox != null)
+			{
+				textBox.KeyPress -= value2;
+			}
+			_skill1 = value;
+			textBox = _skill1;
+			if (textBox != null)
+			{
+				textBox.KeyPress += value2;
+			}
+		}
+	}
+
+	internal virtual TextBox skill2
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _skill2;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			KeyPressEventHandler value2 = textbox1_KeyPress;
+			TextBox textBox = _skill2;
+			if (textBox != null)
+			{
+				textBox.KeyPress -= value2;
+			}
+			_skill2 = value;
+			textBox = _skill2;
+			if (textBox != null)
+			{
+				textBox.KeyPress += value2;
+			}
+		}
+	}
+
+	internal virtual TextBox skill3
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _skill3;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			KeyPressEventHandler value2 = textbox1_KeyPress;
+			TextBox textBox = _skill3;
+			if (textBox != null)
+			{
+				textBox.KeyPress -= value2;
+			}
+			_skill3 = value;
+			textBox = _skill3;
+			if (textBox != null)
+			{
+				textBox.KeyPress += value2;
+			}
+		}
+	}
+
+	[field: AccessedThroughProperty("s")]
+	internal virtual TextBox s
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	internal virtual TextBox skill5
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _skill5;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			KeyPressEventHandler value2 = textbox1_KeyPress;
+			TextBox textBox = _skill5;
+			if (textBox != null)
+			{
+				textBox.KeyPress -= value2;
+			}
+			_skill5 = value;
+			textBox = _skill5;
+			if (textBox != null)
+			{
+				textBox.KeyPress += value2;
+			}
+		}
+	}
+
+	internal virtual TextBox skill0
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _skill0;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			KeyPressEventHandler value2 = textbox1_KeyPress;
+			TextBox textBox = _skill0;
+			if (textBox != null)
+			{
+				textBox.KeyPress -= value2;
+			}
+			_skill0 = value;
+			textBox = _skill0;
+			if (textBox != null)
+			{
+				textBox.KeyPress += value2;
+			}
+		}
+	}
+
+	internal virtual TextBox skill9
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _skill9;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			KeyPressEventHandler value2 = textbox1_KeyPress;
+			TextBox textBox = _skill9;
+			if (textBox != null)
+			{
+				textBox.KeyPress -= value2;
+			}
+			_skill9 = value;
+			textBox = _skill9;
+			if (textBox != null)
+			{
+				textBox.KeyPress += value2;
+			}
+		}
+	}
+
+	internal virtual TextBox skill8
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _skill8;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			KeyPressEventHandler value2 = textbox1_KeyPress;
+			TextBox textBox = _skill8;
+			if (textBox != null)
+			{
+				textBox.KeyPress -= value2;
+			}
+			_skill8 = value;
+			textBox = _skill8;
+			if (textBox != null)
+			{
+				textBox.KeyPress += value2;
+			}
+		}
+	}
+
+	internal virtual TextBox skill7
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _skill7;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			KeyPressEventHandler value2 = textbox1_KeyPress;
+			TextBox textBox = _skill7;
+			if (textBox != null)
+			{
+				textBox.KeyPress -= value2;
+			}
+			_skill7 = value;
+			textBox = _skill7;
+			if (textBox != null)
+			{
+				textBox.KeyPress += value2;
+			}
+		}
+	}
+
+	internal virtual TextBox skill6
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _skill6;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			KeyPressEventHandler value2 = textbox1_KeyPress;
+			TextBox textBox = _skill6;
+			if (textBox != null)
+			{
+				textBox.KeyPress -= value2;
+			}
+			_skill6 = value;
+			textBox = _skill6;
+			if (textBox != null)
+			{
+				textBox.KeyPress += value2;
+			}
+		}
+	}
+
+	internal virtual TextBox skillf10
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _skillf10;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			KeyPressEventHandler value2 = textbox1_KeyPress;
+			TextBox textBox = _skillf10;
+			if (textBox != null)
+			{
+				textBox.KeyPress -= value2;
+			}
+			_skillf10 = value;
+			textBox = _skillf10;
+			if (textBox != null)
+			{
+				textBox.KeyPress += value2;
+			}
+		}
+	}
+
+	internal virtual TextBox skillf9
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _skillf9;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			KeyPressEventHandler value2 = textbox1_KeyPress;
+			TextBox textBox = _skillf9;
+			if (textBox != null)
+			{
+				textBox.KeyPress -= value2;
+			}
+			_skillf9 = value;
+			textBox = _skillf9;
+			if (textBox != null)
+			{
+				textBox.KeyPress += value2;
+			}
+		}
+	}
+
+	internal virtual TextBox skillf8
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _skillf8;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			KeyPressEventHandler value2 = textbox1_KeyPress;
+			TextBox textBox = _skillf8;
+			if (textBox != null)
+			{
+				textBox.KeyPress -= value2;
+			}
+			_skillf8 = value;
+			textBox = _skillf8;
+			if (textBox != null)
+			{
+				textBox.KeyPress += value2;
+			}
+		}
+	}
+
+	internal virtual TextBox skillf7
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _skillf7;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			KeyPressEventHandler value2 = textbox1_KeyPress;
+			TextBox textBox = _skillf7;
+			if (textBox != null)
+			{
+				textBox.KeyPress -= value2;
+			}
+			_skillf7 = value;
+			textBox = _skillf7;
+			if (textBox != null)
+			{
+				textBox.KeyPress += value2;
+			}
+		}
+	}
+
+	internal virtual TextBox skillf6
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _skillf6;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			KeyPressEventHandler value2 = textbox1_KeyPress;
+			TextBox textBox = _skillf6;
+			if (textBox != null)
+			{
+				textBox.KeyPress -= value2;
+			}
+			_skillf6 = value;
+			textBox = _skillf6;
+			if (textBox != null)
+			{
+				textBox.KeyPress += value2;
+			}
+		}
+	}
+
+	internal virtual TextBox skillf5
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _skillf5;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			KeyPressEventHandler value2 = textbox1_KeyPress;
+			TextBox textBox = _skillf5;
+			if (textBox != null)
+			{
+				textBox.KeyPress -= value2;
+			}
+			_skillf5 = value;
+			textBox = _skillf5;
+			if (textBox != null)
+			{
+				textBox.KeyPress += value2;
+			}
+		}
+	}
+
+	internal virtual TextBox skillf4
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _skillf4;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			KeyPressEventHandler value2 = textbox1_KeyPress;
+			TextBox textBox = _skillf4;
+			if (textBox != null)
+			{
+				textBox.KeyPress -= value2;
+			}
+			_skillf4 = value;
+			textBox = _skillf4;
+			if (textBox != null)
+			{
+				textBox.KeyPress += value2;
+			}
+		}
+	}
+
+	internal virtual TextBox skillf3
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _skillf3;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			KeyPressEventHandler value2 = textbox1_KeyPress;
+			TextBox textBox = _skillf3;
+			if (textBox != null)
+			{
+				textBox.KeyPress -= value2;
+			}
+			_skillf3 = value;
+			textBox = _skillf3;
+			if (textBox != null)
+			{
+				textBox.KeyPress += value2;
+			}
+		}
+	}
+
+	internal virtual TextBox skillf2
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _skillf2;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			KeyPressEventHandler value2 = textbox1_KeyPress;
+			TextBox textBox = _skillf2;
+			if (textBox != null)
+			{
+				textBox.KeyPress -= value2;
+			}
+			_skillf2 = value;
+			textBox = _skillf2;
+			if (textBox != null)
+			{
+				textBox.KeyPress += value2;
+			}
+		}
+	}
+
+	internal virtual TextBox skillf1
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _skillf1;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			KeyPressEventHandler value2 = textbox1_KeyPress;
+			TextBox textBox = _skillf1;
+			if (textBox != null)
+			{
+				textBox.KeyPress -= value2;
+			}
+			_skillf1 = value;
+			textBox = _skillf1;
+			if (textBox != null)
+			{
+				textBox.KeyPress += value2;
+			}
+		}
+	}
+
+	[field: AccessedThroughProperty("Label3")]
+	internal virtual Label Label3
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	[field: AccessedThroughProperty("Label4")]
+	internal virtual Label Label4
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	[field: AccessedThroughProperty("Label5")]
+	internal virtual Label Label5
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	[field: AccessedThroughProperty("Label6")]
+	internal virtual Label Label6
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	[field: AccessedThroughProperty("Label7")]
+	internal virtual Label Label7
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	[field: AccessedThroughProperty("Label8")]
+	internal virtual Label Label8
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	[field: AccessedThroughProperty("Label9")]
+	internal virtual Label Label9
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	[field: AccessedThroughProperty("Label10")]
+	internal virtual Label Label10
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	[field: AccessedThroughProperty("Label11")]
+	internal virtual Label Label11
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	[field: AccessedThroughProperty("Label12")]
+	internal virtual Label Label12
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	[field: AccessedThroughProperty("Label13")]
+	internal virtual Label Label13
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	[field: AccessedThroughProperty("Label14")]
+	internal virtual Label Label14
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	[field: AccessedThroughProperty("Label15")]
+	internal virtual Label Label15
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	[field: AccessedThroughProperty("Label16")]
+	internal virtual Label Label16
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	[field: AccessedThroughProperty("Label17")]
+	internal virtual Label Label17
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	[field: AccessedThroughProperty("Label18")]
+	internal virtual Label Label18
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	[field: AccessedThroughProperty("Label19")]
+	internal virtual Label Label19
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	[field: AccessedThroughProperty("Label20")]
+	internal virtual Label Label20
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	[field: AccessedThroughProperty("Label21")]
+	internal virtual Label Label21
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	[field: AccessedThroughProperty("Label22")]
+	internal virtual Label Label22
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	[field: AccessedThroughProperty("GroupBox1")]
+	internal virtual GroupBox GroupBox1
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	internal virtual Button start
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _start;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			EventHandler value2 = startclick;
+			Button button = _start;
+			if (button != null)
+			{
+				button.Click -= value2;
+			}
+			_start = value;
+			button = _start;
+			if (button != null)
+			{
+				button.Click += value2;
+			}
+		}
+	}
+
+	internal virtual CheckBox CheckBoxautopots
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _CheckBoxautopots;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			EventHandler value2 = CheckBoxautopots_CheckedChanged;
+			CheckBox checkBox = _CheckBoxautopots;
+			if (checkBox != null)
+			{
+				checkBox.CheckedChanged -= value2;
+			}
+			_CheckBoxautopots = value;
+			checkBox = _CheckBoxautopots;
+			if (checkBox != null)
+			{
+				checkBox.CheckedChanged += value2;
+			}
+		}
+	}
+
+	[field: AccessedThroughProperty("Label23")]
+	internal virtual Label Label23
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	[field: AccessedThroughProperty("check1")]
+	internal virtual CheckBox check1
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	[field: AccessedThroughProperty("check8")]
+	internal virtual CheckBox check8
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	[field: AccessedThroughProperty("check7")]
+	internal virtual CheckBox check7
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	[field: AccessedThroughProperty("check6")]
+	internal virtual CheckBox check6
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	[field: AccessedThroughProperty("check5")]
+	internal virtual CheckBox check5
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	[field: AccessedThroughProperty("check4")]
+	internal virtual CheckBox check4
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	[field: AccessedThroughProperty("check3")]
+	internal virtual CheckBox check3
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	[field: AccessedThroughProperty("check2")]
+	internal virtual CheckBox check2
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	[field: AccessedThroughProperty("checkf10")]
+	internal virtual CheckBox checkf10
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	[field: AccessedThroughProperty("checkf9")]
+	internal virtual CheckBox checkf9
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	[field: AccessedThroughProperty("checkf8")]
+	internal virtual CheckBox checkf8
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	[field: AccessedThroughProperty("checkf7")]
+	internal virtual CheckBox checkf7
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	[field: AccessedThroughProperty("checkf6")]
+	internal virtual CheckBox checkf6
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	[field: AccessedThroughProperty("checkf5")]
+	internal virtual CheckBox checkf5
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	[field: AccessedThroughProperty("checkf4")]
+	internal virtual CheckBox checkf4
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	[field: AccessedThroughProperty("checkf3")]
+	internal virtual CheckBox checkf3
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	[field: AccessedThroughProperty("checkf2")]
+	internal virtual CheckBox checkf2
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	[field: AccessedThroughProperty("checkf1")]
+	internal virtual CheckBox checkf1
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	[field: AccessedThroughProperty("check0")]
+	internal virtual CheckBox check0
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	[field: AccessedThroughProperty("check9")]
+	internal virtual CheckBox check9
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	internal virtual System.Windows.Forms.Timer TimerE
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _TimerE;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			EventHandler value2 = TimerE_Tick;
+			System.Windows.Forms.Timer timer = _TimerE;
+			if (timer != null)
+			{
+				timer.Tick -= value2;
+			}
+			_TimerE = value;
+			timer = _TimerE;
+			if (timer != null)
+			{
+				timer.Tick += value2;
+			}
+		}
+	}
+
+	internal virtual TextBox skill4
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _skill4;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			KeyPressEventHandler value2 = textbox1_KeyPress;
+			TextBox textBox = _skill4;
+			if (textBox != null)
+			{
+				textBox.KeyPress -= value2;
+			}
+			_skill4 = value;
+			textBox = _skill4;
+			if (textBox != null)
+			{
+				textBox.KeyPress += value2;
+			}
+		}
+	}
+
+	[field: AccessedThroughProperty("GroupBox2")]
+	internal virtual GroupBox GroupBox2
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	[field: AccessedThroughProperty("checkbasico")]
+	internal virtual CheckBox checkbasico
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	internal virtual TextBox skillr
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _skillr;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			KeyPressEventHandler value2 = textbox1_KeyPress;
+			TextBox textBox = _skillr;
+			if (textBox != null)
+			{
+				textBox.KeyPress -= value2;
+			}
+			_skillr = value;
+			textBox = _skillr;
+			if (textBox != null)
+			{
+				textBox.KeyPress += value2;
+			}
+		}
+	}
+
+	internal virtual TextBox skille
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _skille;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			KeyPressEventHandler value2 = textbox1_KeyPress;
+			TextBox textBox = _skille;
+			if (textBox != null)
+			{
+				textBox.KeyPress -= value2;
+			}
+			_skille = value;
+			textBox = _skille;
+			if (textBox != null)
+			{
+				textBox.KeyPress += value2;
+			}
+		}
+	}
+
+	internal virtual System.Windows.Forms.Timer TimerR
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _TimerR;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			EventHandler value2 = TimerR_Tick;
+			System.Windows.Forms.Timer timer = _TimerR;
+			if (timer != null)
+			{
+				timer.Tick -= value2;
+			}
+			_TimerR = value;
+			timer = _TimerR;
+			if (timer != null)
+			{
+				timer.Tick += value2;
+			}
+		}
+	}
+
+	internal virtual System.Windows.Forms.Timer Timerprincipal
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _Timerprincipal;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			EventHandler value2 = Timerprincipal_Tick;
+			System.Windows.Forms.Timer timer = _Timerprincipal;
+			if (timer != null)
+			{
+				timer.Tick -= value2;
+			}
+			_Timerprincipal = value;
+			timer = _Timerprincipal;
+			if (timer != null)
+			{
+				timer.Tick += value2;
+			}
+		}
+	}
+
+	internal virtual System.Windows.Forms.Timer TimerSkill1
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _TimerSkill1;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			EventHandler value2 = TimerSkill1Tick;
+			System.Windows.Forms.Timer timer = _TimerSkill1;
+			if (timer != null)
+			{
+				timer.Tick -= value2;
+			}
+			_TimerSkill1 = value;
+			timer = _TimerSkill1;
+			if (timer != null)
+			{
+				timer.Tick += value2;
+			}
+		}
+	}
+
+	internal virtual System.Windows.Forms.Timer Timerskill2
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _Timerskill2;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			EventHandler value2 = TimerSkill2Tick;
+			System.Windows.Forms.Timer timer = _Timerskill2;
+			if (timer != null)
+			{
+				timer.Tick -= value2;
+			}
+			_Timerskill2 = value;
+			timer = _Timerskill2;
+			if (timer != null)
+			{
+				timer.Tick += value2;
+			}
+		}
+	}
+
+	internal virtual System.Windows.Forms.Timer TimerSkill3
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _TimerSkill3;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			EventHandler value2 = TimerSkill3Tick;
+			System.Windows.Forms.Timer timer = _TimerSkill3;
+			if (timer != null)
+			{
+				timer.Tick -= value2;
+			}
+			_TimerSkill3 = value;
+			timer = _TimerSkill3;
+			if (timer != null)
+			{
+				timer.Tick += value2;
+			}
+		}
+	}
+
+	internal virtual System.Windows.Forms.Timer Timerskill4
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _Timerskill4;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			EventHandler value2 = TimerSkill4Tick;
+			System.Windows.Forms.Timer timer = _Timerskill4;
+			if (timer != null)
+			{
+				timer.Tick -= value2;
+			}
+			_Timerskill4 = value;
+			timer = _Timerskill4;
+			if (timer != null)
+			{
+				timer.Tick += value2;
+			}
+		}
+	}
+
+	internal virtual System.Windows.Forms.Timer TimerSkill5
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _TimerSkill5;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			EventHandler value2 = TimerSkill5Tick;
+			System.Windows.Forms.Timer timer = _TimerSkill5;
+			if (timer != null)
+			{
+				timer.Tick -= value2;
+			}
+			_TimerSkill5 = value;
+			timer = _TimerSkill5;
+			if (timer != null)
+			{
+				timer.Tick += value2;
+			}
+		}
+	}
+
+	internal virtual System.Windows.Forms.Timer Timerskill6
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _Timerskill6;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			EventHandler value2 = TimerSkill6Tick;
+			System.Windows.Forms.Timer timer = _Timerskill6;
+			if (timer != null)
+			{
+				timer.Tick -= value2;
+			}
+			_Timerskill6 = value;
+			timer = _Timerskill6;
+			if (timer != null)
+			{
+				timer.Tick += value2;
+			}
+		}
+	}
+
+	internal virtual System.Windows.Forms.Timer TimerSkill7
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _TimerSkill7;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			EventHandler value2 = TimerSkill7Tick;
+			System.Windows.Forms.Timer timer = _TimerSkill7;
+			if (timer != null)
+			{
+				timer.Tick -= value2;
+			}
+			_TimerSkill7 = value;
+			timer = _TimerSkill7;
+			if (timer != null)
+			{
+				timer.Tick += value2;
+			}
+		}
+	}
+
+	internal virtual System.Windows.Forms.Timer Timerskill8
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _Timerskill8;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			EventHandler value2 = TimerSkill8Tick;
+			System.Windows.Forms.Timer timer = _Timerskill8;
+			if (timer != null)
+			{
+				timer.Tick -= value2;
+			}
+			_Timerskill8 = value;
+			timer = _Timerskill8;
+			if (timer != null)
+			{
+				timer.Tick += value2;
+			}
+		}
+	}
+
+	internal virtual System.Windows.Forms.Timer TimerSkill9
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _TimerSkill9;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			EventHandler value2 = TimerSkill9Tick;
+			System.Windows.Forms.Timer timer = _TimerSkill9;
+			if (timer != null)
+			{
+				timer.Tick -= value2;
+			}
+			_TimerSkill9 = value;
+			timer = _TimerSkill9;
+			if (timer != null)
+			{
+				timer.Tick += value2;
+			}
+		}
+	}
+
+	internal virtual System.Windows.Forms.Timer Timerskill0
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _Timerskill0;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			EventHandler value2 = TimerSkill0Tick;
+			System.Windows.Forms.Timer timer = _Timerskill0;
+			if (timer != null)
+			{
+				timer.Tick -= value2;
+			}
+			_Timerskill0 = value;
+			timer = _Timerskill0;
+			if (timer != null)
+			{
+				timer.Tick += value2;
+			}
+		}
+	}
+
+	internal virtual System.Windows.Forms.Timer TimerSkillF1
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _TimerSkillF1;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			EventHandler value2 = TimerSkillF1_Tick;
+			System.Windows.Forms.Timer timer = _TimerSkillF1;
+			if (timer != null)
+			{
+				timer.Tick -= value2;
+			}
+			_TimerSkillF1 = value;
+			timer = _TimerSkillF1;
+			if (timer != null)
+			{
+				timer.Tick += value2;
+			}
+		}
+	}
+
+	internal virtual System.Windows.Forms.Timer TimerskillF2
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _TimerskillF2;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			EventHandler value2 = TimerSkillF2_Tick;
+			System.Windows.Forms.Timer timer = _TimerskillF2;
+			if (timer != null)
+			{
+				timer.Tick -= value2;
+			}
+			_TimerskillF2 = value;
+			timer = _TimerskillF2;
+			if (timer != null)
+			{
+				timer.Tick += value2;
+			}
+		}
+	}
+
+	internal virtual System.Windows.Forms.Timer TimerSkillF3
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _TimerSkillF3;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			EventHandler value2 = TimerSkillF3_Tick;
+			System.Windows.Forms.Timer timer = _TimerSkillF3;
+			if (timer != null)
+			{
+				timer.Tick -= value2;
+			}
+			_TimerSkillF3 = value;
+			timer = _TimerSkillF3;
+			if (timer != null)
+			{
+				timer.Tick += value2;
+			}
+		}
+	}
+
+	internal virtual System.Windows.Forms.Timer TimerskillF4
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _TimerskillF4;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			EventHandler value2 = TimerSkillF4_Tick;
+			System.Windows.Forms.Timer timer = _TimerskillF4;
+			if (timer != null)
+			{
+				timer.Tick -= value2;
+			}
+			_TimerskillF4 = value;
+			timer = _TimerskillF4;
+			if (timer != null)
+			{
+				timer.Tick += value2;
+			}
+		}
+	}
+
+	internal virtual System.Windows.Forms.Timer TimerSkillF5
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _TimerSkillF5;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			EventHandler value2 = TimerSkillF5_Tick;
+			System.Windows.Forms.Timer timer = _TimerSkillF5;
+			if (timer != null)
+			{
+				timer.Tick -= value2;
+			}
+			_TimerSkillF5 = value;
+			timer = _TimerSkillF5;
+			if (timer != null)
+			{
+				timer.Tick += value2;
+			}
+		}
+	}
+
+	internal virtual System.Windows.Forms.Timer TimerskillF6
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _TimerskillF6;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			EventHandler value2 = TimerSkillF6_Tick;
+			System.Windows.Forms.Timer timer = _TimerskillF6;
+			if (timer != null)
+			{
+				timer.Tick -= value2;
+			}
+			_TimerskillF6 = value;
+			timer = _TimerskillF6;
+			if (timer != null)
+			{
+				timer.Tick += value2;
+			}
+		}
+	}
+
+	internal virtual System.Windows.Forms.Timer TimerSkillF7
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _TimerSkillF7;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			EventHandler value2 = TimerSkillF7_Tick;
+			System.Windows.Forms.Timer timer = _TimerSkillF7;
+			if (timer != null)
+			{
+				timer.Tick -= value2;
+			}
+			_TimerSkillF7 = value;
+			timer = _TimerSkillF7;
+			if (timer != null)
+			{
+				timer.Tick += value2;
+			}
+		}
+	}
+
+	internal virtual System.Windows.Forms.Timer TimerskillF8
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _TimerskillF8;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			EventHandler value2 = TimerSkillF8_Tick;
+			System.Windows.Forms.Timer timer = _TimerskillF8;
+			if (timer != null)
+			{
+				timer.Tick -= value2;
+			}
+			_TimerskillF8 = value;
+			timer = _TimerskillF8;
+			if (timer != null)
+			{
+				timer.Tick += value2;
+			}
+		}
+	}
+
+	internal virtual System.Windows.Forms.Timer TimerSkillF9
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _TimerSkillF9;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			EventHandler value2 = TimerSkillF9_Tick;
+			System.Windows.Forms.Timer timer = _TimerSkillF9;
+			if (timer != null)
+			{
+				timer.Tick -= value2;
+			}
+			_TimerSkillF9 = value;
+			timer = _TimerSkillF9;
+			if (timer != null)
+			{
+				timer.Tick += value2;
+			}
+		}
+	}
+
+	internal virtual System.Windows.Forms.Timer TimerskillF10
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _TimerskillF10;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			EventHandler value2 = TimerSkillF10_Tick;
+			System.Windows.Forms.Timer timer = _TimerskillF10;
+			if (timer != null)
+			{
+				timer.Tick -= value2;
+			}
+			_TimerskillF10 = value;
+			timer = _TimerskillF10;
+			if (timer != null)
+			{
+				timer.Tick += value2;
+			}
+		}
+	}
+
+	[field: AccessedThroughProperty("GroupBoxautopot")]
+	internal virtual GroupBox GroupBoxautopot
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	[field: AccessedThroughProperty("PictureBox1")]
+	internal virtual PictureBox PictureBox1
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	[field: AccessedThroughProperty("PictureBox2")]
+	internal virtual PictureBox PictureBox2
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	[field: AccessedThroughProperty("Label25")]
+	internal virtual Label Label25
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	[field: AccessedThroughProperty("Label24")]
+	internal virtual Label Label24
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	internal virtual Button Buttonmana
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _Buttonmana;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			EventHandler value2 = selectMANA;
+			Button button = _Buttonmana;
+			if (button != null)
+			{
+				button.Click -= value2;
+			}
+			_Buttonmana = value;
+			button = _Buttonmana;
+			if (button != null)
+			{
+				button.Click += value2;
+			}
+		}
+	}
+
+	[field: AccessedThroughProperty("PictureBox3")]
+	internal virtual PictureBox PictureBox3
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	[field: AccessedThroughProperty("Label28")]
+	internal virtual Label Label28
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	internal virtual System.Windows.Forms.Timer TimerHP
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _TimerHP;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			EventHandler value2 = timer_HP;
+			System.Windows.Forms.Timer timer = _TimerHP;
+			if (timer != null)
+			{
+				timer.Tick -= value2;
+			}
+			_TimerHP = value;
+			timer = _TimerHP;
+			if (timer != null)
+			{
+				timer.Tick += value2;
+			}
+		}
+	}
+
+	[field: AccessedThroughProperty("panelpotas")]
+	internal virtual Panel panelpotas
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	[field: AccessedThroughProperty("Label29")]
+	internal virtual Label Label29
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	[field: AccessedThroughProperty("Label30")]
+	internal virtual Label Label30
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	internal virtual System.Windows.Forms.Timer TimerMana
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _TimerMana;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			EventHandler value2 = timer_MANA;
+			System.Windows.Forms.Timer timer = _TimerMana;
+			if (timer != null)
+			{
+				timer.Tick -= value2;
+			}
+			_TimerMana = value;
+			timer = _TimerMana;
+			if (timer != null)
+			{
+				timer.Tick += value2;
+			}
+		}
+	}
+
+	internal virtual Button Button1
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _Button1;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			EventHandler value2 = Button1_Click;
+			Button button = _Button1;
+			if (button != null)
+			{
+				button.Click -= value2;
+			}
+			_Button1 = value;
+			button = _Button1;
+			if (button != null)
+			{
+				button.Click += value2;
+			}
+		}
+	}
+
+	internal virtual System.Windows.Forms.Timer TimerPotas
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _TimerPotas;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			EventHandler value2 = TimerPotas_Tick;
+			System.Windows.Forms.Timer timer = _TimerPotas;
+			if (timer != null)
+			{
+				timer.Tick -= value2;
+			}
+			_TimerPotas = value;
+			timer = _TimerPotas;
+			if (timer != null)
+			{
+				timer.Tick += value2;
+			}
+		}
+	}
+
+	[field: AccessedThroughProperty("GroupBox4")]
+	internal virtual GroupBox GroupBox4
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	[field: AccessedThroughProperty("GroupBox3")]
+	internal virtual GroupBox GroupBox3
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	internal virtual ListBox ListBox1
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _ListBox1;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			EventHandler value2 = seleccionarProceso;
+			ListBox listBox = _ListBox1;
+			if (listBox != null)
+			{
+				listBox.SelectedIndexChanged -= value2;
+			}
+			_ListBox1 = value;
+			listBox = _ListBox1;
+			if (listBox != null)
+			{
+				listBox.SelectedIndexChanged += value2;
+			}
+		}
+	}
+
+	internal virtual Button Button2
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _Button2;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			EventHandler value2 = CambiarNombreProceso;
+			Button button = _Button2;
+			if (button != null)
+			{
+				button.Click -= value2;
+			}
+			_Button2 = value;
+			button = _Button2;
+			if (button != null)
+			{
+				button.Click += value2;
+			}
+		}
+	}
+
+	[field: AccessedThroughProperty("Label2")]
+	internal virtual Label Label2
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	[field: AccessedThroughProperty("TextBox1")]
+	internal virtual TextBox TextBox1
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	[field: AccessedThroughProperty("GroupBox5")]
+	internal virtual GroupBox GroupBox5
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	[field: AccessedThroughProperty("PictureBox4")]
+	internal virtual PictureBox PictureBox4
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	[field: AccessedThroughProperty("CheckBoxrecojer")]
+	internal virtual CheckBox CheckBoxrecojer
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	internal virtual TextBox TextBoxrecojer
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _TextBoxrecojer;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			KeyPressEventHandler value2 = textbox1_KeyPress;
+			TextBox textBox = _TextBoxrecojer;
+			if (textBox != null)
+			{
+				textBox.KeyPress -= value2;
+			}
+			_TextBoxrecojer = value;
+			textBox = _TextBoxrecojer;
+			if (textBox != null)
+			{
+				textBox.KeyPress += value2;
+			}
+		}
+	}
+
+	internal virtual System.Windows.Forms.Timer Timerrecojer
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _Timerrecojer;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			EventHandler value2 = Timerrecojer_Tick;
+			System.Windows.Forms.Timer timer = _Timerrecojer;
+			if (timer != null)
+			{
+				timer.Tick -= value2;
+			}
+			_Timerrecojer = value;
+			timer = _Timerrecojer;
+			if (timer != null)
+			{
+				timer.Tick += value2;
+			}
+		}
+	}
+
+	internal virtual Button Button3
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _Button3;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			EventHandler value2 = Button3_Click;
+			Button button = _Button3;
+			if (button != null)
+			{
+				button.Click -= value2;
+			}
+			_Button3 = value;
+			button = _Button3;
+			if (button != null)
+			{
+				button.Click += value2;
+			}
+		}
+	}
+
+	[field: AccessedThroughProperty("PictureBox5")]
+	internal virtual PictureBox PictureBox5
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	[field: AccessedThroughProperty("GroupBox6")]
+	internal virtual GroupBox GroupBox6
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	[field: AccessedThroughProperty("GroupBox7")]
+	internal virtual GroupBox GroupBox7
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	[field: AccessedThroughProperty("PictureBox6")]
+	internal virtual PictureBox PictureBox6
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	[field: AccessedThroughProperty("Panel2")]
+	internal virtual Panel Panel2
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	[field: AccessedThroughProperty("Panel1")]
+	internal virtual Panel Panel1
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	internal virtual CheckBox checkboxmago
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _checkboxmago;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			EventHandler value2 = checkboxmago_CheckedChanged;
+			CheckBox checkBox = _checkboxmago;
+			if (checkBox != null)
+			{
+				checkBox.CheckedChanged -= value2;
+			}
+			_checkboxmago = value;
+			checkBox = _checkboxmago;
+			if (checkBox != null)
+			{
+				checkBox.CheckedChanged += value2;
+			}
+		}
+	}
+
+	internal virtual Button Button4
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _Button4;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			EventHandler value2 = guardararchivo;
+			Button button = _Button4;
+			if (button != null)
+			{
+				button.Click -= value2;
+			}
+			_Button4 = value;
+			button = _Button4;
+			if (button != null)
+			{
+				button.Click += value2;
+			}
+		}
+	}
+
+	internal virtual Button Button5
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _Button5;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			EventHandler value2 = cargar_archivo;
+			Button button = _Button5;
+			if (button != null)
+			{
+				button.Click -= value2;
+			}
+			_Button5 = value;
+			button = _Button5;
+			if (button != null)
+			{
+				button.Click += value2;
+			}
+		}
+	}
+
+	[field: AccessedThroughProperty("GroupBox8")]
+	internal virtual GroupBox GroupBox8
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	internal virtual LinkLabel LinkLabel1
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _LinkLabel1;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			LinkLabelLinkClickedEventHandler value2 = LinkLabel1_LinkClicked;
+			LinkLabel linkLabel = _LinkLabel1;
+			if (linkLabel != null)
+			{
+				linkLabel.LinkClicked -= value2;
+			}
+			_LinkLabel1 = value;
+			linkLabel = _LinkLabel1;
+			if (linkLabel != null)
+			{
+				linkLabel.LinkClicked += value2;
+			}
+		}
+	}
+
+	[field: AccessedThroughProperty("Label1")]
+	internal virtual Label Label1
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	[field: AccessedThroughProperty("timerstuck")]
+	internal virtual System.Windows.Forms.Timer timerstuck
+	{
+		get; [MethodImpl(MethodImplOptions.Synchronized)]
+		set;
+	}
+
+	internal virtual BackgroundWorker BackgroundWorker1
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _BackgroundWorker1;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			DoWorkEventHandler value2 = BackgroundWorker1_DoWork;
+			BackgroundWorker backgroundWorker = _BackgroundWorker1;
+			if (backgroundWorker != null)
+			{
+				backgroundWorker.DoWork -= value2;
+			}
+			_BackgroundWorker1 = value;
+			backgroundWorker = _BackgroundWorker1;
+			if (backgroundWorker != null)
+			{
+				backgroundWorker.DoWork += value2;
+			}
+		}
+	}
+
+	internal virtual PictureBox PictureBox7
+	{
+		[CompilerGenerated]
+		get
+		{
+			return _PictureBox7;
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		[CompilerGenerated]
+		set
+		{
+			EventHandler value2 = PictureBox7_Click;
+			PictureBox pictureBox = _PictureBox7;
+			if (pictureBox != null)
+			{
+				pictureBox.Click -= value2;
+			}
+			_PictureBox7 = value;
+			pictureBox = _PictureBox7;
+			if (pictureBox != null)
+			{
+				pictureBox.Click += value2;
+			}
+		}
+	}
+
+	public Form1()
+	{
+		base.Load += LoadPrincipal;
+		cancelRequested = false;
+		processlist = Process.GetProcesses();
+		myProcess = "HTLauncher";
+		activo = false;
+		coorHPX = 0;
+		coorHPY = 0;
+		coorManaX = 0;
+		coorManaY = 0;
+		version = "1.4";
+		ruta = "presets\\";
+		InitializeComponent();
+	}
+
+	[DebuggerNonUserCode]
+	protected override void Dispose(bool disposing)
+	{
+		try
+		{
+			if (disposing && components != null)
+			{
+				components.Dispose();
+			}
+		}
+		finally
+		{
+			base.Dispose(disposing);
+		}
+	}
+
+	[System.Diagnostics.DebuggerStepThrough]
+	private void InitializeComponent()
+	{
+		this.components = new System.ComponentModel.Container();
+		System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Automatic.Form1));
+		this.ButtonHP = new System.Windows.Forms.Button();
+		this.skill1 = new System.Windows.Forms.TextBox();
+		this.skill2 = new System.Windows.Forms.TextBox();
+		this.skill3 = new System.Windows.Forms.TextBox();
+		this.skill4 = new System.Windows.Forms.TextBox();
+		this.skill5 = new System.Windows.Forms.TextBox();
+		this.skill0 = new System.Windows.Forms.TextBox();
+		this.skill9 = new System.Windows.Forms.TextBox();
+		this.skill8 = new System.Windows.Forms.TextBox();
+		this.skill7 = new System.Windows.Forms.TextBox();
+		this.skill6 = new System.Windows.Forms.TextBox();
+		this.skillf10 = new System.Windows.Forms.TextBox();
+		this.skillf9 = new System.Windows.Forms.TextBox();
+		this.skillf8 = new System.Windows.Forms.TextBox();
+		this.skillf7 = new System.Windows.Forms.TextBox();
+		this.skillf6 = new System.Windows.Forms.TextBox();
+		this.skillf5 = new System.Windows.Forms.TextBox();
+		this.skillf4 = new System.Windows.Forms.TextBox();
+		this.skillf3 = new System.Windows.Forms.TextBox();
+		this.skillf2 = new System.Windows.Forms.TextBox();
+		this.skillf1 = new System.Windows.Forms.TextBox();
+		this.Label3 = new System.Windows.Forms.Label();
+		this.Label4 = new System.Windows.Forms.Label();
+		this.Label5 = new System.Windows.Forms.Label();
+		this.Label6 = new System.Windows.Forms.Label();
+		this.Label7 = new System.Windows.Forms.Label();
+		this.Label8 = new System.Windows.Forms.Label();
+		this.Label9 = new System.Windows.Forms.Label();
+		this.Label10 = new System.Windows.Forms.Label();
+		this.Label11 = new System.Windows.Forms.Label();
+		this.Label12 = new System.Windows.Forms.Label();
+		this.Label13 = new System.Windows.Forms.Label();
+		this.Label14 = new System.Windows.Forms.Label();
+		this.Label15 = new System.Windows.Forms.Label();
+		this.Label16 = new System.Windows.Forms.Label();
+		this.Label17 = new System.Windows.Forms.Label();
+		this.Label18 = new System.Windows.Forms.Label();
+		this.Label19 = new System.Windows.Forms.Label();
+		this.Label20 = new System.Windows.Forms.Label();
+		this.Label21 = new System.Windows.Forms.Label();
+		this.Label22 = new System.Windows.Forms.Label();
+		this.GroupBox1 = new System.Windows.Forms.GroupBox();
+		this.GroupBox7 = new System.Windows.Forms.GroupBox();
+		this.checkf10 = new System.Windows.Forms.CheckBox();
+		this.checkf9 = new System.Windows.Forms.CheckBox();
+		this.checkf8 = new System.Windows.Forms.CheckBox();
+		this.checkf7 = new System.Windows.Forms.CheckBox();
+		this.checkf6 = new System.Windows.Forms.CheckBox();
+		this.checkf5 = new System.Windows.Forms.CheckBox();
+		this.checkf4 = new System.Windows.Forms.CheckBox();
+		this.checkf3 = new System.Windows.Forms.CheckBox();
+		this.checkf1 = new System.Windows.Forms.CheckBox();
+		this.checkf2 = new System.Windows.Forms.CheckBox();
+		this.PictureBox6 = new System.Windows.Forms.PictureBox();
+		this.GroupBox6 = new System.Windows.Forms.GroupBox();
+		this.Panel2 = new System.Windows.Forms.Panel();
+		this.Panel1 = new System.Windows.Forms.Panel();
+		this.check1 = new System.Windows.Forms.CheckBox();
+		this.check2 = new System.Windows.Forms.CheckBox();
+		this.check3 = new System.Windows.Forms.CheckBox();
+		this.check4 = new System.Windows.Forms.CheckBox();
+		this.check5 = new System.Windows.Forms.CheckBox();
+		this.check6 = new System.Windows.Forms.CheckBox();
+		this.check7 = new System.Windows.Forms.CheckBox();
+		this.check8 = new System.Windows.Forms.CheckBox();
+		this.check9 = new System.Windows.Forms.CheckBox();
+		this.check0 = new System.Windows.Forms.CheckBox();
+		this.PictureBox5 = new System.Windows.Forms.PictureBox();
+		this.start = new System.Windows.Forms.Button();
+		this.CheckBoxautopots = new System.Windows.Forms.CheckBox();
+		this.GroupBoxautopot = new System.Windows.Forms.GroupBox();
+		this.Button1 = new System.Windows.Forms.Button();
+		this.Label25 = new System.Windows.Forms.Label();
+		this.Label24 = new System.Windows.Forms.Label();
+		this.Buttonmana = new System.Windows.Forms.Button();
+		this.Label23 = new System.Windows.Forms.Label();
+		this.GroupBox2 = new System.Windows.Forms.GroupBox();
+		this.checkboxmago = new System.Windows.Forms.CheckBox();
+		this.PictureBox1 = new System.Windows.Forms.PictureBox();
+		this.PictureBox2 = new System.Windows.Forms.PictureBox();
+		this.checkbasico = new System.Windows.Forms.CheckBox();
+		this.skillr = new System.Windows.Forms.TextBox();
+		this.skille = new System.Windows.Forms.TextBox();
+		this.PictureBox3 = new System.Windows.Forms.PictureBox();
+		this.TimerE = new System.Windows.Forms.Timer(this.components);
+		this.TimerR = new System.Windows.Forms.Timer(this.components);
+		this.Timerprincipal = new System.Windows.Forms.Timer(this.components);
+		this.TimerSkill1 = new System.Windows.Forms.Timer(this.components);
+		this.Timerskill2 = new System.Windows.Forms.Timer(this.components);
+		this.TimerSkill3 = new System.Windows.Forms.Timer(this.components);
+		this.Timerskill4 = new System.Windows.Forms.Timer(this.components);
+		this.TimerSkill5 = new System.Windows.Forms.Timer(this.components);
+		this.Timerskill6 = new System.Windows.Forms.Timer(this.components);
+		this.TimerSkill7 = new System.Windows.Forms.Timer(this.components);
+		this.Timerskill8 = new System.Windows.Forms.Timer(this.components);
+		this.TimerSkill9 = new System.Windows.Forms.Timer(this.components);
+		this.Timerskill0 = new System.Windows.Forms.Timer(this.components);
+		this.TimerSkillF1 = new System.Windows.Forms.Timer(this.components);
+		this.TimerskillF2 = new System.Windows.Forms.Timer(this.components);
+		this.TimerSkillF3 = new System.Windows.Forms.Timer(this.components);
+		this.TimerskillF4 = new System.Windows.Forms.Timer(this.components);
+		this.TimerSkillF5 = new System.Windows.Forms.Timer(this.components);
+		this.TimerskillF6 = new System.Windows.Forms.Timer(this.components);
+		this.TimerSkillF7 = new System.Windows.Forms.Timer(this.components);
+		this.TimerskillF8 = new System.Windows.Forms.Timer(this.components);
+		this.TimerSkillF9 = new System.Windows.Forms.Timer(this.components);
+		this.TimerskillF10 = new System.Windows.Forms.Timer(this.components);
+		this.Label28 = new System.Windows.Forms.Label();
+		this.TimerHP = new System.Windows.Forms.Timer(this.components);
+		this.panelpotas = new System.Windows.Forms.Panel();
+		this.Label30 = new System.Windows.Forms.Label();
+		this.Label29 = new System.Windows.Forms.Label();
+		this.GroupBox5 = new System.Windows.Forms.GroupBox();
+		this.PictureBox4 = new System.Windows.Forms.PictureBox();
+		this.CheckBoxrecojer = new System.Windows.Forms.CheckBox();
+		this.TextBoxrecojer = new System.Windows.Forms.TextBox();
+		this.GroupBox4 = new System.Windows.Forms.GroupBox();
+		this.LinkLabel1 = new System.Windows.Forms.LinkLabel();
+		this.GroupBox3 = new System.Windows.Forms.GroupBox();
+		this.Button3 = new System.Windows.Forms.Button();
+		this.ListBox1 = new System.Windows.Forms.ListBox();
+		this.Button2 = new System.Windows.Forms.Button();
+		this.Label2 = new System.Windows.Forms.Label();
+		this.TextBox1 = new System.Windows.Forms.TextBox();
+		this.TimerMana = new System.Windows.Forms.Timer(this.components);
+		this.TimerPotas = new System.Windows.Forms.Timer(this.components);
+		this.Timerrecojer = new System.Windows.Forms.Timer(this.components);
+		this.Button4 = new System.Windows.Forms.Button();
+		this.Button5 = new System.Windows.Forms.Button();
+		this.GroupBox8 = new System.Windows.Forms.GroupBox();
+		this.Label1 = new System.Windows.Forms.Label();
+		this.timerstuck = new System.Windows.Forms.Timer(this.components);
+		this.BackgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+		this.PictureBox7 = new System.Windows.Forms.PictureBox();
+		this.GroupBox1.SuspendLayout();
+		this.GroupBox7.SuspendLayout();
+		((System.ComponentModel.ISupportInitialize)this.PictureBox6).BeginInit();
+		this.GroupBox6.SuspendLayout();
+		((System.ComponentModel.ISupportInitialize)this.PictureBox5).BeginInit();
+		this.GroupBoxautopot.SuspendLayout();
+		this.GroupBox2.SuspendLayout();
+		((System.ComponentModel.ISupportInitialize)this.PictureBox1).BeginInit();
+		((System.ComponentModel.ISupportInitialize)this.PictureBox2).BeginInit();
+		((System.ComponentModel.ISupportInitialize)this.PictureBox3).BeginInit();
+		this.panelpotas.SuspendLayout();
+		this.GroupBox5.SuspendLayout();
+		((System.ComponentModel.ISupportInitialize)this.PictureBox4).BeginInit();
+		this.GroupBox4.SuspendLayout();
+		this.GroupBox3.SuspendLayout();
+		this.GroupBox8.SuspendLayout();
+		((System.ComponentModel.ISupportInitialize)this.PictureBox7).BeginInit();
+		base.SuspendLayout();
+		this.ButtonHP.ForeColor = System.Drawing.Color.Red;
+		this.ButtonHP.Location = new System.Drawing.Point(9, 27);
+		this.ButtonHP.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.ButtonHP.Name = "ButtonHP";
+		this.ButtonHP.Size = new System.Drawing.Size(118, 23);
+		this.ButtonHP.TabIndex = 7;
+		this.ButtonHP.Text = "Selec HP level";
+		this.ButtonHP.UseVisualStyleBackColor = true;
+		this.skill1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+		this.skill1.Location = new System.Drawing.Point(16, 36);
+		this.skill1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.skill1.MaxLength = 5;
+		this.skill1.Name = "skill1";
+		this.skill1.Size = new System.Drawing.Size(27, 16);
+		this.skill1.TabIndex = 8;
+		this.skill1.Text = "1";
+		this.skill2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+		this.skill2.Location = new System.Drawing.Point(57, 36);
+		this.skill2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.skill2.MaxLength = 5;
+		this.skill2.Name = "skill2";
+		this.skill2.Size = new System.Drawing.Size(27, 16);
+		this.skill2.TabIndex = 9;
+		this.skill2.Text = "1";
+		this.skill3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+		this.skill3.Location = new System.Drawing.Point(96, 36);
+		this.skill3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.skill3.MaxLength = 5;
+		this.skill3.Name = "skill3";
+		this.skill3.Size = new System.Drawing.Size(27, 16);
+		this.skill3.TabIndex = 10;
+		this.skill3.Text = "1";
+		this.skill4.BorderStyle = System.Windows.Forms.BorderStyle.None;
+		this.skill4.Location = new System.Drawing.Point(134, 36);
+		this.skill4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.skill4.MaxLength = 5;
+		this.skill4.Name = "skill4";
+		this.skill4.Size = new System.Drawing.Size(27, 16);
+		this.skill4.TabIndex = 11;
+		this.skill4.Text = "1";
+		this.skill5.BorderStyle = System.Windows.Forms.BorderStyle.None;
+		this.skill5.Location = new System.Drawing.Point(174, 36);
+		this.skill5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.skill5.MaxLength = 5;
+		this.skill5.Name = "skill5";
+		this.skill5.Size = new System.Drawing.Size(27, 16);
+		this.skill5.TabIndex = 12;
+		this.skill5.Text = "1";
+		this.skill0.BackColor = System.Drawing.SystemColors.HotTrack;
+		this.skill0.BorderStyle = System.Windows.Forms.BorderStyle.None;
+		this.skill0.Location = new System.Drawing.Point(370, 36);
+		this.skill0.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.skill0.MaxLength = 5;
+		this.skill0.Name = "skill0";
+		this.skill0.Size = new System.Drawing.Size(27, 16);
+		this.skill0.TabIndex = 17;
+		this.skill0.Text = "1";
+		this.skill9.BackColor = System.Drawing.Color.Red;
+		this.skill9.BorderStyle = System.Windows.Forms.BorderStyle.None;
+		this.skill9.Location = new System.Drawing.Point(331, 36);
+		this.skill9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.skill9.MaxLength = 5;
+		this.skill9.Name = "skill9";
+		this.skill9.Size = new System.Drawing.Size(27, 16);
+		this.skill9.TabIndex = 16;
+		this.skill9.Text = "1";
+		this.skill8.BorderStyle = System.Windows.Forms.BorderStyle.None;
+		this.skill8.Location = new System.Drawing.Point(292, 36);
+		this.skill8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.skill8.MaxLength = 5;
+		this.skill8.Name = "skill8";
+		this.skill8.Size = new System.Drawing.Size(27, 16);
+		this.skill8.TabIndex = 15;
+		this.skill8.Text = "1";
+		this.skill7.BorderStyle = System.Windows.Forms.BorderStyle.None;
+		this.skill7.Location = new System.Drawing.Point(253, 36);
+		this.skill7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.skill7.MaxLength = 5;
+		this.skill7.Name = "skill7";
+		this.skill7.Size = new System.Drawing.Size(27, 16);
+		this.skill7.TabIndex = 14;
+		this.skill7.Text = "1";
+		this.skill6.BorderStyle = System.Windows.Forms.BorderStyle.None;
+		this.skill6.Location = new System.Drawing.Point(214, 36);
+		this.skill6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.skill6.MaxLength = 5;
+		this.skill6.Name = "skill6";
+		this.skill6.Size = new System.Drawing.Size(27, 16);
+		this.skill6.TabIndex = 13;
+		this.skill6.Text = "1";
+		this.skillf10.BackColor = System.Drawing.SystemColors.Window;
+		this.skillf10.BorderStyle = System.Windows.Forms.BorderStyle.None;
+		this.skillf10.Location = new System.Drawing.Point(369, 35);
+		this.skillf10.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.skillf10.MaxLength = 5;
+		this.skillf10.Name = "skillf10";
+		this.skillf10.Size = new System.Drawing.Size(27, 16);
+		this.skillf10.TabIndex = 27;
+		this.skillf10.Text = "1";
+		this.skillf9.BackColor = System.Drawing.SystemColors.Window;
+		this.skillf9.BorderStyle = System.Windows.Forms.BorderStyle.None;
+		this.skillf9.Location = new System.Drawing.Point(331, 35);
+		this.skillf9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.skillf9.MaxLength = 5;
+		this.skillf9.Name = "skillf9";
+		this.skillf9.Size = new System.Drawing.Size(27, 16);
+		this.skillf9.TabIndex = 26;
+		this.skillf9.Text = "1";
+		this.skillf8.BorderStyle = System.Windows.Forms.BorderStyle.None;
+		this.skillf8.Location = new System.Drawing.Point(293, 35);
+		this.skillf8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.skillf8.MaxLength = 5;
+		this.skillf8.Name = "skillf8";
+		this.skillf8.Size = new System.Drawing.Size(27, 16);
+		this.skillf8.TabIndex = 25;
+		this.skillf8.Text = "1";
+		this.skillf7.BorderStyle = System.Windows.Forms.BorderStyle.None;
+		this.skillf7.Location = new System.Drawing.Point(252, 35);
+		this.skillf7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.skillf7.MaxLength = 5;
+		this.skillf7.Name = "skillf7";
+		this.skillf7.Size = new System.Drawing.Size(27, 16);
+		this.skillf7.TabIndex = 24;
+		this.skillf7.Text = "1";
+		this.skillf6.BorderStyle = System.Windows.Forms.BorderStyle.None;
+		this.skillf6.Location = new System.Drawing.Point(216, 35);
+		this.skillf6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.skillf6.MaxLength = 5;
+		this.skillf6.Name = "skillf6";
+		this.skillf6.Size = new System.Drawing.Size(27, 16);
+		this.skillf6.TabIndex = 23;
+		this.skillf6.Text = "1";
+		this.skillf5.BorderStyle = System.Windows.Forms.BorderStyle.None;
+		this.skillf5.Location = new System.Drawing.Point(173, 35);
+		this.skillf5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.skillf5.MaxLength = 5;
+		this.skillf5.Name = "skillf5";
+		this.skillf5.Size = new System.Drawing.Size(27, 16);
+		this.skillf5.TabIndex = 22;
+		this.skillf5.Text = "1";
+		this.skillf4.BorderStyle = System.Windows.Forms.BorderStyle.None;
+		this.skillf4.Location = new System.Drawing.Point(135, 35);
+		this.skillf4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.skillf4.MaxLength = 5;
+		this.skillf4.Name = "skillf4";
+		this.skillf4.Size = new System.Drawing.Size(27, 16);
+		this.skillf4.TabIndex = 21;
+		this.skillf4.Text = "1";
+		this.skillf3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+		this.skillf3.Location = new System.Drawing.Point(97, 35);
+		this.skillf3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.skillf3.MaxLength = 5;
+		this.skillf3.Name = "skillf3";
+		this.skillf3.Size = new System.Drawing.Size(27, 16);
+		this.skillf3.TabIndex = 20;
+		this.skillf3.Text = "1";
+		this.skillf2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+		this.skillf2.Location = new System.Drawing.Point(55, 35);
+		this.skillf2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.skillf2.MaxLength = 5;
+		this.skillf2.Name = "skillf2";
+		this.skillf2.Size = new System.Drawing.Size(27, 16);
+		this.skillf2.TabIndex = 19;
+		this.skillf2.Text = "1";
+		this.skillf1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+		this.skillf1.Location = new System.Drawing.Point(18, 35);
+		this.skillf1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.skillf1.MaxLength = 5;
+		this.skillf1.Name = "skillf1";
+		this.skillf1.Size = new System.Drawing.Size(27, 16);
+		this.skillf1.TabIndex = 18;
+		this.skillf1.Text = "1";
+		this.Label3.AutoSize = true;
+		this.Label3.Font = new System.Drawing.Font("Segoe UI", 7f, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+		this.Label3.Location = new System.Drawing.Point(24, 18);
+		this.Label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+		this.Label3.Name = "Label3";
+		this.Label3.Size = new System.Drawing.Size(10, 12);
+		this.Label3.TabIndex = 28;
+		this.Label3.Text = "1";
+		this.Label4.AutoSize = true;
+		this.Label4.Font = new System.Drawing.Font("Segoe UI", 7f, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+		this.Label4.Location = new System.Drawing.Point(64, 18);
+		this.Label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+		this.Label4.Name = "Label4";
+		this.Label4.Size = new System.Drawing.Size(10, 12);
+		this.Label4.TabIndex = 29;
+		this.Label4.Text = "2";
+		this.Label5.AutoSize = true;
+		this.Label5.Font = new System.Drawing.Font("Segoe UI", 7f, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+		this.Label5.Location = new System.Drawing.Point(104, 18);
+		this.Label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+		this.Label5.Name = "Label5";
+		this.Label5.Size = new System.Drawing.Size(10, 12);
+		this.Label5.TabIndex = 30;
+		this.Label5.Text = "3";
+		this.Label6.AutoSize = true;
+		this.Label6.Font = new System.Drawing.Font("Segoe UI", 7f, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+		this.Label6.Location = new System.Drawing.Point(141, 18);
+		this.Label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+		this.Label6.Name = "Label6";
+		this.Label6.Size = new System.Drawing.Size(10, 12);
+		this.Label6.TabIndex = 31;
+		this.Label6.Text = "4";
+		this.Label7.AutoSize = true;
+		this.Label7.Font = new System.Drawing.Font("Segoe UI", 7f, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+		this.Label7.Location = new System.Drawing.Point(180, 18);
+		this.Label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+		this.Label7.Name = "Label7";
+		this.Label7.Size = new System.Drawing.Size(10, 12);
+		this.Label7.TabIndex = 32;
+		this.Label7.Text = "5";
+		this.Label8.AutoSize = true;
+		this.Label8.Font = new System.Drawing.Font("Segoe UI", 7f, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+		this.Label8.Location = new System.Drawing.Point(373, 18);
+		this.Label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+		this.Label8.Name = "Label8";
+		this.Label8.Size = new System.Drawing.Size(10, 12);
+		this.Label8.TabIndex = 37;
+		this.Label8.Text = "0";
+		this.Label9.AutoSize = true;
+		this.Label9.Font = new System.Drawing.Font("Segoe UI", 7f, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+		this.Label9.Location = new System.Drawing.Point(334, 18);
+		this.Label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+		this.Label9.Name = "Label9";
+		this.Label9.Size = new System.Drawing.Size(10, 12);
+		this.Label9.TabIndex = 36;
+		this.Label9.Text = "9";
+		this.Label10.AutoSize = true;
+		this.Label10.Font = new System.Drawing.Font("Segoe UI", 7f, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+		this.Label10.Location = new System.Drawing.Point(296, 18);
+		this.Label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+		this.Label10.Name = "Label10";
+		this.Label10.Size = new System.Drawing.Size(10, 12);
+		this.Label10.TabIndex = 35;
+		this.Label10.Text = "8";
+		this.Label11.AutoSize = true;
+		this.Label11.Font = new System.Drawing.Font("Segoe UI", 7f, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+		this.Label11.Location = new System.Drawing.Point(257, 18);
+		this.Label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+		this.Label11.Name = "Label11";
+		this.Label11.Size = new System.Drawing.Size(10, 12);
+		this.Label11.TabIndex = 34;
+		this.Label11.Text = "7";
+		this.Label12.AutoSize = true;
+		this.Label12.Font = new System.Drawing.Font("Segoe UI", 7f, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+		this.Label12.Location = new System.Drawing.Point(218, 18);
+		this.Label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+		this.Label12.Name = "Label12";
+		this.Label12.Size = new System.Drawing.Size(10, 12);
+		this.Label12.TabIndex = 33;
+		this.Label12.Text = "6";
+		this.Label13.AutoSize = true;
+		this.Label13.Font = new System.Drawing.Font("Segoe UI", 7f, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+		this.Label13.Location = new System.Drawing.Point(371, 18);
+		this.Label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+		this.Label13.Name = "Label13";
+		this.Label13.Size = new System.Drawing.Size(20, 12);
+		this.Label13.TabIndex = 47;
+		this.Label13.Text = "F10";
+		this.Label14.AutoSize = true;
+		this.Label14.Font = new System.Drawing.Font("Segoe UI", 7f, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+		this.Label14.Location = new System.Drawing.Point(332, 18);
+		this.Label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+		this.Label14.Name = "Label14";
+		this.Label14.Size = new System.Drawing.Size(15, 12);
+		this.Label14.TabIndex = 46;
+		this.Label14.Text = "F9";
+		this.Label15.AutoSize = true;
+		this.Label15.Font = new System.Drawing.Font("Segoe UI", 7f, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+		this.Label15.Location = new System.Drawing.Point(294, 18);
+		this.Label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+		this.Label15.Name = "Label15";
+		this.Label15.Size = new System.Drawing.Size(15, 12);
+		this.Label15.TabIndex = 45;
+		this.Label15.Text = "F8";
+		this.Label16.AutoSize = true;
+		this.Label16.Font = new System.Drawing.Font("Segoe UI", 7f, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+		this.Label16.Location = new System.Drawing.Point(255, 18);
+		this.Label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+		this.Label16.Name = "Label16";
+		this.Label16.Size = new System.Drawing.Size(15, 12);
+		this.Label16.TabIndex = 44;
+		this.Label16.Text = "F7";
+		this.Label17.AutoSize = true;
+		this.Label17.Font = new System.Drawing.Font("Segoe UI", 7f, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+		this.Label17.Location = new System.Drawing.Point(217, 18);
+		this.Label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+		this.Label17.Name = "Label17";
+		this.Label17.Size = new System.Drawing.Size(15, 12);
+		this.Label17.TabIndex = 43;
+		this.Label17.Text = "F6";
+		this.Label18.AutoSize = true;
+		this.Label18.Font = new System.Drawing.Font("Segoe UI", 7f, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+		this.Label18.Location = new System.Drawing.Point(178, 18);
+		this.Label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+		this.Label18.Name = "Label18";
+		this.Label18.Size = new System.Drawing.Size(15, 12);
+		this.Label18.TabIndex = 42;
+		this.Label18.Text = "F5";
+		this.Label19.AutoSize = true;
+		this.Label19.Font = new System.Drawing.Font("Segoe UI", 7f, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+		this.Label19.Location = new System.Drawing.Point(139, 18);
+		this.Label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+		this.Label19.Name = "Label19";
+		this.Label19.Size = new System.Drawing.Size(15, 12);
+		this.Label19.TabIndex = 41;
+		this.Label19.Text = "F4";
+		this.Label20.AutoSize = true;
+		this.Label20.Font = new System.Drawing.Font("Segoe UI", 7f, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+		this.Label20.Location = new System.Drawing.Point(100, 18);
+		this.Label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+		this.Label20.Name = "Label20";
+		this.Label20.Size = new System.Drawing.Size(15, 12);
+		this.Label20.TabIndex = 40;
+		this.Label20.Text = "F3";
+		this.Label21.AutoSize = true;
+		this.Label21.Font = new System.Drawing.Font("Segoe UI", 7f, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+		this.Label21.Location = new System.Drawing.Point(62, 18);
+		this.Label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+		this.Label21.Name = "Label21";
+		this.Label21.Size = new System.Drawing.Size(15, 12);
+		this.Label21.TabIndex = 39;
+		this.Label21.Text = "F2";
+		this.Label22.AutoSize = true;
+		this.Label22.Font = new System.Drawing.Font("Segoe UI", 7f, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+		this.Label22.Location = new System.Drawing.Point(24, 18);
+		this.Label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+		this.Label22.Name = "Label22";
+		this.Label22.Size = new System.Drawing.Size(15, 12);
+		this.Label22.TabIndex = 38;
+		this.Label22.Text = "F1";
+		this.GroupBox1.Controls.Add(this.GroupBox7);
+		this.GroupBox1.Controls.Add(this.GroupBox6);
+		this.GroupBox1.Location = new System.Drawing.Point(181, 72);
+		this.GroupBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.GroupBox1.Name = "GroupBox1";
+		this.GroupBox1.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.GroupBox1.Size = new System.Drawing.Size(421, 205);
+		this.GroupBox1.TabIndex = 48;
+		this.GroupBox1.TabStop = false;
+		this.GroupBox1.Text = "Skills";
+		this.GroupBox7.Controls.Add(this.skillf10);
+		this.GroupBox7.Controls.Add(this.skillf9);
+		this.GroupBox7.Controls.Add(this.skillf1);
+		this.GroupBox7.Controls.Add(this.checkf10);
+		this.GroupBox7.Controls.Add(this.skillf5);
+		this.GroupBox7.Controls.Add(this.checkf9);
+		this.GroupBox7.Controls.Add(this.skillf7);
+		this.GroupBox7.Controls.Add(this.checkf8);
+		this.GroupBox7.Controls.Add(this.Label13);
+		this.GroupBox7.Controls.Add(this.skillf4);
+		this.GroupBox7.Controls.Add(this.skillf8);
+		this.GroupBox7.Controls.Add(this.Label14);
+		this.GroupBox7.Controls.Add(this.checkf7);
+		this.GroupBox7.Controls.Add(this.skillf3);
+		this.GroupBox7.Controls.Add(this.Label15);
+		this.GroupBox7.Controls.Add(this.checkf6);
+		this.GroupBox7.Controls.Add(this.Label16);
+		this.GroupBox7.Controls.Add(this.checkf5);
+		this.GroupBox7.Controls.Add(this.skillf2);
+		this.GroupBox7.Controls.Add(this.Label17);
+		this.GroupBox7.Controls.Add(this.checkf4);
+		this.GroupBox7.Controls.Add(this.Label18);
+		this.GroupBox7.Controls.Add(this.skillf6);
+		this.GroupBox7.Controls.Add(this.checkf3);
+		this.GroupBox7.Controls.Add(this.Label19);
+		this.GroupBox7.Controls.Add(this.checkf1);
+		this.GroupBox7.Controls.Add(this.checkf2);
+		this.GroupBox7.Controls.Add(this.Label20);
+		this.GroupBox7.Controls.Add(this.Label22);
+		this.GroupBox7.Controls.Add(this.Label21);
+		this.GroupBox7.Controls.Add(this.PictureBox6);
+		this.GroupBox7.Location = new System.Drawing.Point(6, 107);
+		this.GroupBox7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.GroupBox7.Name = "GroupBox7";
+		this.GroupBox7.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.GroupBox7.Size = new System.Drawing.Size(408, 92);
+		this.GroupBox7.TabIndex = 79;
+		this.GroupBox7.TabStop = false;
+		this.GroupBox7.Text = "Secondary";
+		this.checkf10.AutoSize = true;
+		this.checkf10.Location = new System.Drawing.Point(371, 67);
+		this.checkf10.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.checkf10.Name = "checkf10";
+		this.checkf10.Size = new System.Drawing.Size(15, 14);
+		this.checkf10.TabIndex = 71;
+		this.checkf10.UseVisualStyleBackColor = true;
+		this.checkf9.AutoSize = true;
+		this.checkf9.Location = new System.Drawing.Point(332, 67);
+		this.checkf9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.checkf9.Name = "checkf9";
+		this.checkf9.Size = new System.Drawing.Size(15, 14);
+		this.checkf9.TabIndex = 70;
+		this.checkf9.UseVisualStyleBackColor = true;
+		this.checkf8.AutoSize = true;
+		this.checkf8.Location = new System.Drawing.Point(294, 67);
+		this.checkf8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.checkf8.Name = "checkf8";
+		this.checkf8.Size = new System.Drawing.Size(15, 14);
+		this.checkf8.TabIndex = 69;
+		this.checkf8.UseVisualStyleBackColor = true;
+		this.checkf7.AutoSize = true;
+		this.checkf7.Location = new System.Drawing.Point(254, 67);
+		this.checkf7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.checkf7.Name = "checkf7";
+		this.checkf7.Size = new System.Drawing.Size(15, 14);
+		this.checkf7.TabIndex = 68;
+		this.checkf7.UseVisualStyleBackColor = true;
+		this.checkf6.AutoSize = true;
+		this.checkf6.Location = new System.Drawing.Point(216, 67);
+		this.checkf6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.checkf6.Name = "checkf6";
+		this.checkf6.Size = new System.Drawing.Size(15, 14);
+		this.checkf6.TabIndex = 67;
+		this.checkf6.UseVisualStyleBackColor = true;
+		this.checkf5.AutoSize = true;
+		this.checkf5.Location = new System.Drawing.Point(176, 67);
+		this.checkf5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.checkf5.Name = "checkf5";
+		this.checkf5.Size = new System.Drawing.Size(15, 14);
+		this.checkf5.TabIndex = 66;
+		this.checkf5.UseVisualStyleBackColor = true;
+		this.checkf4.AutoSize = true;
+		this.checkf4.Location = new System.Drawing.Point(138, 67);
+		this.checkf4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.checkf4.Name = "checkf4";
+		this.checkf4.Size = new System.Drawing.Size(15, 14);
+		this.checkf4.TabIndex = 65;
+		this.checkf4.UseVisualStyleBackColor = true;
+		this.checkf3.AutoSize = true;
+		this.checkf3.Location = new System.Drawing.Point(100, 67);
+		this.checkf3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.checkf3.Name = "checkf3";
+		this.checkf3.Size = new System.Drawing.Size(15, 14);
+		this.checkf3.TabIndex = 64;
+		this.checkf3.UseVisualStyleBackColor = true;
+		this.checkf1.AutoSize = true;
+		this.checkf1.Location = new System.Drawing.Point(21, 67);
+		this.checkf1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.checkf1.Name = "checkf1";
+		this.checkf1.Size = new System.Drawing.Size(15, 14);
+		this.checkf1.TabIndex = 62;
+		this.checkf1.UseVisualStyleBackColor = true;
+		this.checkf2.AutoSize = true;
+		this.checkf2.Location = new System.Drawing.Point(59, 67);
+		this.checkf2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.checkf2.Name = "checkf2";
+		this.checkf2.Size = new System.Drawing.Size(15, 14);
+		this.checkf2.TabIndex = 63;
+		this.checkf2.UseVisualStyleBackColor = true;
+		this.PictureBox6.Image = (System.Drawing.Image)resources.GetObject("PictureBox6.Image");
+		this.PictureBox6.Location = new System.Drawing.Point(8, 22);
+		this.PictureBox6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.PictureBox6.Name = "PictureBox6";
+		this.PictureBox6.Size = new System.Drawing.Size(396, 44);
+		this.PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+		this.PictureBox6.TabIndex = 73;
+		this.PictureBox6.TabStop = false;
+		this.GroupBox6.Controls.Add(this.skill9);
+		this.GroupBox6.Controls.Add(this.skill0);
+		this.GroupBox6.Controls.Add(this.Panel2);
+		this.GroupBox6.Controls.Add(this.Panel1);
+		this.GroupBox6.Controls.Add(this.check1);
+		this.GroupBox6.Controls.Add(this.check2);
+		this.GroupBox6.Controls.Add(this.check3);
+		this.GroupBox6.Controls.Add(this.check4);
+		this.GroupBox6.Controls.Add(this.check5);
+		this.GroupBox6.Controls.Add(this.Label3);
+		this.GroupBox6.Controls.Add(this.check6);
+		this.GroupBox6.Controls.Add(this.Label4);
+		this.GroupBox6.Controls.Add(this.Label5);
+		this.GroupBox6.Controls.Add(this.check7);
+		this.GroupBox6.Controls.Add(this.Label6);
+		this.GroupBox6.Controls.Add(this.check8);
+		this.GroupBox6.Controls.Add(this.Label7);
+		this.GroupBox6.Controls.Add(this.check9);
+		this.GroupBox6.Controls.Add(this.Label12);
+		this.GroupBox6.Controls.Add(this.skill7);
+		this.GroupBox6.Controls.Add(this.Label11);
+		this.GroupBox6.Controls.Add(this.check0);
+		this.GroupBox6.Controls.Add(this.Label10);
+		this.GroupBox6.Controls.Add(this.skill1);
+		this.GroupBox6.Controls.Add(this.Label9);
+		this.GroupBox6.Controls.Add(this.skill3);
+		this.GroupBox6.Controls.Add(this.Label8);
+		this.GroupBox6.Controls.Add(this.skill5);
+		this.GroupBox6.Controls.Add(this.skill2);
+		this.GroupBox6.Controls.Add(this.skill6);
+		this.GroupBox6.Controls.Add(this.skill8);
+		this.GroupBox6.Controls.Add(this.skill4);
+		this.GroupBox6.Controls.Add(this.PictureBox5);
+		this.GroupBox6.Location = new System.Drawing.Point(6, 14);
+		this.GroupBox6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.GroupBox6.Name = "GroupBox6";
+		this.GroupBox6.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.GroupBox6.Size = new System.Drawing.Size(408, 92);
+		this.GroupBox6.TabIndex = 78;
+		this.GroupBox6.TabStop = false;
+		this.GroupBox6.Text = "Primary";
+		this.Panel2.BackColor = System.Drawing.SystemColors.HotTrack;
+		this.Panel2.Location = new System.Drawing.Point(367, 28);
+		this.Panel2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.Panel2.Name = "Panel2";
+		this.Panel2.Size = new System.Drawing.Size(34, 33);
+		this.Panel2.TabIndex = 77;
+		this.Panel1.BackColor = System.Drawing.Color.Red;
+		this.Panel1.Location = new System.Drawing.Point(329, 28);
+		this.Panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.Panel1.Name = "Panel1";
+		this.Panel1.Size = new System.Drawing.Size(34, 33);
+		this.Panel1.TabIndex = 76;
+		this.check1.AutoSize = true;
+		this.check1.Location = new System.Drawing.Point(24, 70);
+		this.check1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.check1.Name = "check1";
+		this.check1.Size = new System.Drawing.Size(15, 14);
+		this.check1.TabIndex = 52;
+		this.check1.UseVisualStyleBackColor = true;
+		this.check2.AutoSize = true;
+		this.check2.Location = new System.Drawing.Point(63, 70);
+		this.check2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.check2.Name = "check2";
+		this.check2.Size = new System.Drawing.Size(15, 14);
+		this.check2.TabIndex = 53;
+		this.check2.UseVisualStyleBackColor = true;
+		this.check3.AutoSize = true;
+		this.check3.Location = new System.Drawing.Point(99, 70);
+		this.check3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.check3.Name = "check3";
+		this.check3.Size = new System.Drawing.Size(15, 14);
+		this.check3.TabIndex = 54;
+		this.check3.UseVisualStyleBackColor = true;
+		this.check4.AutoSize = true;
+		this.check4.Location = new System.Drawing.Point(136, 70);
+		this.check4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.check4.Name = "check4";
+		this.check4.Size = new System.Drawing.Size(15, 14);
+		this.check4.TabIndex = 55;
+		this.check4.UseVisualStyleBackColor = true;
+		this.check5.AutoSize = true;
+		this.check5.Location = new System.Drawing.Point(174, 70);
+		this.check5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.check5.Name = "check5";
+		this.check5.Size = new System.Drawing.Size(15, 14);
+		this.check5.TabIndex = 56;
+		this.check5.UseVisualStyleBackColor = true;
+		this.check6.AutoSize = true;
+		this.check6.Location = new System.Drawing.Point(214, 70);
+		this.check6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.check6.Name = "check6";
+		this.check6.Size = new System.Drawing.Size(15, 14);
+		this.check6.TabIndex = 57;
+		this.check6.UseVisualStyleBackColor = true;
+		this.check7.AutoSize = true;
+		this.check7.Location = new System.Drawing.Point(248, 70);
+		this.check7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.check7.Name = "check7";
+		this.check7.Size = new System.Drawing.Size(15, 14);
+		this.check7.TabIndex = 58;
+		this.check7.UseVisualStyleBackColor = true;
+		this.check8.AutoSize = true;
+		this.check8.Location = new System.Drawing.Point(286, 70);
+		this.check8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.check8.Name = "check8";
+		this.check8.Size = new System.Drawing.Size(15, 14);
+		this.check8.TabIndex = 59;
+		this.check8.UseVisualStyleBackColor = true;
+		this.check9.AutoSize = true;
+		this.check9.Location = new System.Drawing.Point(326, 70);
+		this.check9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.check9.Name = "check9";
+		this.check9.Size = new System.Drawing.Size(15, 14);
+		this.check9.TabIndex = 60;
+		this.check9.UseVisualStyleBackColor = true;
+		this.check0.AutoSize = true;
+		this.check0.Location = new System.Drawing.Point(363, 70);
+		this.check0.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.check0.Name = "check0";
+		this.check0.Size = new System.Drawing.Size(15, 14);
+		this.check0.TabIndex = 61;
+		this.check0.UseVisualStyleBackColor = true;
+		this.PictureBox5.Image = (System.Drawing.Image)resources.GetObject("PictureBox5.Image");
+		this.PictureBox5.Location = new System.Drawing.Point(8, 22);
+		this.PictureBox5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.PictureBox5.Name = "PictureBox5";
+		this.PictureBox5.Size = new System.Drawing.Size(396, 44);
+		this.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+		this.PictureBox5.TabIndex = 73;
+		this.PictureBox5.TabStop = false;
+		this.start.Location = new System.Drawing.Point(460, 21);
+		this.start.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.start.Name = "start";
+		this.start.Size = new System.Drawing.Size(142, 36);
+		this.start.TabIndex = 49;
+		this.start.Text = "Start ";
+		this.start.UseVisualStyleBackColor = true;
+		this.CheckBoxautopots.AutoSize = true;
+		this.CheckBoxautopots.Location = new System.Drawing.Point(65, 3);
+		this.CheckBoxautopots.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.CheckBoxautopots.Name = "CheckBoxautopots";
+		this.CheckBoxautopots.Size = new System.Drawing.Size(15, 14);
+		this.CheckBoxautopots.TabIndex = 50;
+		this.CheckBoxautopots.UseVisualStyleBackColor = true;
+		this.GroupBoxautopot.Controls.Add(this.Button1);
+		this.GroupBoxautopot.Controls.Add(this.Label25);
+		this.GroupBoxautopot.Controls.Add(this.Label24);
+		this.GroupBoxautopot.Controls.Add(this.Buttonmana);
+		this.GroupBoxautopot.Controls.Add(this.Label23);
+		this.GroupBoxautopot.Controls.Add(this.CheckBoxautopots);
+		this.GroupBoxautopot.Controls.Add(this.ButtonHP);
+		this.GroupBoxautopot.Location = new System.Drawing.Point(181, 279);
+		this.GroupBoxautopot.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.GroupBoxautopot.Name = "GroupBoxautopot";
+		this.GroupBoxautopot.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.GroupBoxautopot.Size = new System.Drawing.Size(421, 72);
+		this.GroupBoxautopot.TabIndex = 53;
+		this.GroupBoxautopot.TabStop = false;
+		this.GroupBoxautopot.Text = "AutoPots";
+		this.Button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75f, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+		this.Button1.Location = new System.Drawing.Point(354, 1);
+		this.Button1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.Button1.Name = "Button1";
+		this.Button1.Size = new System.Drawing.Size(56, 27);
+		this.Button1.TabIndex = 54;
+		this.Button1.Text = "Help";
+		this.Button1.UseVisualStyleBackColor = true;
+		this.Label25.AutoSize = true;
+		this.Label25.Font = new System.Drawing.Font("Segoe UI", 8.25f, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+		this.Label25.Location = new System.Drawing.Point(330, 31);
+		this.Label25.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+		this.Label25.Name = "Label25";
+		this.Label25.Size = new System.Drawing.Size(42, 13);
+		this.Label25.TabIndex = 54;
+		this.Label25.Text = "X: .. Y:..";
+		this.Label24.AutoSize = true;
+		this.Label24.Font = new System.Drawing.Font("Segoe UI", 8.25f, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+		this.Label24.Location = new System.Drawing.Point(128, 31);
+		this.Label24.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+		this.Label24.Name = "Label24";
+		this.Label24.Size = new System.Drawing.Size(45, 13);
+		this.Label24.TabIndex = 53;
+		this.Label24.Text = "X: .. Y: ..";
+		this.Buttonmana.ForeColor = System.Drawing.Color.FromArgb(0, 0, 192);
+		this.Buttonmana.Location = new System.Drawing.Point(209, 27);
+		this.Buttonmana.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.Buttonmana.Name = "Buttonmana";
+		this.Buttonmana.Size = new System.Drawing.Size(118, 23);
+		this.Buttonmana.TabIndex = 52;
+		this.Buttonmana.Text = "Selecc Mana level";
+		this.Buttonmana.UseVisualStyleBackColor = true;
+		this.Label23.AutoSize = true;
+		this.Label23.Font = new System.Drawing.Font("Segoe UI", 7f, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+		this.Label23.ForeColor = System.Drawing.Color.Black;
+		this.Label23.Location = new System.Drawing.Point(9, 55);
+		this.Label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+		this.Label23.Name = "Label23";
+		this.Label23.Size = new System.Drawing.Size(147, 12);
+		this.Label23.TabIndex = 51;
+		this.Label23.Text = "Locate potions in slots 9 and 0";
+		this.GroupBox2.Controls.Add(this.checkboxmago);
+		this.GroupBox2.Controls.Add(this.PictureBox1);
+		this.GroupBox2.Controls.Add(this.PictureBox2);
+		this.GroupBox2.Controls.Add(this.checkbasico);
+		this.GroupBox2.Controls.Add(this.skillr);
+		this.GroupBox2.Controls.Add(this.skille);
+		this.GroupBox2.Location = new System.Drawing.Point(181, 12);
+		this.GroupBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.GroupBox2.Name = "GroupBox2";
+		this.GroupBox2.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.GroupBox2.Size = new System.Drawing.Size(168, 57);
+		this.GroupBox2.TabIndex = 52;
+		this.GroupBox2.TabStop = false;
+		this.GroupBox2.Text = "Basic Attack";
+		this.checkboxmago.AutoSize = true;
+		this.checkboxmago.Location = new System.Drawing.Point(113, -1);
+		this.checkboxmago.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.checkboxmago.Name = "checkboxmago";
+		this.checkboxmago.Size = new System.Drawing.Size(56, 19);
+		this.checkboxmago.TabIndex = 73;
+		this.checkboxmago.Text = "Mage";
+		this.checkboxmago.UseVisualStyleBackColor = true;
+		this.PictureBox1.Image = (System.Drawing.Image)resources.GetObject("PictureBox1.Image");
+		this.PictureBox1.Location = new System.Drawing.Point(78, 18);
+		this.PictureBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.PictureBox1.Name = "PictureBox1";
+		this.PictureBox1.Size = new System.Drawing.Size(23, 27);
+		this.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+		this.PictureBox1.TabIndex = 53;
+		this.PictureBox1.TabStop = false;
+		this.PictureBox2.Image = (System.Drawing.Image)resources.GetObject("PictureBox2.Image");
+		this.PictureBox2.Location = new System.Drawing.Point(9, 18);
+		this.PictureBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.PictureBox2.Name = "PictureBox2";
+		this.PictureBox2.Size = new System.Drawing.Size(24, 27);
+		this.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+		this.PictureBox2.TabIndex = 54;
+		this.PictureBox2.TabStop = false;
+		this.checkbasico.AutoSize = true;
+		this.checkbasico.Checked = true;
+		this.checkbasico.CheckState = System.Windows.Forms.CheckState.Checked;
+		this.checkbasico.Location = new System.Drawing.Point(91, 1);
+		this.checkbasico.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.checkbasico.Name = "checkbasico";
+		this.checkbasico.Size = new System.Drawing.Size(15, 14);
+		this.checkbasico.TabIndex = 72;
+		this.checkbasico.UseVisualStyleBackColor = true;
+		this.skillr.Location = new System.Drawing.Point(107, 22);
+		this.skillr.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.skillr.Name = "skillr";
+		this.skillr.Size = new System.Drawing.Size(28, 23);
+		this.skillr.TabIndex = 1;
+		this.skillr.Text = "1";
+		this.skille.Location = new System.Drawing.Point(38, 22);
+		this.skille.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.skille.Name = "skille";
+		this.skille.Size = new System.Drawing.Size(27, 23);
+		this.skille.TabIndex = 0;
+		this.skille.Text = "1";
+		this.PictureBox3.Image = (System.Drawing.Image)resources.GetObject("PictureBox3.Image");
+		this.PictureBox3.Location = new System.Drawing.Point(9, 42);
+		this.PictureBox3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.PictureBox3.Name = "PictureBox3";
+		this.PictureBox3.Size = new System.Drawing.Size(28, 30);
+		this.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+		this.PictureBox3.TabIndex = 73;
+		this.PictureBox3.TabStop = false;
+		this.Label28.AutoSize = true;
+		this.Label28.Location = new System.Drawing.Point(6, 18);
+		this.Label28.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+		this.Label28.Name = "Label28";
+		this.Label28.Size = new System.Drawing.Size(97, 15);
+		this.Label28.TabIndex = 75;
+		this.Label28.Text = "2022 - HylianSoft";
+		this.panelpotas.Controls.Add(this.Label30);
+		this.panelpotas.Controls.Add(this.Label29);
+		this.panelpotas.Location = new System.Drawing.Point(8, 24);
+		this.panelpotas.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.panelpotas.Name = "panelpotas";
+		this.panelpotas.Size = new System.Drawing.Size(603, 387);
+		this.panelpotas.TabIndex = 54;
+		this.panelpotas.Visible = false;
+		this.Label30.AutoSize = true;
+		this.Label30.Font = new System.Drawing.Font("Nirmala UI", 18f, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+		this.Label30.ForeColor = System.Drawing.Color.Red;
+		this.Label30.Location = new System.Drawing.Point(-4, 159);
+		this.Label30.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+		this.Label30.Name = "Label30";
+		this.Label30.Size = new System.Drawing.Size(374, 32);
+		this.Label30.TabIndex = 1;
+		this.Label30.Text = "you want autopot to be activated.";
+		this.Label29.AutoSize = true;
+		this.Label29.Font = new System.Drawing.Font("Nirmala UI", 18f, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+		this.Label29.ForeColor = System.Drawing.Color.Red;
+		this.Label29.Location = new System.Drawing.Point(-8, 122);
+		this.Label29.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+		this.Label29.Name = "Label29";
+		this.Label29.Size = new System.Drawing.Size(316, 32);
+		this.Label29.TabIndex = 0;
+		this.Label29.Text = "Right click on the bar, where";
+		this.GroupBox5.Controls.Add(this.PictureBox4);
+		this.GroupBox5.Controls.Add(this.CheckBoxrecojer);
+		this.GroupBox5.Controls.Add(this.TextBoxrecojer);
+		this.GroupBox5.Location = new System.Drawing.Point(356, 13);
+		this.GroupBox5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.GroupBox5.Name = "GroupBox5";
+		this.GroupBox5.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.GroupBox5.Size = new System.Drawing.Size(84, 55);
+		this.GroupBox5.TabIndex = 73;
+		this.GroupBox5.TabStop = false;
+		this.GroupBox5.Text = "Pick";
+		this.PictureBox4.Image = (System.Drawing.Image)resources.GetObject("PictureBox4.Image");
+		this.PictureBox4.Location = new System.Drawing.Point(10, 20);
+		this.PictureBox4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.PictureBox4.Name = "PictureBox4";
+		this.PictureBox4.Size = new System.Drawing.Size(23, 27);
+		this.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+		this.PictureBox4.TabIndex = 53;
+		this.PictureBox4.TabStop = false;
+		this.CheckBoxrecojer.AutoSize = true;
+		this.CheckBoxrecojer.Location = new System.Drawing.Point(59, 2);
+		this.CheckBoxrecojer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.CheckBoxrecojer.Name = "CheckBoxrecojer";
+		this.CheckBoxrecojer.Size = new System.Drawing.Size(15, 14);
+		this.CheckBoxrecojer.TabIndex = 72;
+		this.CheckBoxrecojer.UseVisualStyleBackColor = true;
+		this.TextBoxrecojer.Location = new System.Drawing.Point(44, 22);
+		this.TextBoxrecojer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.TextBoxrecojer.Name = "TextBoxrecojer";
+		this.TextBoxrecojer.Size = new System.Drawing.Size(27, 23);
+		this.TextBoxrecojer.TabIndex = 0;
+		this.TextBoxrecojer.Text = "1";
+		this.GroupBox4.Controls.Add(this.LinkLabel1);
+		this.GroupBox4.Controls.Add(this.PictureBox3);
+		this.GroupBox4.Controls.Add(this.Label28);
+		this.GroupBox4.Location = new System.Drawing.Point(8, 272);
+		this.GroupBox4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.GroupBox4.Name = "GroupBox4";
+		this.GroupBox4.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.GroupBox4.Size = new System.Drawing.Size(167, 78);
+		this.GroupBox4.TabIndex = 77;
+		this.GroupBox4.TabStop = false;
+		this.GroupBox4.Text = "Contact/Support";
+		this.LinkLabel1.AutoSize = true;
+		this.LinkLabel1.Location = new System.Drawing.Point(43, 48);
+		this.LinkLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+		this.LinkLabel1.Name = "LinkLabel1";
+		this.LinkLabel1.Size = new System.Drawing.Size(96, 15);
+		this.LinkLabel1.TabIndex = 76;
+		this.LinkLabel1.TabStop = true;
+		this.LinkLabel1.Text = "@jilmy.daccarett";
+		this.GroupBox3.Controls.Add(this.Button3);
+		this.GroupBox3.Controls.Add(this.ListBox1);
+		this.GroupBox3.Controls.Add(this.Button2);
+		this.GroupBox3.Controls.Add(this.Label2);
+		this.GroupBox3.Controls.Add(this.TextBox1);
+		this.GroupBox3.Location = new System.Drawing.Point(8, 7);
+		this.GroupBox3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.GroupBox3.Name = "GroupBox3";
+		this.GroupBox3.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.GroupBox3.Size = new System.Drawing.Size(167, 215);
+		this.GroupBox3.TabIndex = 7;
+		this.GroupBox3.TabStop = false;
+		this.GroupBox3.Text = "Process List";
+		this.Button3.Location = new System.Drawing.Point(77, 107);
+		this.Button3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.Button3.Name = "Button3";
+		this.Button3.Size = new System.Drawing.Size(75, 23);
+		this.Button3.TabIndex = 7;
+		this.Button3.Text = "Update";
+		this.Button3.UseVisualStyleBackColor = true;
+		this.ListBox1.FormattingEnabled = true;
+		this.ListBox1.ItemHeight = 15;
+		this.ListBox1.Location = new System.Drawing.Point(6, 22);
+		this.ListBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.ListBox1.Name = "ListBox1";
+		this.ListBox1.Size = new System.Drawing.Size(146, 79);
+		this.ListBox1.TabIndex = 1;
+		this.Button2.Location = new System.Drawing.Point(77, 182);
+		this.Button2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.Button2.Name = "Button2";
+		this.Button2.Size = new System.Drawing.Size(75, 23);
+		this.Button2.TabIndex = 6;
+		this.Button2.Text = "Apply";
+		this.Button2.UseVisualStyleBackColor = true;
+		this.Label2.AutoSize = true;
+		this.Label2.Location = new System.Drawing.Point(6, 136);
+		this.Label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+		this.Label2.Name = "Label2";
+		this.Label2.Size = new System.Drawing.Size(94, 15);
+		this.Label2.TabIndex = 4;
+		this.Label2.Text = "Rename Procces";
+		this.TextBox1.Location = new System.Drawing.Point(9, 153);
+		this.TextBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.TextBox1.Name = "TextBox1";
+		this.TextBox1.Size = new System.Drawing.Size(143, 23);
+		this.TextBox1.TabIndex = 5;
+		this.Button4.Location = new System.Drawing.Point(6, 22);
+		this.Button4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.Button4.Name = "Button4";
+		this.Button4.Size = new System.Drawing.Size(66, 23);
+		this.Button4.TabIndex = 78;
+		this.Button4.Text = "Save";
+		this.Button4.UseVisualStyleBackColor = true;
+		this.Button5.Location = new System.Drawing.Point(77, 22);
+		this.Button5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.Button5.Name = "Button5";
+		this.Button5.Size = new System.Drawing.Size(75, 23);
+		this.Button5.TabIndex = 79;
+		this.Button5.Text = "Load";
+		this.Button5.UseVisualStyleBackColor = true;
+		this.GroupBox8.Controls.Add(this.Button4);
+		this.GroupBox8.Controls.Add(this.Button5);
+		this.GroupBox8.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+		this.GroupBox8.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+		this.GroupBox8.Location = new System.Drawing.Point(8, 222);
+		this.GroupBox8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.GroupBox8.Name = "GroupBox8";
+		this.GroupBox8.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		this.GroupBox8.Size = new System.Drawing.Size(167, 53);
+		this.GroupBox8.TabIndex = 80;
+		this.GroupBox8.TabStop = false;
+		this.GroupBox8.Text = "Preset";
+		this.Label1.AutoSize = true;
+		this.Label1.ForeColor = System.Drawing.Color.DeepPink;
+		this.Label1.Location = new System.Drawing.Point(472, 60);
+		this.Label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+		this.Label1.Name = "Label1";
+		this.Label1.Size = new System.Drawing.Size(124, 15);
+		this.Label1.TabIndex = 81;
+		this.Label1.Text = "Star/Stop (Ctrl + Shift)";
+		this.PictureBox7.Location = new System.Drawing.Point(47, 357);
+		this.PictureBox7.Name = "PictureBox7";
+		this.PictureBox7.Size = new System.Drawing.Size(526, 54);
+		this.PictureBox7.TabIndex = 82;
+		this.PictureBox7.TabStop = false;
+		base.AutoScaleDimensions = new System.Drawing.SizeF(7f, 15f);
+		base.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+		base.ClientSize = new System.Drawing.Size(612, 422);
+		base.Controls.Add(this.PictureBox7);
+		base.Controls.Add(this.Label1);
+		base.Controls.Add(this.GroupBox8);
+		base.Controls.Add(this.GroupBoxautopot);
+		base.Controls.Add(this.GroupBox4);
+		base.Controls.Add(this.start);
+		base.Controls.Add(this.GroupBox1);
+		base.Controls.Add(this.GroupBox2);
+		base.Controls.Add(this.GroupBox3);
+		base.Controls.Add(this.GroupBox5);
+		base.Controls.Add(this.panelpotas);
+		base.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+		base.Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
+		base.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+		base.MaximizeBox = false;
+		base.Name = "Form1";
+		this.GroupBox1.ResumeLayout(false);
+		this.GroupBox7.ResumeLayout(false);
+		this.GroupBox7.PerformLayout();
+		((System.ComponentModel.ISupportInitialize)this.PictureBox6).EndInit();
+		this.GroupBox6.ResumeLayout(false);
+		this.GroupBox6.PerformLayout();
+		((System.ComponentModel.ISupportInitialize)this.PictureBox5).EndInit();
+		this.GroupBoxautopot.ResumeLayout(false);
+		this.GroupBoxautopot.PerformLayout();
+		this.GroupBox2.ResumeLayout(false);
+		this.GroupBox2.PerformLayout();
+		((System.ComponentModel.ISupportInitialize)this.PictureBox1).EndInit();
+		((System.ComponentModel.ISupportInitialize)this.PictureBox2).EndInit();
+		((System.ComponentModel.ISupportInitialize)this.PictureBox3).EndInit();
+		this.panelpotas.ResumeLayout(false);
+		this.panelpotas.PerformLayout();
+		this.GroupBox5.ResumeLayout(false);
+		this.GroupBox5.PerformLayout();
+		((System.ComponentModel.ISupportInitialize)this.PictureBox4).EndInit();
+		this.GroupBox4.ResumeLayout(false);
+		this.GroupBox4.PerformLayout();
+		this.GroupBox3.ResumeLayout(false);
+		this.GroupBox3.PerformLayout();
+		this.GroupBox8.ResumeLayout(false);
+		((System.ComponentModel.ISupportInitialize)this.PictureBox7).EndInit();
+		base.ResumeLayout(false);
+		base.PerformLayout();
+	}
+
+	[DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+	private static extern IntPtr SendMessage(IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam);
+
+	[DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+	private static extern bool PostMessage(IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam);
+
+	[DllImport("user32", CharSet = CharSet.Ansi, ExactSpelling = true, SetLastError = true)]
+	private static extern int GetAsyncKeyState(long vKey);
+
+	[DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+	private static extern bool SetWindowText(IntPtr hwnd, string lpString);
+
+	[DllImport("user32.dll", SetLastError = true)]
+	public static extern IntPtr GetWindowDC(IntPtr hwnd);
+
+	[DllImport("user32.dll", SetLastError = true)]
+	public static extern int ReleaseDC(IntPtr hwnd, IntPtr hdc);
+
+	[DllImport("gdi32.dll", SetLastError = true)]
+	public static extern uint GetPixel(IntPtr hdc, int nXPos, int nYPos);
+
+	[DllImport("user32.dll")]
+	private static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
+
+	public void cargarprocesos()
+	{
+		ListBox1.Items.Clear();
+		processlist = Process.GetProcesses();
+		Process[] array = processlist;
+		foreach (Process process in array)
+		{
+			if (!string.IsNullOrEmpty(process.MainWindowTitle))
+			{
+				if (Operators.CompareString(process.MainWindowTitle.ToString(), " ", TextCompare: false) == 0)
+				{
+					SetWindowText(process.MainWindowHandle, "HTLauncher");
+				}
+				ListBox1.Items.Add(process.MainWindowTitle.ToString());
+			}
+		}
+	}
+
+	private void LoadPrincipal(object sender, EventArgs e)
+	{
+		BackgroundWorker1.RunWorkerAsync();
+		try
+		{
+			WebClient webClient = new WebClient();
+			byte[] buffer = ((Conversions.ToDouble(version) != 1.4) ? webClient.DownloadData("https://cmg3.cl/otros/banner.png?t=" + Conversions.ToString(DateTime.Now.Ticks)) : webClient.DownloadData("https://cmg3.cl/otros/banner_old.png?t=" + Conversions.ToString(DateTime.Now.Ticks)));
+			MemoryStream stream = new MemoryStream(buffer);
+			PictureBox7.Image = Image.FromStream(stream);
+			Text = "Tantra Automatic  - By Hylian -  Version " + version;
+		}
+		catch (Exception ex)
+		{
+			ProjectData.SetProjectError(ex);
+			Exception ex2 = ex;
+			ProjectData.ClearProjectError();
+		}
+		cargarprocesos();
+	}
+
+	private void Button3_Click(object sender, EventArgs e)
+	{
+		cargarprocesos();
+	}
+
+	private void CambiarNombreProceso(object sender, EventArgs e)
+	{
+		if (!string.IsNullOrEmpty(seleccionado))
+		{
+			if (!string.IsNullOrEmpty(TextBox1.Text))
+			{
+				if (TextBox1.Text.Length <= 20)
+				{
+					Process[] array = processlist;
+					foreach (Process process in array)
+					{
+						if (!string.IsNullOrEmpty(process.MainWindowTitle) & (Operators.CompareString(process.MainWindowTitle.ToString(), seleccionado, TextCompare: false) == 0) & (process.Id == seleccionadoID))
+						{
+							SetWindowText(process.MainWindowHandle, TextBox1.Text);
+							cargarprocesos();
+							Text = TextBox1.Text;
+						}
+					}
+				}
+				else
+				{
+					Interaction.MsgBox("Enter a short name");
+				}
+			}
+			else
+			{
+				Interaction.MsgBox("Enter a valid name");
+			}
+		}
+		else
+		{
+			Interaction.MsgBox("Select a process from the list");
+		}
+	}
+
+	private void seleccionarProceso(object sender, EventArgs e)
+	{
+		if (ListBox1.SelectedIndex < 0)
+		{
+			return;
+		}
+		seleccionado = ListBox1.GetItemText(RuntimeHelpers.GetObjectValue(ListBox1.SelectedItem));
+		TextBox1.Text = seleccionado;
+		TextBox1.Select();
+		Process[] array = processlist;
+		foreach (Process process in array)
+		{
+			if (!string.IsNullOrEmpty(process.MainWindowTitle) & (Operators.CompareString(process.MainWindowTitle.ToString(), seleccionado, TextCompare: false) == 0))
+			{
+				proceso = process;
+				seleccionadoID = proceso.Id;
+				try
+				{
+					handle = FindWindow(null, seleccionado);
+				}
+				catch (Exception ex)
+				{
+					ProjectData.SetProjectError(ex);
+					Exception ex2 = ex;
+					ProjectData.ClearProjectError();
+				}
+			}
+		}
+	}
+
+	public Color GetPixelColor(int x, int y)
+	{
+		IntPtr windowDC = GetWindowDC(IntPtr.Zero);
+		uint pixel = GetPixel(windowDC, x, y);
+		ReleaseDC(IntPtr.Zero, windowDC);
+		checked
+		{
+			return Color.FromArgb((int)Conversion.Int(unchecked((long)pixel) & 0xFFL), (int)(Conversion.Int(unchecked((long)pixel) & 0xFF00L) >> 8), (int)(Conversion.Int(unchecked((long)pixel) & 0xFF0000L) >> 16));
+		}
+	}
+
+	private void selectHP(object sender, EventArgs e)
+	{
+		if (!string.IsNullOrEmpty(seleccionado))
+		{
+			TimerHP.Start();
+			TimerHP.Interval = 100;
+			base.Enabled = false;
+			panelpotas.Visible = true;
+			panelpotas.BringToFront();
+			try
+			{
+				Interaction.AppActivate(proceso.Id);
+				return;
+			}
+			catch (Exception ex)
+			{
+				ProjectData.SetProjectError(ex);
+				Exception ex2 = ex;
+				Interaction.MsgBox("Process not found", MsgBoxStyle.Information, "Proceso");
+				ProjectData.ClearProjectError();
+				return;
+			}
+		}
+		Interaction.MsgBox("You must select a process", MsgBoxStyle.Information, "Error");
+	}
+
+	private void timer_HP(object sender, EventArgs e)
+	{
+		if (Control.MouseButtons == MouseButtons.Right)
+		{
+			coorHPX = Control.MousePosition.X;
+			coorHPY = Control.MousePosition.Y;
+			Label24.Text = "X=" + Control.MousePosition.X + "  Y=" + Control.MousePosition.Y;
+			Label24.ForeColor = Color.Green;
+			base.Enabled = true;
+			TimerHP.Stop();
+			panelpotas.Visible = false;
+			panelpotas.SendToBack();
+			Activate();
+		}
+	}
+
+	private void timer_MANA(object sender, EventArgs e)
+	{
+		if (Control.MouseButtons == MouseButtons.Right)
+		{
+			coorManaX = Control.MousePosition.X;
+			coorManaY = Control.MousePosition.Y;
+			Label25.Text = "X=" + Control.MousePosition.X + "  Y=" + Control.MousePosition.Y;
+			Label25.ForeColor = Color.Green;
+			base.Enabled = true;
+			TimerMana.Stop();
+			panelpotas.Visible = false;
+			panelpotas.SendToBack();
+			Activate();
+		}
+	}
+
+	private void selectMANA(object sender, EventArgs e)
+	{
+		if (!string.IsNullOrEmpty(seleccionado))
+		{
+			TimerMana.Start();
+			TimerMana.Interval = 100;
+			base.Enabled = false;
+			panelpotas.Visible = true;
+			panelpotas.BringToFront();
+			try
+			{
+				Interaction.AppActivate(proceso.Id);
+				return;
+			}
+			catch (Exception ex)
+			{
+				ProjectData.SetProjectError(ex);
+				Exception ex2 = ex;
+				Interaction.MsgBox("Process not found", MsgBoxStyle.Information, "Process");
+				ProjectData.ClearProjectError();
+				return;
+			}
+		}
+		Interaction.MsgBox("You must select a process", MsgBoxStyle.Information, "Error");
+	}
+
+	private void TimerPotas_Tick(object sender, EventArgs e)
+	{
+		Color pixelColor = GetPixelColor(coorHPX, coorHPY);
+		Color pixelColor2 = GetPixelColor(coorManaX, coorManaY);
+		Refresh();
+		if (((pixelColor != Color.Empty) & (coorHPX > 0) & (coorHPY > 0)) && EsCasiNegro(pixelColor))
+		{
+			SendMessage(handle, 256u, (IntPtr)57, (IntPtr)0);
+		}
+		if (((pixelColor2 != Color.Empty) & (coorHPX > 0) & (coorHPY > 0)) && EsCasiNegro(pixelColor2))
+		{
+			SendMessage(handle, 256u, (IntPtr)48, (IntPtr)0);
+		}
+	}
+
+	public bool EsCasiNegro(Color color, int tolerancia = 30)
+	{
+		if (color.R < tolerancia && color.G < tolerancia)
+		{
+			return color.B < tolerancia;
+		}
+		return false;
+	}
+
+	private void Button1_Click(object sender, EventArgs e)
+	{
+		Interaction.MsgBox("EN: Clicking on the 'Select HP Level' button will redirect you to Tantra. You will need to select a place on the bar where you want a potion to be consumed. Selection is made by RIGHT clicking. It is recommended to select within the bar where there are no numbers or letters. Do not move the HP window once selected.\r\n\r\nESP: Al hacer clic en el boton 'Selec nivel HP' se redirigira a Tantra. Usted deberá seleccionar un lugar en la barra donde desea que se consuma una pocion. La seleccion se realiza haciendo clic DERECHO.  Se recomienda seleccionar dentro de la barra donde  no hayan numeros ni letras.    No mueva la ventana de HP una vez seleccionado.", MsgBoxStyle.Information, "Help");
+	}
+
+	private void CheckBoxautopots_CheckedChanged(object sender, EventArgs e)
+	{
+		if (CheckBoxautopots.Checked)
+		{
+			skill9.Enabled = false;
+			skill0.Enabled = false;
+			skill9.Text = "";
+			skill0.Text = "";
+			check9.Enabled = false;
+			check0.Enabled = false;
+			check9.Checked = false;
+			check0.Checked = false;
+			Label9.Enabled = false;
+			Label8.Enabled = false;
+		}
+		else
+		{
+			skill9.Enabled = true;
+			skill0.Enabled = true;
+			skill9.Text = "1";
+			skill0.Text = "1";
+			check9.Enabled = true;
+			check0.Enabled = true;
+			check9.Checked = false;
+			check0.Checked = false;
+			Label9.Enabled = true;
+			Label8.Enabled = true;
+		}
+	}
+
+	public void principal()
+	{
+		cargarprocesos();
+		if (CheckBoxautopots.Checked & (coorHPX == 0) & (coorHPY == 0))
+		{
+			Interaction.MsgBox("Select the coordinates on your HP/MANA bar by right clicking.", MsgBoxStyle.Information, "AutoPot");
+		}
+		else if (!string.IsNullOrEmpty(seleccionado))
+		{
+			try
+			{
+				Interaction.AppActivate(proceso.Id);
+			}
+			catch (Exception ex)
+			{
+				ProjectData.SetProjectError(ex);
+				Exception ex2 = ex;
+				Interaction.MsgBox("Process not found", MsgBoxStyle.Information, "Proceso");
+				ProjectData.ClearProjectError();
+			}
+			if (activo)
+			{
+				activo = false;
+				start.Text = "Start";
+				GroupBoxautopot.Enabled = true;
+				Timerprincipal.Stop();
+				TimerE.Stop();
+				TimerR.Stop();
+				Timerrecojer.Stop();
+				TimerSkill1.Stop();
+				Timerskill2.Stop();
+				TimerSkill3.Stop();
+				Timerskill4.Stop();
+				TimerSkill5.Stop();
+				Timerskill6.Stop();
+				TimerSkill7.Stop();
+				Timerskill8.Stop();
+				TimerSkill9.Stop();
+				Timerskill0.Stop();
+				TimerSkillF1.Stop();
+				TimerskillF2.Stop();
+				TimerSkillF3.Stop();
+				TimerskillF4.Stop();
+				TimerSkillF5.Stop();
+				TimerskillF6.Stop();
+				TimerSkillF7.Stop();
+				TimerskillF8.Stop();
+				TimerSkillF9.Stop();
+				TimerskillF10.Stop();
+				TimerPotas.Stop();
+				timerstuck.Stop();
+			}
+			else
+			{
+				timerstuck.Start();
+				GroupBoxautopot.Enabled = false;
+				activo = true;
+				start.Text = "Stop";
+				Timerprincipal.Interval = 1000;
+				Timerprincipal.Start();
+				if (CheckBoxautopots.Checked)
+				{
+					TimerPotas.Interval = 1000;
+					TimerPotas.Start();
+				}
+			}
+		}
+		else
+		{
+			Interaction.MsgBox("Select a process from the list", MsgBoxStyle.Information, "Process");
+		}
+	}
+
+	private void startclick(object sender, EventArgs e)
+	{
+		principal();
+	}
+
+	private void textbox1_KeyPress(object sender, KeyPressEventArgs e)
+	{
+		if (Strings.Asc(e.KeyChar) != 8 && ((Strings.Asc(e.KeyChar) < 48) | (Strings.Asc(e.KeyChar) > 57)))
+		{
+			e.Handled = true;
+		}
+	}
+
+	private void TimerE_Tick(object sender, EventArgs e)
+	{
+		if (Operators.CompareString(skille.Text, string.Empty, TextCompare: false) != 0 && Conversions.ToInteger(skille.Text) > 0)
+		{
+			TimerE.Interval = checked(Conversions.ToInteger(skille.Text) * 1000);
+		}
+		Thread.Sleep(500);
+		SendMessage(handle, 256u, (IntPtr)69, (IntPtr)0);
+	}
+
+	private void TimerR_Tick(object sender, EventArgs e)
+	{
+		if (Operators.CompareString(skillr.Text, string.Empty, TextCompare: false) != 0 && Conversions.ToInteger(skillr.Text) > 0)
+		{
+			TimerR.Interval = checked(Conversions.ToInteger(skillr.Text) * 1000);
+		}
+		SendMessage(handle, 256u, (IntPtr)82, (IntPtr)0);
+	}
+
+	private void Timerrecojer_Tick(object sender, EventArgs e)
+	{
+		if (Operators.CompareString(TextBoxrecojer.Text, string.Empty, TextCompare: false) != 0 && Conversions.ToInteger(TextBoxrecojer.Text) > 0)
+		{
+			Timerrecojer.Interval = checked(Conversions.ToInteger(TextBoxrecojer.Text) * 1000);
+		}
+		SendMessage(handle, 256u, (IntPtr)70, (IntPtr)0);
+	}
+
+	private void Timerprincipal_Tick(object sender, EventArgs e)
+	{
+		if (checkbasico.Checked)
+		{
+			if (Operators.CompareString(skille.Text, string.Empty, TextCompare: false) != 0)
+			{
+				if (Conversions.ToInteger(skille.Text) > 0 && !TimerE.Enabled)
+				{
+					TimerE.Start();
+					Thread.Sleep(500);
+				}
+			}
+			else
+			{
+				TimerE.Stop();
+			}
+			if (Operators.CompareString(skillr.Text, string.Empty, TextCompare: false) != 0)
+			{
+				if (Conversions.ToInteger(skillr.Text) > 0)
+				{
+					if (!TimerR.Enabled)
+					{
+						TimerR.Start();
+					}
+				}
+				else
+				{
+					TimerR.Stop();
+				}
+			}
+			else
+			{
+				TimerR.Stop();
+			}
+		}
+		else
+		{
+			TimerE.Stop();
+			TimerR.Stop();
+		}
+		checked
+		{
+			if (CheckBoxrecojer.Checked & (Operators.CompareString(TextBoxrecojer.Text, string.Empty, TextCompare: false) != 0))
+			{
+				if (Conversions.ToInteger(TextBoxrecojer.Text) >= 1)
+				{
+					Timerrecojer.Start();
+					Timerrecojer.Interval = Conversions.ToInteger(TextBoxrecojer.Text) * 1000;
+				}
+				else
+				{
+					Timerrecojer.Stop();
+				}
+			}
+			else
+			{
+				Timerrecojer.Stop();
+			}
+			if (check1.Checked & (Operators.CompareString(skill1.Text, string.Empty, TextCompare: false) != 0))
+			{
+				if (Conversions.ToInteger(skill1.Text) >= 1)
+				{
+					TimerSkill1.Start();
+					TimerSkill1.Interval = Conversions.ToInteger(skill1.Text) * 1000;
+				}
+				else
+				{
+					TimerSkill1.Stop();
+				}
+			}
+			else
+			{
+				TimerSkill1.Stop();
+			}
+			if (check2.Checked & (Operators.CompareString(skill2.Text, string.Empty, TextCompare: false) != 0))
+			{
+				if (Conversions.ToInteger(skill2.Text) >= 1)
+				{
+					Timerskill2.Start();
+					Timerskill2.Interval = Conversions.ToInteger(skill2.Text) * 1000;
+				}
+				else
+				{
+					Timerskill2.Stop();
+				}
+			}
+			else
+			{
+				Timerskill2.Stop();
+			}
+			if (check3.Checked & (Operators.CompareString(skill3.Text, string.Empty, TextCompare: false) != 0))
+			{
+				if (Conversions.ToInteger(skill3.Text) >= 1)
+				{
+					TimerSkill3.Start();
+					TimerSkill3.Interval = Conversions.ToInteger(skill3.Text) * 1000;
+				}
+				else
+				{
+					TimerSkill3.Stop();
+				}
+			}
+			else
+			{
+				TimerSkill3.Stop();
+			}
+			if (check4.Checked & (Operators.CompareString(skill4.Text, string.Empty, TextCompare: false) != 0))
+			{
+				if (Conversions.ToInteger(skill4.Text) >= 1)
+				{
+					Timerskill4.Start();
+					Timerskill4.Interval = Conversions.ToInteger(skill4.Text) * 1000;
+				}
+				else
+				{
+					Timerskill4.Stop();
+				}
+			}
+			else
+			{
+				Timerskill4.Stop();
+			}
+			if (check5.Checked & (Operators.CompareString(skill5.Text, string.Empty, TextCompare: false) != 0))
+			{
+				if (Conversions.ToInteger(skill5.Text) >= 1)
+				{
+					TimerSkill5.Start();
+					TimerSkill5.Interval = Conversions.ToInteger(skill5.Text) * 1000;
+				}
+				else
+				{
+					TimerSkill5.Stop();
+				}
+			}
+			else
+			{
+				TimerSkill5.Stop();
+			}
+			if (check6.Checked & (Operators.CompareString(skill6.Text, string.Empty, TextCompare: false) != 0))
+			{
+				if (Conversions.ToInteger(skill6.Text) >= 1)
+				{
+					Timerskill6.Start();
+					Timerskill6.Interval = Conversions.ToInteger(skill6.Text) * 1000;
+				}
+				else
+				{
+					Timerskill6.Stop();
+				}
+			}
+			else
+			{
+				Timerskill6.Stop();
+			}
+			if (check7.Checked & (Operators.CompareString(skill7.Text, string.Empty, TextCompare: false) != 0))
+			{
+				if (Conversions.ToInteger(skill7.Text) >= 1)
+				{
+					TimerSkill7.Start();
+					TimerSkill7.Interval = Conversions.ToInteger(skill7.Text) * 1000;
+				}
+				else
+				{
+					TimerSkill7.Stop();
+				}
+			}
+			else
+			{
+				TimerSkill7.Stop();
+			}
+			if (check8.Checked & (Operators.CompareString(skill8.Text, string.Empty, TextCompare: false) != 0))
+			{
+				if (Conversions.ToInteger(skill8.Text) >= 1)
+				{
+					Timerskill8.Start();
+					Timerskill8.Interval = Conversions.ToInteger(skill8.Text) * 1000;
+				}
+				else
+				{
+					Timerskill8.Stop();
+				}
+			}
+			else
+			{
+				Timerskill8.Stop();
+			}
+			if (check9.Checked & (Operators.CompareString(skill9.Text, string.Empty, TextCompare: false) != 0))
+			{
+				if (Conversions.ToInteger(skill9.Text) >= 1)
+				{
+					TimerSkill9.Start();
+					TimerSkill9.Interval = Conversions.ToInteger(skill9.Text) * 1000;
+				}
+				else
+				{
+					TimerSkill9.Stop();
+				}
+			}
+			else
+			{
+				TimerSkill9.Stop();
+			}
+			if (check0.Checked & (Operators.CompareString(skill0.Text, string.Empty, TextCompare: false) != 0))
+			{
+				if (Conversions.ToInteger(skill0.Text) >= 1)
+				{
+					Timerskill0.Start();
+					Timerskill0.Interval = Conversions.ToInteger(skill0.Text) * 1000;
+				}
+				else
+				{
+					Timerskill0.Stop();
+				}
+			}
+			else
+			{
+				Timerskill0.Stop();
+			}
+			if (checkf1.Checked & (Operators.CompareString(skillf1.Text, string.Empty, TextCompare: false) != 0))
+			{
+				if (Conversions.ToInteger(skillf1.Text) >= 1)
+				{
+					TimerSkillF1.Start();
+					TimerSkillF1.Interval = Conversions.ToInteger(skillf1.Text) * 1000;
+				}
+				else
+				{
+					TimerSkillF1.Stop();
+				}
+			}
+			else
+			{
+				TimerSkillF1.Stop();
+			}
+			if (checkf2.Checked & (Operators.CompareString(skillf2.Text, string.Empty, TextCompare: false) != 0))
+			{
+				if (Conversions.ToInteger(skillf2.Text) >= 1)
+				{
+					TimerskillF2.Start();
+					TimerskillF2.Interval = Conversions.ToInteger(skillf2.Text) * 1000;
+				}
+				else
+				{
+					TimerskillF2.Stop();
+				}
+			}
+			else
+			{
+				TimerskillF2.Stop();
+			}
+			if (checkf3.Checked & (Operators.CompareString(skillf3.Text, string.Empty, TextCompare: false) != 0))
+			{
+				if (Conversions.ToInteger(skillf3.Text) >= 1)
+				{
+					TimerSkillF3.Start();
+					TimerSkillF3.Interval = Conversions.ToInteger(skillf3.Text) * 1000;
+				}
+				else
+				{
+					TimerSkillF3.Stop();
+				}
+			}
+			else
+			{
+				TimerSkillF3.Stop();
+			}
+			if (checkf4.Checked & (Operators.CompareString(skillf4.Text, string.Empty, TextCompare: false) != 0))
+			{
+				if (Conversions.ToInteger(skillf4.Text) >= 1)
+				{
+					TimerskillF4.Start();
+					TimerskillF4.Interval = Conversions.ToInteger(skillf4.Text) * 1000;
+				}
+				else
+				{
+					TimerskillF4.Stop();
+				}
+			}
+			else
+			{
+				TimerskillF4.Stop();
+			}
+			if (checkf5.Checked & (Operators.CompareString(skillf5.Text, string.Empty, TextCompare: false) != 0))
+			{
+				if (Conversions.ToInteger(skillf5.Text) >= 1)
+				{
+					TimerSkillF5.Start();
+					TimerSkillF5.Interval = Conversions.ToInteger(skillf5.Text) * 1000;
+				}
+				else
+				{
+					TimerSkillF5.Stop();
+				}
+			}
+			else
+			{
+				TimerSkillF5.Stop();
+			}
+			if (checkf6.Checked & (Operators.CompareString(skillf6.Text, string.Empty, TextCompare: false) != 0))
+			{
+				if (Conversions.ToInteger(skillf6.Text) >= 1)
+				{
+					TimerskillF6.Start();
+					TimerskillF6.Interval = Conversions.ToInteger(skillf6.Text) * 1000;
+				}
+				else
+				{
+					TimerskillF6.Stop();
+				}
+			}
+			else
+			{
+				TimerskillF6.Stop();
+			}
+			if (checkf7.Checked & (Operators.CompareString(skillf7.Text, string.Empty, TextCompare: false) != 0))
+			{
+				if (Conversions.ToInteger(skillf7.Text) >= 1)
+				{
+					TimerSkillF7.Start();
+					TimerSkillF7.Interval = Conversions.ToInteger(skillf7.Text) * 1000;
+				}
+				else
+				{
+					TimerSkillF7.Stop();
+				}
+			}
+			else
+			{
+				TimerSkillF7.Stop();
+			}
+			if (checkf8.Checked & (Operators.CompareString(skillf8.Text, string.Empty, TextCompare: false) != 0))
+			{
+				if (Conversions.ToInteger(skillf8.Text) >= 1)
+				{
+					TimerskillF8.Start();
+					TimerskillF8.Interval = Conversions.ToInteger(skillf8.Text) * 1000;
+				}
+				else
+				{
+					TimerskillF8.Stop();
+				}
+			}
+			else
+			{
+				TimerskillF8.Stop();
+			}
+			if (checkf9.Checked & (Operators.CompareString(skillf9.Text, string.Empty, TextCompare: false) != 0))
+			{
+				if (Conversions.ToInteger(skillf9.Text) >= 1)
+				{
+					TimerSkillF9.Start();
+					TimerSkillF9.Interval = Conversions.ToInteger(skillf9.Text) * 1000;
+				}
+				else
+				{
+					TimerSkillF9.Stop();
+				}
+			}
+			else
+			{
+				TimerSkillF9.Stop();
+			}
+			if (checkf10.Checked & (Operators.CompareString(skillf10.Text, string.Empty, TextCompare: false) != 0))
+			{
+				if (Conversions.ToInteger(skillf10.Text) >= 1)
+				{
+					TimerskillF10.Start();
+					TimerskillF10.Interval = Conversions.ToInteger(skillf10.Text) * 1000;
+				}
+				else
+				{
+					TimerskillF10.Stop();
+				}
+			}
+			else
+			{
+				TimerskillF10.Stop();
+			}
+		}
+	}
+
+	private void TimerSkill1Tick(object sender, EventArgs e)
+	{
+		if (check1.Checked & (Operators.CompareString(skill1.Text, string.Empty, TextCompare: false) != 0))
+		{
+			if (Conversions.ToInteger(skill1.Text) >= 1)
+			{
+				SendMessage(handle, 256u, (IntPtr)49, (IntPtr)0);
+			}
+			else
+			{
+				TimerSkill1.Stop();
+			}
+		}
+		else
+		{
+			TimerSkill1.Stop();
+		}
+	}
+
+	private void TimerSkill2Tick(object sender, EventArgs e)
+	{
+		if (check2.Checked & (Operators.CompareString(skill2.Text, string.Empty, TextCompare: false) != 0))
+		{
+			if (Conversions.ToInteger(skill2.Text) >= 1)
+			{
+				SendMessage(handle, 256u, (IntPtr)50, (IntPtr)0);
+			}
+			else
+			{
+				Timerskill2.Stop();
+			}
+		}
+		else
+		{
+			Timerskill2.Stop();
+		}
+	}
+
+	private void TimerSkill3Tick(object sender, EventArgs e)
+	{
+		if (check3.Checked & (Operators.CompareString(skill3.Text, string.Empty, TextCompare: false) != 0))
+		{
+			if (Conversions.ToInteger(skill3.Text) >= 1)
+			{
+				SendMessage(handle, 256u, (IntPtr)51, (IntPtr)0);
+			}
+			else
+			{
+				TimerSkill3.Stop();
+			}
+		}
+		else
+		{
+			TimerSkill3.Stop();
+		}
+	}
+
+	private void TimerSkill4Tick(object sender, EventArgs e)
+	{
+		if (check4.Checked & (Operators.CompareString(skill4.Text, string.Empty, TextCompare: false) != 0))
+		{
+			if (Conversions.ToInteger(skill4.Text) >= 1)
+			{
+				SendMessage(handle, 256u, (IntPtr)52, (IntPtr)0);
+			}
+			else
+			{
+				Timerskill4.Stop();
+			}
+		}
+		else
+		{
+			Timerskill4.Stop();
+		}
+	}
+
+	private void TimerSkill5Tick(object sender, EventArgs e)
+	{
+		if (check5.Checked & (Operators.CompareString(skill5.Text, string.Empty, TextCompare: false) != 0))
+		{
+			if (Conversions.ToInteger(skill5.Text) >= 1)
+			{
+				SendMessage(handle, 256u, (IntPtr)53, (IntPtr)0);
+			}
+			else
+			{
+				TimerSkill5.Stop();
+			}
+		}
+		else
+		{
+			TimerSkill5.Stop();
+		}
+	}
+
+	private void TimerSkill6Tick(object sender, EventArgs e)
+	{
+		if (check6.Checked & (Operators.CompareString(skill6.Text, string.Empty, TextCompare: false) != 0))
+		{
+			if (Conversions.ToInteger(skill6.Text) >= 1)
+			{
+				SendMessage(handle, 256u, (IntPtr)54, (IntPtr)0);
+			}
+			else
+			{
+				Timerskill6.Stop();
+			}
+		}
+		else
+		{
+			Timerskill6.Stop();
+		}
+	}
+
+	private void TimerSkill7Tick(object sender, EventArgs e)
+	{
+		if (check7.Checked & (Operators.CompareString(skill7.Text, string.Empty, TextCompare: false) != 0))
+		{
+			if (Conversions.ToInteger(skill7.Text) >= 1)
+			{
+				SendMessage(handle, 256u, (IntPtr)55, (IntPtr)0);
+			}
+			else
+			{
+				TimerSkill7.Stop();
+			}
+		}
+		else
+		{
+			TimerSkill7.Stop();
+		}
+	}
+
+	private void TimerSkill8Tick(object sender, EventArgs e)
+	{
+		if (check8.Checked & (Operators.CompareString(skill8.Text, string.Empty, TextCompare: false) != 0))
+		{
+			if (Conversions.ToInteger(skill8.Text) >= 1)
+			{
+				SendMessage(handle, 256u, (IntPtr)56, (IntPtr)0);
+			}
+			else
+			{
+				Timerskill8.Stop();
+			}
+		}
+		else
+		{
+			Timerskill8.Stop();
+		}
+	}
+
+	private void TimerSkill9Tick(object sender, EventArgs e)
+	{
+		if (check9.Checked & (Operators.CompareString(skill9.Text, string.Empty, TextCompare: false) != 0))
+		{
+			if (Conversions.ToInteger(skill9.Text) >= 1)
+			{
+				SendMessage(handle, 256u, (IntPtr)57, (IntPtr)0);
+			}
+			else
+			{
+				TimerSkill9.Stop();
+			}
+		}
+		else
+		{
+			TimerSkill9.Stop();
+		}
+	}
+
+	private void TimerSkill0Tick(object sender, EventArgs e)
+	{
+		if (check0.Checked & (Operators.CompareString(skill0.Text, string.Empty, TextCompare: false) != 0))
+		{
+			if (Conversions.ToInteger(skill0.Text) >= 1)
+			{
+				SendMessage(handle, 256u, (IntPtr)48, (IntPtr)0);
+			}
+			else
+			{
+				Timerskill0.Stop();
+			}
+		}
+		else
+		{
+			Timerskill0.Stop();
+		}
+	}
+
+	private void TimerSkillF1_Tick(object sender, EventArgs e)
+	{
+		if (checkf1.Checked & (Operators.CompareString(skillf1.Text, string.Empty, TextCompare: false) != 0))
+		{
+			if (Conversions.ToInteger(skillf1.Text) >= 1)
+			{
+				SendMessage(handle, 256u, (IntPtr)112, (IntPtr)0);
+			}
+			else
+			{
+				TimerSkillF1.Stop();
+			}
+		}
+		else
+		{
+			TimerSkillF1.Stop();
+		}
+	}
+
+	private void TimerSkillF2_Tick(object sender, EventArgs e)
+	{
+		if (checkf2.Checked & (Operators.CompareString(skillf2.Text, string.Empty, TextCompare: false) != 0))
+		{
+			if (Conversions.ToInteger(skillf2.Text) >= 1)
+			{
+				SendMessage(handle, 256u, (IntPtr)113, (IntPtr)0);
+			}
+			else
+			{
+				TimerskillF2.Stop();
+			}
+		}
+		else
+		{
+			TimerskillF2.Stop();
+		}
+	}
+
+	private void TimerSkillF3_Tick(object sender, EventArgs e)
+	{
+		if (checkf3.Checked & (Operators.CompareString(skillf3.Text, string.Empty, TextCompare: false) != 0))
+		{
+			if (Conversions.ToInteger(skillf3.Text) >= 1)
+			{
+				SendMessage(handle, 256u, (IntPtr)114, (IntPtr)0);
+			}
+			else
+			{
+				TimerSkillF3.Stop();
+			}
+		}
+		else
+		{
+			TimerSkillF3.Stop();
+		}
+	}
+
+	private void TimerSkillF4_Tick(object sender, EventArgs e)
+	{
+		if (checkf4.Checked & (Operators.CompareString(skillf4.Text, string.Empty, TextCompare: false) != 0))
+		{
+			if (Conversions.ToInteger(skillf4.Text) >= 1)
+			{
+				SendMessage(handle, 256u, (IntPtr)115, (IntPtr)0);
+			}
+			else
+			{
+				TimerskillF4.Stop();
+			}
+		}
+		else
+		{
+			TimerskillF4.Stop();
+		}
+	}
+
+	private void TimerSkillF5_Tick(object sender, EventArgs e)
+	{
+		if (checkf5.Checked & (Operators.CompareString(skillf5.Text, string.Empty, TextCompare: false) != 0))
+		{
+			if (Conversions.ToInteger(skillf5.Text) >= 1)
+			{
+				SendMessage(handle, 256u, (IntPtr)116, (IntPtr)0);
+			}
+			else
+			{
+				TimerSkillF5.Stop();
+			}
+		}
+		else
+		{
+			TimerSkillF5.Stop();
+		}
+	}
+
+	private void TimerSkillF6_Tick(object sender, EventArgs e)
+	{
+		if (checkf6.Checked & (Operators.CompareString(skillf6.Text, string.Empty, TextCompare: false) != 0))
+		{
+			if (Conversions.ToInteger(skillf6.Text) >= 1)
+			{
+				SendMessage(handle, 256u, (IntPtr)117, (IntPtr)0);
+			}
+			else
+			{
+				TimerskillF6.Stop();
+			}
+		}
+		else
+		{
+			TimerskillF6.Stop();
+		}
+	}
+
+	private void TimerSkillF7_Tick(object sender, EventArgs e)
+	{
+		if (checkf7.Checked & (Operators.CompareString(skillf7.Text, string.Empty, TextCompare: false) != 0))
+		{
+			if (Conversions.ToInteger(skillf7.Text) >= 1)
+			{
+				SendMessage(handle, 256u, (IntPtr)118, (IntPtr)0);
+			}
+			else
+			{
+				TimerSkillF7.Stop();
+			}
+		}
+		else
+		{
+			TimerSkillF7.Stop();
+		}
+	}
+
+	private void TimerSkillF8_Tick(object sender, EventArgs e)
+	{
+		if (checkf8.Checked & (Operators.CompareString(skillf8.Text, string.Empty, TextCompare: false) != 0))
+		{
+			if (Conversions.ToInteger(skillf8.Text) >= 1)
+			{
+				SendMessage(handle, 256u, (IntPtr)119, (IntPtr)0);
+			}
+			else
+			{
+				TimerskillF8.Stop();
+			}
+		}
+		else
+		{
+			TimerskillF8.Stop();
+		}
+	}
+
+	private void TimerSkillF9_Tick(object sender, EventArgs e)
+	{
+		if (checkf9.Checked & (Operators.CompareString(skillf9.Text, string.Empty, TextCompare: false) != 0))
+		{
+			if (Conversions.ToInteger(skillf9.Text) >= 1)
+			{
+				SendMessage(handle, 256u, (IntPtr)120, (IntPtr)0);
+			}
+			else
+			{
+				TimerSkillF9.Stop();
+			}
+		}
+		else
+		{
+			TimerSkillF9.Stop();
+		}
+	}
+
+	private void TimerSkillF10_Tick(object sender, EventArgs e)
+	{
+		if (checkf10.Checked & (Operators.CompareString(skillf10.Text, string.Empty, TextCompare: false) != 0))
+		{
+			if (Conversions.ToInteger(skillf10.Text) >= 1)
+			{
+				SendMessage(handle, 256u, (IntPtr)121, (IntPtr)0);
+			}
+			else
+			{
+				TimerskillF10.Stop();
+			}
+		}
+		else
+		{
+			TimerskillF10.Stop();
+		}
+	}
+
+	private void checkboxmago_CheckedChanged(object sender, EventArgs e)
+	{
+		if (checkboxmago.Checked)
+		{
+			skillr.Text = "0";
+			skillr.Enabled = false;
+		}
+		else
+		{
+			skillr.Text = "1";
+			skillr.Enabled = true;
+		}
+	}
+
+	private void guardararchivo(object sender, EventArgs e)
+	{
+		try
+		{
+			if (Operators.CompareString(TextBox1.Text, string.Empty, TextCompare: false) == 0)
+			{
+				Interaction.MsgBox("You must specify a name for the file to be saved.", MsgBoxStyle.Information, "Save");
+				return;
+			}
+			if (File.Exists(ruta))
+			{
+				File.Create(ruta + TextBox1.Text + ".txt").Close();
+			}
+			else
+			{
+				Directory.CreateDirectory(ruta);
+				File.Create(ruta + TextBox1.Text + ".txt").Close();
+			}
+			StreamWriter streamWriter = new StreamWriter(ruta + TextBox1.Text + ".txt");
+			try
+			{
+				string value = obtenerdata();
+				streamWriter.WriteLine(value);
+				streamWriter.Close();
+				Interaction.MsgBox("File " + TextBox1.Text + " created successfully", MsgBoxStyle.Information, "Save Presets");
+			}
+			catch (Exception ex)
+			{
+				ProjectData.SetProjectError(ex);
+				Exception ex2 = ex;
+				Interaction.MsgBox("There is a problem writing to the file: " + ex2.Message, MsgBoxStyle.Critical, "Save Presets");
+				ProjectData.ClearProjectError();
+			}
+		}
+		catch (Exception ex3)
+		{
+			ProjectData.SetProjectError(ex3);
+			Exception ex4 = ex3;
+			Interaction.MsgBox("There is a problem writing to the file: " + ex4.Message, MsgBoxStyle.Critical, "Save Presets");
+			ProjectData.ClearProjectError();
+		}
+	}
+
+	public string obtenerdata()
+	{
+		string text = ((!checkbasico.Checked) ? (text + "0,") : (text + "1,"));
+		text = ((!checkboxmago.Checked) ? (text + "0,") : (text + "1,"));
+		text = text + skille.Text + ",";
+		text = text + skillr.Text + ",";
+		text = ((!CheckBoxrecojer.Checked) ? (text + "0,") : (text + "1,"));
+		text = text + TextBoxrecojer.Text + ",";
+		text = text + skill1.Text + ",";
+		text = text + skill2.Text + ",";
+		text = text + skill3.Text + ",";
+		text = text + skill4.Text + ",";
+		text = text + skill5.Text + ",";
+		text = text + skill6.Text + ",";
+		text = text + skill7.Text + ",";
+		text = text + skill8.Text + ",";
+		text = text + skill9.Text + ",";
+		text = text + skill0.Text + ",";
+		text = ((!check1.Checked) ? (text + "0,") : (text + "1,"));
+		text = ((!check2.Checked) ? (text + "0,") : (text + "1,"));
+		text = ((!check3.Checked) ? (text + "0,") : (text + "1,"));
+		text = ((!check4.Checked) ? (text + "0,") : (text + "1,"));
+		text = ((!check5.Checked) ? (text + "0,") : (text + "1,"));
+		text = ((!check6.Checked) ? (text + "0,") : (text + "1,"));
+		text = ((!check7.Checked) ? (text + "0,") : (text + "1,"));
+		text = ((!check8.Checked) ? (text + "0,") : (text + "1,"));
+		text = ((!check9.Checked) ? (text + "0,") : (text + "1,"));
+		text = ((!check0.Checked) ? (text + "0,") : (text + "1,"));
+		text = text + skillf1.Text + ",";
+		text = text + skillf2.Text + ",";
+		text = text + skillf3.Text + ",";
+		text = text + skillf4.Text + ",";
+		text = text + skillf5.Text + ",";
+		text = text + skillf6.Text + ",";
+		text = text + skillf7.Text + ",";
+		text = text + skillf8.Text + ",";
+		text = text + skillf9.Text + ",";
+		text = text + skillf10.Text + ",";
+		text = ((!checkf1.Checked) ? (text + "0,") : (text + "1,"));
+		text = ((!checkf2.Checked) ? (text + "0,") : (text + "1,"));
+		text = ((!checkf3.Checked) ? (text + "0,") : (text + "1,"));
+		text = ((!checkf4.Checked) ? (text + "0,") : (text + "1,"));
+		text = ((!checkf5.Checked) ? (text + "0,") : (text + "1,"));
+		text = ((!checkf6.Checked) ? (text + "0,") : (text + "1,"));
+		text = ((!checkf7.Checked) ? (text + "0,") : (text + "1,"));
+		text = ((!checkf8.Checked) ? (text + "0,") : (text + "1,"));
+		text = ((!checkf9.Checked) ? (text + "0,") : (text + "1,"));
+		if (checkf10.Checked)
+		{
+			return text + "1,";
+		}
+		return text + "0,";
+	}
+
+	private void cargar_archivo(object sender, EventArgs e)
+	{
+		string text = string.Empty;
+		OpenFileDialog openFileDialog = new OpenFileDialog();
+		openFileDialog.Filter = "(*.txt) |*.txt|(*.*) |*.*";
+		if (!File.Exists(Application.StartupPath + "presets"))
+		{
+			Directory.CreateDirectory(ruta);
+		}
+		openFileDialog.InitialDirectory = Application.StartupPath + "presets";
+		if (openFileDialog.ShowDialog() != DialogResult.OK)
+		{
+			return;
+		}
+		string fileName = openFileDialog.FileName;
+		StreamReader streamReader = new StreamReader(fileName);
+		try
+		{
+			while (streamReader.Peek() != -1)
+			{
+				text = streamReader.ReadLine();
+				string.IsNullOrEmpty(text);
+			}
+			streamReader.Close();
+			if (Operators.CompareString(text, string.Empty, TextCompare: false) == 0)
+			{
+				return;
+			}
+			string[] array = text.Split(new char[1] { ',' });
+			if (array.Length > 0)
+			{
+				if (Operators.CompareString(array[0].ToString(), "1", TextCompare: false) == 0)
+				{
+					checkbasico.Checked = true;
+				}
+				else
+				{
+					checkbasico.Checked = false;
+				}
+				if (Operators.CompareString(array[1].ToString(), "1", TextCompare: false) == 0)
+				{
+					checkboxmago.Checked = true;
+				}
+				else
+				{
+					checkboxmago.Checked = false;
+				}
+				skille.Text = array[2].ToString();
+				skillr.Text = array[3].ToString();
+				if (Operators.CompareString(array[4].ToString(), "1", TextCompare: false) == 0)
+				{
+					CheckBoxrecojer.Checked = true;
+				}
+				else
+				{
+					CheckBoxrecojer.Checked = false;
+				}
+				TextBoxrecojer.Text = array[5].ToString();
+				skill1.Text = array[6].ToString();
+				skill2.Text = array[7].ToString();
+				skill3.Text = array[8].ToString();
+				skill4.Text = array[9].ToString();
+				skill5.Text = array[10].ToString();
+				skill6.Text = array[11].ToString();
+				skill7.Text = array[12].ToString();
+				skill8.Text = array[13].ToString();
+				skill9.Text = array[14].ToString();
+				skill0.Text = array[15].ToString();
+				if (Operators.CompareString(array[16].ToString(), "1", TextCompare: false) == 0)
+				{
+					check1.Checked = true;
+				}
+				else
+				{
+					check1.Checked = false;
+				}
+				if (Operators.CompareString(array[17].ToString(), "1", TextCompare: false) == 0)
+				{
+					check2.Checked = true;
+				}
+				else
+				{
+					check2.Checked = false;
+				}
+				if (Operators.CompareString(array[18].ToString(), "1", TextCompare: false) == 0)
+				{
+					check3.Checked = true;
+				}
+				else
+				{
+					check3.Checked = false;
+				}
+				if (Operators.CompareString(array[19].ToString(), "1", TextCompare: false) == 0)
+				{
+					check4.Checked = true;
+				}
+				else
+				{
+					check4.Checked = false;
+				}
+				if (Operators.CompareString(array[20].ToString(), "1", TextCompare: false) == 0)
+				{
+					check5.Checked = true;
+				}
+				else
+				{
+					check5.Checked = false;
+				}
+				if (Operators.CompareString(array[21].ToString(), "1", TextCompare: false) == 0)
+				{
+					check6.Checked = true;
+				}
+				else
+				{
+					check6.Checked = false;
+				}
+				if (Operators.CompareString(array[22].ToString(), "1", TextCompare: false) == 0)
+				{
+					check7.Checked = true;
+				}
+				else
+				{
+					check7.Checked = false;
+				}
+				if (Operators.CompareString(array[23].ToString(), "1", TextCompare: false) == 0)
+				{
+					check8.Checked = true;
+				}
+				else
+				{
+					check8.Checked = false;
+				}
+				if (Operators.CompareString(array[24].ToString(), "1", TextCompare: false) == 0)
+				{
+					check9.Checked = true;
+				}
+				else
+				{
+					check9.Checked = false;
+				}
+				if (Operators.CompareString(array[25].ToString(), "1", TextCompare: false) == 0)
+				{
+					check0.Checked = true;
+				}
+				else
+				{
+					check0.Checked = false;
+				}
+				skillf1.Text = array[26].ToString();
+				skillf2.Text = array[27].ToString();
+				skillf3.Text = array[28].ToString();
+				skillf4.Text = array[29].ToString();
+				skillf5.Text = array[30].ToString();
+				skillf6.Text = array[31].ToString();
+				skillf7.Text = array[32].ToString();
+				skillf8.Text = array[33].ToString();
+				skillf9.Text = array[34].ToString();
+				skillf10.Text = array[35].ToString();
+				if (Operators.CompareString(array[36].ToString(), "1", TextCompare: false) == 0)
+				{
+					checkf1.Checked = true;
+				}
+				else
+				{
+					checkf1.Checked = false;
+				}
+				if (Operators.CompareString(array[37].ToString(), "1", TextCompare: false) == 0)
+				{
+					checkf2.Checked = true;
+				}
+				else
+				{
+					checkf2.Checked = false;
+				}
+				if (Operators.CompareString(array[38].ToString(), "1", TextCompare: false) == 0)
+				{
+					checkf3.Checked = true;
+				}
+				else
+				{
+					checkf3.Checked = false;
+				}
+				if (Operators.CompareString(array[39].ToString(), "1", TextCompare: false) == 0)
+				{
+					checkf4.Checked = true;
+				}
+				else
+				{
+					checkf4.Checked = false;
+				}
+				if (Operators.CompareString(array[40].ToString(), "1", TextCompare: false) == 0)
+				{
+					checkf5.Checked = true;
+				}
+				else
+				{
+					checkf5.Checked = false;
+				}
+				if (Operators.CompareString(array[41].ToString(), "1", TextCompare: false) == 0)
+				{
+					checkf6.Checked = true;
+				}
+				else
+				{
+					checkf6.Checked = false;
+				}
+				if (Operators.CompareString(array[42].ToString(), "1", TextCompare: false) == 0)
+				{
+					checkf7.Checked = true;
+				}
+				else
+				{
+					checkf7.Checked = false;
+				}
+				if (Operators.CompareString(array[43].ToString(), "1", TextCompare: false) == 0)
+				{
+					checkf8.Checked = true;
+				}
+				else
+				{
+					checkf8.Checked = false;
+				}
+				if (Operators.CompareString(array[44].ToString(), "1", TextCompare: false) == 0)
+				{
+					checkf9.Checked = true;
+				}
+				else
+				{
+					checkf9.Checked = false;
+				}
+				if (Operators.CompareString(array[45].ToString(), "1", TextCompare: false) == 0)
+				{
+					checkf10.Checked = true;
+				}
+				else
+				{
+					checkf10.Checked = false;
+				}
+			}
+		}
+		catch (Exception ex)
+		{
+			ProjectData.SetProjectError(ex);
+			Exception ex2 = ex;
+			Interaction.MsgBox("There was a problem reading the file: " + ex2.Message, MsgBoxStyle.Critical, "Save Archivo");
+			ProjectData.ClearProjectError();
+		}
+	}
+
+	private void LinkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+	{
+		string fileName = "http://www.instagram.com/jilmy.daccarett/";
+		Process.Start(new ProcessStartInfo
+		{
+			FileName = fileName,
+			UseShellExecute = true
+		});
+	}
+
+	private void BackgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+	{
+		while (!BackgroundWorker1.CancellationPending)
+		{
+			if (MyProject.Computer.Keyboard.ShiftKeyDown && MyProject.Computer.Keyboard.CtrlKeyDown && base.InvokeRequired)
+			{
+				Invoke(new MethodInvoker(principal));
+			}
+			Thread.Sleep(100);
+		}
+	}
+
+	private void PictureBox7_Click(object sender, EventArgs e)
+	{
+		string fileName = "https://cmg3.cl/otros/redirect.html?t=" + Conversions.ToString(DateTime.Now.Ticks);
+		Process.Start(new ProcessStartInfo
+		{
+			FileName = fileName,
+			UseShellExecute = true
+		});
+	}
+}
+
+
