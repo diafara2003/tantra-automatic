@@ -73,7 +73,7 @@ MANA_BAR_X_END = 228
 TARGET_X1_PCT = 0.328   # 32.8% del ancho
 TARGET_X2_PCT = 0.625   # 62.5% del ancho
 TARGET_Y1 = 2           # fila inicio
-TARGET_Y2 = 18          # fila fin
+TARGET_Y2 = 60          # fila fin (aumentado para capturar nombre + sangre)
 
 # ─── Funciones Win32 ─────────────────────────────────────────────────
 user32 = ctypes.windll.user32
@@ -201,39 +201,63 @@ def enviar_tecla(hwnd, vk_code):
 
 
 def leer_nombre_target(hwnd):
-    """Lee el nombre del monstruo seleccionado usando OCR.
-    El juego debe estar visible en pantalla (no trae el juego al frente)."""
+    """Lee el nombre y el HP del monstruo seleccionado usando OCR.
+    Devuelve (nombre, hp_maximo) o (None, None) si falla."""
     if not OCR_DISPONIBLE:
-        return ""
+        return None, None
     try:
         import re
         cx, cy, cr, cb = obtener_rect_cliente(hwnd)
         cw = cr - cx
         if cw < 100:
-            return ""
+            return None, None
 
         x1 = cx + int(cw * TARGET_X1_PCT)
         y1 = cy + TARGET_Y1
         x2 = cx + int(cw * TARGET_X2_PCT)
         y2 = cy + TARGET_Y2
 
-        img = ImageGrab.grab(bbox=(x1, y1, x2, y2))
-        big = img.resize((img.width * 5, img.height * 5))
+        img = ImageGrab.grab(bbox=(x1, y1, x2, y2), all_screens=True)
+        # Procesamiento optimizado para texto y numeros
+        big = img.resize((img.width * 4, img.height * 4))
         gray = big.convert('L')
-        binary = gray.point(lambda p: 255 if p > 160 else 0)
-        texto = pytesseract.image_to_string(binary, config='--psm 7').strip()
+        binary = gray.point(lambda p: 255 if p > 150 else 0)
+        
+        # Usar psm 6 para bloques de texto uniformes
+        texto_bruto = pytesseract.image_to_string(binary, config='--psm 6').strip()
+        if not texto_bruto:
+            return None, None
 
-        # Limpiar
-        texto = texto.strip('-').strip()
-        texto = re.sub(r'\s*Lv\.?\s*\d+.*$', '', texto).strip()
-        texto = re.sub(r'^[^a-zA-Z]+', '', texto)
-        texto = re.sub(r'[^a-zA-Z\s]+$', '', texto).strip()
+        lineas = [l.strip() for l in texto_bruto.split('\n') if l.strip()]
+        
+        nombre = None
+        hp_max = None
+        
+        # Intentar extraer HP (buscando patron NNN/NNN o solo numeros grandes)
+        match_hp = re.search(r'(\d+)\s*/\s*(\d+)', texto_bruto)
+        if match_hp:
+            hp_max = int(match_hp.group(2))
+        else:
+            # Si no hay /, buscar el numero mas grande al final
+            nums = re.findall(r'\d+', texto_bruto)
+            if nums:
+                # Filtrar numeros que parecen niveles (bajos)
+                nums_int = [int(n) for n in nums if int(n) > 50]
+                if nums_int:
+                    hp_max = nums_int[-1]
 
-        if len(texto) >= 3:
-            return texto
-        return ""
+        # Limpiar nombre (primera linea usualmente)
+        if lineas:
+            temp_n = lineas[0]
+            temp_n = re.sub(r'\s*Lv\.?\s*\d+.*$', '', temp_n).strip()
+            temp_n = re.sub(r'^[^a-zA-Z]+', '', temp_n)
+            temp_n = re.sub(r'[^a-zA-Z\s]+$', '', temp_n).strip()
+            if len(temp_n) >= 3:
+                nombre = temp_n
+
+        return nombre, hp_max
     except Exception:
-        return ""
+        return None, None
 
 
 # ─── Aplicacion Principal ────────────────────────────────────────────
@@ -427,8 +451,13 @@ class TantraAutomatic(tk.Tk):
         frame_agregar.pack(fill="x", pady=(0, 5))
 
         ttk.Label(frame_agregar, text="Nombre:").pack(side="left", padx=(0, 4))
-        self.entry_monstruo = ttk.Entry(frame_agregar, width=30)
+        self.entry_monstruo = ttk.Entry(frame_agregar, width=20)
         self.entry_monstruo.pack(side="left", padx=(0, 4))
+
+        ttk.Label(frame_agregar, text="HP Max:").pack(side="left", padx=(5, 4))
+        self.entry_hp_filtro = ttk.Entry(frame_agregar, width=8)
+        self.entry_hp_filtro.pack(side="left", padx=(0, 4))
+
         ttk.Button(frame_agregar, text="Agregar", command=self._agregar_monstruo,
                    width=8).pack(side="left", padx=2)
         ttk.Button(frame_agregar, text="Quitar", command=self._quitar_monstruo,
@@ -467,13 +496,22 @@ class TantraAutomatic(tk.Tk):
 
     def _agregar_monstruo(self):
         nombre = self.entry_monstruo.get().strip()
-        if not nombre:
+        hp_val = self.entry_hp_filtro.get().strip()
+        
+        if not nombre and not hp_val:
             return
+            
+        # Formatear entrada para el listbox
+        nombre_str = nombre if nombre else "Cualquier"
+        hp_str = f" (HP: {hp_val})" if hp_val else " (Cualquier HP)"
+        item_completo = f"{nombre_str}{hp_str}"
+        
         # Evitar duplicados
         items = self.listbox_monstruos.get(0, tk.END)
-        if nombre.lower() not in [item.lower() for item in items]:
-            self.listbox_monstruos.insert(tk.END, nombre)
+        if item_completo not in items:
+            self.listbox_monstruos.insert(tk.END, item_completo)
             self.entry_monstruo.delete(0, tk.END)
+            self.entry_hp_filtro.delete(0, tk.END)
 
     def _quitar_monstruo(self):
         sel = self.listbox_monstruos.curselection()
@@ -481,8 +519,41 @@ class TantraAutomatic(tk.Tk):
             self.listbox_monstruos.delete(sel[0])
 
     def _obtener_lista_monstruos(self):
-        """Devuelve la lista de nombres de monstruos permitidos."""
-        return list(self.listbox_monstruos.get(0, tk.END))
+        """Devuelve la lista estructurada de filtros (nombre, hp)."""
+        filtros = []
+        import re
+        for item in self.listbox_monstruos.get(0, tk.END):
+            # Parsear "Nombre (HP: 5000)" o "Nombre (Cualquier HP)"
+            m = re.match(r'^(.*)\s+\((?:HP:\s*(\d+)|Cualquier\s+HP)\)$', item)
+            if m:
+                nombre = m.group(1).strip()
+                hp = m.group(2)
+                filtros.append({
+                    'nombre': None if nombre == "Cualquier" else nombre.lower(),
+                    'hp': int(hp) if hp else None
+                })
+        return filtros
+
+    def _target_coincide(self, nombre_det, hp_det):
+        """Verifica si el target actual coincide con algun filtro de la lista."""
+        filtros = self._obtener_lista_monstruos()
+        if not filtros: return True # Si no hay filtros, atacar todo
+        
+        n_det_low = nombre_det.lower() if nombre_det else None
+        
+        for f in filtros:
+            coincide_nombre = True
+            coincide_hp = True
+            
+            if f['nombre'] is not None:
+                coincide_nombre = (n_det_low == f['nombre'])
+            
+            if f['hp'] is not None:
+                coincide_hp = (hp_det == f['hp'])
+                
+            if coincide_nombre and coincide_hp:
+                return True
+        return False
 
     def _nombre_coincide(self, nombre_detectado):
         """Verifica si el nombre detectado es exactamente igual a alguno de la lista."""
@@ -591,10 +662,22 @@ class TantraAutomatic(tk.Tk):
         self.combo_proceso['values'] = titulos
 
         for i, titulo in enumerate(titulos):
-            if 'kathana' in titulo.lower() or 'tantra' in titulo.lower():
+            t_low = titulo.lower()
+            # El nombre exacto del juego segun el usuario
+            nombre_exacto = 'kathana - the coming of the dark ages'
+            
+            # Intentar coincidencia exacta primero
+            if t_low == nombre_exacto:
                 self.combo_proceso.current(i)
                 self._al_seleccionar_proceso(None)
                 break
+            # Si no es exacto, buscar que contenga Kathana pero que NO sea el Bot ni una carpeta comun
+            elif 'kathana' in t_low and 'tantra automatic' not in t_low:
+                # Omitir si parece ser una ruta de carpeta (contiene barras o es muy corta)
+                if ':' not in titulo and '\\' not in titulo:
+                    self.combo_proceso.current(i)
+                    self._al_seleccionar_proceso(None)
+                    break
 
     def _al_seleccionar_proceso(self, event):
         idx = self.combo_proceso.current()
@@ -698,7 +781,7 @@ class TantraAutomatic(tk.Tk):
             self._tick_filtro_ocr()
 
     def _tick_filtro_ocr(self):
-        """Lee el nombre del target en un hilo separado cada 800ms."""
+        """Lee el nombre y HP del target periodicamente."""
         if not self.activo or not self.filtro_activado.get():
             return
         if self._ocr_en_curso:
@@ -709,42 +792,41 @@ class TantraAutomatic(tk.Tk):
         hwnd = self.hwnd_objetivo
 
         def _leer():
-            nombre = leer_nombre_target(hwnd)
-            self.after(0, lambda: self._procesar_filtro_resultado(nombre))
+            nombre, hp = leer_nombre_target(hwnd)
+            self.after(0, lambda: self._procesar_filtro_resultado(nombre, hp))
 
         threading.Thread(target=_leer, daemon=True).start()
         self._filtro_timer_id = self.after(800, self._tick_filtro_ocr)
 
-    def _procesar_filtro_resultado(self, nombre):
-        """Procesa el resultado del OCR del filtro (en hilo principal)."""
+    def _procesar_filtro_resultado(self, nombre, hp):
+        """Procesa el resultado del OCR (nombre + hp) del filtro."""
         self._ocr_en_curso = False
+        
+        target_info = f"{nombre if nombre else '?'}"
+        if hp: target_info += f" (HP: {hp})"
+        
+        self.label_target_actual.config(text=f"Target actual: {target_info}")
 
-        if nombre:
-            self.label_target_actual.config(text=f"Target actual: {nombre}")
-        else:
-            self.label_target_actual.config(text="Target actual: (ninguno)")
-
-        if not nombre:
-            # Sin target - intentar seleccionar uno con E
+        if not nombre and not hp:
+            # Sin target claro
             self.intentos_fallidos += 1
             self.label_filtro_estado.config(
-                text=f"Sin target ({self.intentos_fallidos}/{self.MAX_INTENTOS})",
+                text=f"Buscando target... ({self.intentos_fallidos}/{self.MAX_INTENTOS})",
                 foreground="gray")
             self._verificar_mover()
             self._target_cache_result = False
-        elif self._nombre_coincide(nombre):
-            # Target correcto - atacar
+        elif self._target_coincide(nombre, hp):
+            # Coincide con filtro
             self.intentos_fallidos = 0
             self.label_filtro_estado.config(
-                text=f"ATACANDO: {nombre}", foreground="green")
+                text=f"ATACANDO: {target_info}", foreground="green")
             self._target_cache_result = True
         else:
-            # Target incorrecto - deseleccionar con T y buscar otro
+            # No coincide
             self.intentos_fallidos += 1
             self.label_filtro_estado.config(
-                text=f"IGNORADO: {nombre} -> deseleccionando ({self.intentos_fallidos}/{self.MAX_INTENTOS})",
+                text=f"IGNORADO: {target_info} -> buscando otro",
                 foreground="orange")
-            enviar_tecla(self.hwnd_objetivo, VK_CODES['T'])  # deseleccionar
             self._verificar_mover()
             self._target_cache_result = False
 

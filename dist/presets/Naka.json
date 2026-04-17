@@ -1,0 +1,97 @@
+{
+  "basico_activado": true,
+  "modo_mago": false,
+  "intervalo_e": "5",
+  "intervalo_r": "1",
+  "recoger_activado": false,
+  "intervalo_recoger": "1",
+  "autopot_activado": true,
+  "hp_porcentaje": 60,
+  "mana_porcentaje": 30,
+  "filtro_activado": false,
+  "monstruos": [],
+  "primarios": {
+    "1": {
+      "intervalo": "1",
+      "activado": false
+    },
+    "2": {
+      "intervalo": "80",
+      "activado": true
+    },
+    "3": {
+      "intervalo": "1",
+      "activado": false
+    },
+    "4": {
+      "intervalo": "160",
+      "activado": true
+    },
+    "5": {
+      "intervalo": "3",
+      "activado": false
+    },
+    "6": {
+      "intervalo": "1",
+      "activado": false
+    },
+    "7": {
+      "intervalo": "180",
+      "activado": true
+    },
+    "8": {
+      "intervalo": "10",
+      "activado": true
+    },
+    "9": {
+      "intervalo": "1",
+      "activado": false
+    },
+    "0": {
+      "intervalo": "1",
+      "activado": false
+    }
+  },
+  "secundarios": {
+    "F1": {
+      "intervalo": "1",
+      "activado": false
+    },
+    "F2": {
+      "intervalo": "1",
+      "activado": false
+    },
+    "F3": {
+      "intervalo": "1",
+      "activado": false
+    },
+    "F4": {
+      "intervalo": "1",
+      "activado": false
+    },
+    "F5": {
+      "intervalo": "1",
+      "activado": false
+    },
+    "F6": {
+      "intervalo": "1",
+      "activado": false
+    },
+    "F7": {
+      "intervalo": "1",
+      "activado": false
+    },
+    "F8": {
+      "intervalo": "1",
+      "activado": false
+    },
+    "F9": {
+      "intervalo": "1",
+      "activado": false
+    },
+    "F10": {
+      "intervalo": "1",
+      "activado": false
+    }
+  }
+}
