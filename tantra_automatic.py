@@ -12,6 +12,8 @@ import json
 import os
 import sys
 import time
+import math
+import re
 
 # OCR para lectura de nombres de monstruos
 try:
@@ -75,9 +77,48 @@ TARGET_X2_PCT = 0.625   # 62.5% del ancho
 TARGET_Y1 = 2           # fila inicio
 TARGET_Y2 = 60          # fila fin (aumentado para capturar nombre + sangre)
 
+# Minimapa (Esquina superior derecha)
+MAP_X1_PCT = 0.75
+MAP_X2_PCT = 1.0
+MAP_Y1 = 0
+MAP_Y2 = 300
+
 # ─── Funciones Win32 ─────────────────────────────────────────────────
 user32 = ctypes.windll.user32
 gdi32 = ctypes.windll.gdi32
+
+# Estructuras para SendInput
+class MOUSEINPUT(ctypes.Structure):
+    _fields_ = [
+        ("dx", ctypes.c_long),
+        ("dy", ctypes.c_long),
+        ("mouseData", ctypes.c_ulong),
+        ("dwFlags", ctypes.c_ulong),
+        ("time", ctypes.c_ulong),
+        ("dwExtraInfo", ctypes.POINTER(ctypes.c_ulong))
+    ]
+
+class INPUT_I(ctypes.Union):
+    _fields_ = [("mi", MOUSEINPUT)]
+
+class INPUT(ctypes.Structure):
+    _fields_ = [
+        ("type", ctypes.c_ulong),
+        ("ii", INPUT_I)
+    ]
+
+INPUT_MOUSE = 0
+MOUSEEVENTF_MOVE = 0x0001
+MOUSEEVENTF_RIGHTDOWN = 0x0008
+MOUSEEVENTF_RIGHTUP = 0x0010
+
+SendInput = user32.SendInput
+SendInput.argtypes = [ctypes.c_uint, ctypes.POINTER(INPUT), ctypes.c_int]
+SendInput.restype = ctypes.c_uint
+
+PostMessageW = user32.PostMessageW
+PostMessageW.argtypes = [ctypes.wintypes.HWND, ctypes.c_uint, ctypes.wintypes.WPARAM, ctypes.wintypes.LPARAM]
+PostMessageW.restype = ctypes.wintypes.BOOL
 
 SendMessage = user32.SendMessageW
 SendMessage.argtypes = [ctypes.wintypes.HWND, ctypes.c_uint,
@@ -259,6 +300,40 @@ def leer_nombre_target(hwnd):
     except Exception:
         return None, None
 
+def leer_coordenadas_mapa(hwnd):
+    """Lee las coordenadas X / Y del minimapa usando OCR.
+    Devuelve (x, y) o (None, None) si falla."""
+    if not OCR_DISPONIBLE:
+        return None, None
+    try:
+        import re
+        cx, cy, cr, cb = obtener_rect_cliente(hwnd)
+        cw = cr - cx
+        if cw < 100:
+            return None, None
+
+        x1 = cx + int(cw * MAP_X1_PCT)
+        y1 = cy + MAP_Y1
+        x2 = cx + int(cw * MAP_X2_PCT)
+        y2 = cy + MAP_Y2
+
+        img = ImageGrab.grab(bbox=(x1, y1, x2, y2), all_screens=True)
+        gray = img.convert('L')
+        # Threshold: 255 si pixel > 180 else 0
+        binary = gray.point(lambda p: 255 if p > 180 else 0)
+        
+        texto_bruto = pytesseract.image_to_string(binary, config='--psm 11').strip()
+        if not texto_bruto:
+            return None, None
+
+        match_coords = re.search(r'(\d+)\s*/\s*(\d+)', texto_bruto)
+        if match_coords:
+            return int(match_coords.group(1)), int(match_coords.group(2))
+
+        return None, None
+    except Exception:
+        return None, None
+
 
 # ─── Aplicacion Principal ────────────────────────────────────────────
 
@@ -287,11 +362,19 @@ class TantraAutomatic(tk.Tk):
 
         # Contador de intentos fallidos para mover al personaje
         self.intentos_fallidos = 0
-        self.MAX_INTENTOS = 5
+        self.MAX_INTENTOS = 6  # ~4.8 a 5 segundos (tick de 800ms)
 
         # Estado de huida (correr cuando HP esta bajo)
         self.huyendo = False
         self.huida_timer_id = None
+
+        # Estado Geocerca
+        self.fuera_de_rango = False
+        self.distancia_anterior = 0
+        self.geo_x = tk.StringVar(value="0")
+        self.geo_y = tk.StringVar(value="0")
+        self.geo_radio = tk.StringVar(value="50")
+        self.geo_activada = tk.BooleanVar(value=False)
 
         # Hilo de hotkey global
         self.hotkey_activo = True
@@ -340,6 +423,7 @@ class TantraAutomatic(tk.Tk):
         self._construir_tab_filtro()
         self._construir_tab_autopot()
         self._construir_tab_presets()
+        self._construir_tab_geocerca()
 
         # Barra inferior: Iniciar/Detener
         frame_inferior = ttk.Frame(self, padding=5)
@@ -653,6 +737,52 @@ class TantraAutomatic(tk.Tk):
         ttk.Label(tab, text="Los presets se guardan en formato JSON en la carpeta 'presets'",
                   foreground="gray").pack(pady=(8, 0))
 
+    def _construir_tab_geocerca(self):
+        tab = ttk.Frame(self.notebook, padding=8)
+        self.notebook.add(tab, text="Geocerca")
+
+        # Activar
+        ttk.Checkbutton(tab, text="Activar Geocerca", variable=self.geo_activada).pack(anchor="w", pady=(0, 10))
+
+        # Configuración
+        frame_config = ttk.LabelFrame(tab, text="Centro y Radio", padding=8)
+        frame_config.pack(fill="x", pady=(0, 8))
+
+        f_x = ttk.Frame(frame_config)
+        f_x.pack(fill="x", pady=2)
+        ttk.Label(f_x, text="X Centro:", width=10).pack(side="left")
+        ttk.Entry(f_x, textvariable=self.geo_x, width=10).pack(side="left", padx=5)
+
+        f_y = ttk.Frame(frame_config)
+        f_y.pack(fill="x", pady=2)
+        ttk.Label(f_y, text="Y Centro:", width=10).pack(side="left")
+        ttk.Entry(f_y, textvariable=self.geo_y, width=10).pack(side="left", padx=5)
+
+        f_r = ttk.Frame(frame_config)
+        f_r.pack(fill="x", pady=2)
+        ttk.Label(f_r, text="Radio:", width=10).pack(side="left")
+        ttk.Entry(f_r, textvariable=self.geo_radio, width=10).pack(side="left", padx=5)
+
+        # Límites
+        self.frame_limites = ttk.LabelFrame(tab, text="Límites", padding=8)
+        self.frame_limites.pack(fill="x", pady=(0, 8))
+        self.lbl_norte = ttk.Label(self.frame_limites, text="Norte (Y+R): --")
+        self.lbl_norte.pack(anchor="w")
+        self.lbl_sur = ttk.Label(self.frame_limites, text="Sur (Y-R): --")
+        self.lbl_sur.pack(anchor="w")
+        self.lbl_este = ttk.Label(self.frame_limites, text="Este (X+R): --")
+        self.lbl_este.pack(anchor="w")
+        self.lbl_oeste = ttk.Label(self.frame_limites, text="Oeste (X-R): --")
+        self.lbl_oeste.pack(anchor="w")
+
+        # Coordenadas actuales
+        self.lbl_coords_actuales = ttk.Label(tab, text="Coordenadas Actuales: -- / --", font=("Segoe UI", 12, "bold"))
+        self.lbl_coords_actuales.pack(pady=10)
+
+        # Estado Geocerca
+        self.lbl_geo_estado = ttk.Label(tab, text="DENTRO", font=("Segoe UI", 16, "bold"), foreground="green")
+        self.lbl_geo_estado.pack(pady=5)
+
     # ─── Gestion de Procesos ──────────────────────────────────────
 
     def _refrescar_procesos(self):
@@ -661,7 +791,6 @@ class TantraAutomatic(tk.Tk):
         titulos = [titulo for _, titulo in ventanas]
         self.combo_proceso['values'] = titulos
 
-<<<<<<< HEAD
         for i, titulo in enumerate(titulos):
             t_low = titulo.lower()
             # El nombre exacto del juego segun el usuario
@@ -676,22 +805,6 @@ class TantraAutomatic(tk.Tk):
             elif 'kathana' in t_low and 'tantra automatic' not in t_low:
                 # Omitir si parece ser una ruta de carpeta (contiene barras o es muy corta)
                 if ':' not in titulo and '\\' not in titulo:
-=======
-        # Auto-conectar a Kathana
-        hwnd = FindWindow(None, 'Kathana - The Coming of the Dark Ages')
-        if hwnd:
-            self.hwnd_objetivo = hwnd
-            self.titulo_objetivo = 'Kathana - The Coming of the Dark Ages'
-            for i, titulo in enumerate(titulos):
-                if 'kathana' in titulo.lower():
-                    self.combo_proceso.current(i)
-                    break
-            self.entry_renombrar.delete(0, tk.END)
-            self.entry_renombrar.insert(0, self.titulo_objetivo)
-        else:
-            for i, titulo in enumerate(titulos):
-                if 'kathana' in titulo.lower() or 'tantra' in titulo.lower():
->>>>>>> dd93c4486c34d376b17e0f153a442c4b9ab60a3d
                     self.combo_proceso.current(i)
                     self._al_seleccionar_proceso(None)
                     break
@@ -791,15 +904,15 @@ class TantraAutomatic(tk.Tk):
     # ─── Filtro de Monstruos + Ataque ────────────────────────────
 
     def _iniciar_filtro_ocr(self):
-        """Inicia el hilo que lee el nombre del target periodicamente."""
-        if self.filtro_activado.get():
+        """Inicia el hilo que lee el target y/o minimapa periodicamente."""
+        if self.filtro_activado.get() or self.geo_activada.get():
             self._target_cache_result = True
             self._ocr_en_curso = False
             self._tick_filtro_ocr()
 
     def _tick_filtro_ocr(self):
-        """Lee el nombre y HP del target periodicamente."""
-        if not self.activo or not self.filtro_activado.get():
+        """Lee el nombre y HP del target y/o minimapa periodicamente."""
+        if not self.activo or (not self.filtro_activado.get() and not self.geo_activada.get()):
             return
         if self._ocr_en_curso:
             self._filtro_timer_id = self.after(400, self._tick_filtro_ocr)
@@ -807,45 +920,155 @@ class TantraAutomatic(tk.Tk):
 
         self._ocr_en_curso = True
         hwnd = self.hwnd_objetivo
+        leer_filtro = self.filtro_activado.get()
+        leer_geo = self.geo_activada.get()
 
         def _leer():
-            nombre, hp = leer_nombre_target(hwnd)
-            self.after(0, lambda: self._procesar_filtro_resultado(nombre, hp))
+            nombre, hp = None, None
+            map_x, map_y = None, None
+            if leer_filtro:
+                nombre, hp = leer_nombre_target(hwnd)
+            if leer_geo:
+                map_x, map_y = leer_coordenadas_mapa(hwnd)
+            self.after(0, lambda: self._procesar_filtro_resultado(nombre, hp, map_x, map_y))
 
         threading.Thread(target=_leer, daemon=True).start()
         self._filtro_timer_id = self.after(800, self._tick_filtro_ocr)
 
-    def _procesar_filtro_resultado(self, nombre, hp):
-        """Procesa el resultado del OCR (nombre + hp) del filtro."""
+    def _procesar_filtro_resultado(self, nombre, hp, map_x, map_y):
+        """Procesa el resultado del OCR del filtro y de la Geocerca."""
         self._ocr_en_curso = False
         
-        target_info = f"{nombre if nombre else '?'}"
-        if hp: target_info += f" (HP: {hp})"
-        
-        self.label_target_actual.config(text=f"Target actual: {target_info}")
+        # --- Geocerca ---
+        if self.geo_activada.get():
+            try:
+                cx = float(self.geo_x.get())
+                cy = float(self.geo_y.get())
+                cr = float(self.geo_radio.get())
+                
+                self.lbl_norte.config(text=f"Norte (Y+R): {cy + cr}")
+                self.lbl_sur.config(text=f"Sur (Y-R): {cy - cr}")
+                self.lbl_este.config(text=f"Este (X+R): {cx + cr}")
+                self.lbl_oeste.config(text=f"Oeste (X-R): {cx - cr}")
 
-        if not nombre and not hp:
-            # Sin target claro
-            self.intentos_fallidos += 1
-            self.label_filtro_estado.config(
-                text=f"Buscando target... ({self.intentos_fallidos}/{self.MAX_INTENTOS})",
-                foreground="gray")
-            self._verificar_mover()
-            self._target_cache_result = False
-        elif self._target_coincide(nombre, hp):
-            # Coincide con filtro
-            self.intentos_fallidos = 0
-            self.label_filtro_estado.config(
-                text=f"ATACANDO: {target_info}", foreground="green")
-            self._target_cache_result = True
-        else:
-            # No coincide
-            self.intentos_fallidos += 1
-            self.label_filtro_estado.config(
-                text=f"IGNORADO: {target_info} -> buscando otro",
-                foreground="orange")
-            self._verificar_mover()
-            self._target_cache_result = False
+                if map_x is not None and map_y is not None:
+                    self.lbl_coords_actuales.config(text=f"Coordenadas Actuales: {map_x} / {map_y}")
+                    distancia = math.sqrt((map_x - cx)**2 + (map_y - cy)**2)
+
+                    if self.fuera_de_rango:
+                        if distancia <= cr:
+                            # Regresó exitosamente
+                            self.fuera_de_rango = False
+                            self.lbl_geo_estado.config(text="DENTRO", foreground="green")
+                            # 3 clicks al frente para asegurar que entró
+                            self._clicks_frente(3)
+                            self.distancia_anterior = 0
+                        else:
+                            # Sigue fuera, ejecutar Smart Return
+                            self._retorno_inteligente(distancia)
+                    else:
+                        if distancia > cr:
+                            self.fuera_de_rango = True
+                            self.distancia_anterior = distancia
+                            self.lbl_geo_estado.config(text="FUERA DE RANGO", foreground="red")
+                            self._retorno_inteligente(distancia)
+            except ValueError:
+                pass # Ignorar si las coordenadas en UI no son válidas
+
+        # --- Filtro Monstruo ---
+        if self.filtro_activado.get():
+            target_info = f"{nombre if nombre else '?'}"
+            if hp: target_info += f" (HP: {hp})"
+            
+            self.label_target_actual.config(text=f"Target actual: {target_info}")
+
+            if not nombre and not hp:
+                # Sin target claro
+                self.intentos_fallidos += 1
+                self.label_filtro_estado.config(
+                    text=f"Buscando target... ({self.intentos_fallidos}/{self.MAX_INTENTOS})",
+                    foreground="gray")
+                self._verificar_mover()
+                self._target_cache_result = False
+            elif self._target_coincide(nombre, hp):
+                # Coincide con filtro
+                self.intentos_fallidos = 0
+                self.label_filtro_estado.config(
+                    text=f"ATACANDO: {target_info}", foreground="green")
+                self._target_cache_result = True
+            else:
+                # No coincide
+                self.intentos_fallidos += 1
+                self.label_filtro_estado.config(
+                    text=f"IGNORADO: {target_info} -> buscando otro",
+                    foreground="orange")
+                self._verificar_mover()
+                self._target_cache_result = False
+
+    def _retorno_inteligente(self, distancia_actual):
+        """Si la distancia subió o se mantuvo, gira cámara. Siempre avanza con clicks virtuales."""
+        hwnd = self.hwnd_objetivo
+        if not hwnd: return
+
+        # Si aumentó o se mantuvo igual (se alejó o chocó)
+        if distancia_actual >= self.distancia_anterior:
+            try:
+                SetForegroundWindow(hwnd)
+            except Exception:
+                pass
+            time.sleep(0.05)
+            # Girar la camara 90 grados
+            inp = INPUT()
+            inp.type = INPUT_MOUSE
+            inp.ii.mi.dx = 0
+            inp.ii.mi.dy = 0
+            inp.ii.mi.mouseData = 0
+            inp.ii.mi.dwFlags = MOUSEEVENTF_RIGHTDOWN
+            inp.ii.mi.time = 0
+            inp.ii.mi.dwExtraInfo = ctypes.pointer(ctypes.c_ulong(0))
+            SendInput(1, ctypes.pointer(inp), ctypes.sizeof(INPUT))
+            
+            for _ in range(25):
+                inp_move = INPUT()
+                inp_move.type = INPUT_MOUSE
+                inp_move.ii.mi.dx = 18
+                inp_move.ii.mi.dy = 0
+                inp_move.ii.mi.mouseData = 0
+                inp_move.ii.mi.dwFlags = MOUSEEVENTF_MOVE
+                inp_move.ii.mi.time = 0
+                inp_move.ii.mi.dwExtraInfo = ctypes.pointer(ctypes.c_ulong(0))
+                SendInput(1, ctypes.pointer(inp_move), ctypes.sizeof(INPUT))
+                time.sleep(0.01)
+                
+            inp_up = INPUT()
+            inp_up.type = INPUT_MOUSE
+            inp_up.ii.mi.dx = 0
+            inp_up.ii.mi.dy = 0
+            inp_up.ii.mi.mouseData = 0
+            inp_up.ii.mi.dwFlags = MOUSEEVENTF_RIGHTUP
+            inp_up.ii.mi.time = 0
+            inp_up.ii.mi.dwExtraInfo = ctypes.pointer(ctypes.c_ulong(0))
+            SendInput(1, ctypes.pointer(inp_up), ctypes.sizeof(INPUT))
+
+        self.distancia_anterior = distancia_actual
+        self._clicks_frente(2)
+
+    def _clicks_frente(self, cantidad):
+        """Simula clicks virtuales enfrente del personaje usando PostMessageW."""
+        hwnd = self.hwnd_objetivo
+        if not hwnd: return
+        cx, cy, cr, cb = obtener_rect_cliente(hwnd)
+        w = cr - cx
+        h = cb - cy
+        tar_x = w // 2
+        tar_y = int(h * 0.45)
+        lparam = (tar_y << 16) | tar_x
+        
+        for _ in range(cantidad):
+            PostMessageW(hwnd, 0x0201, 1, lparam) # LBUTTONDOWN
+            time.sleep(0.05)
+            PostMessageW(hwnd, 0x0202, 0, lparam) # LBUTTONUP
+            time.sleep(0.3)
 
     def _target_permitido(self):
         """Consulta el resultado cacheado del filtro. No hace OCR."""
@@ -854,11 +1077,27 @@ class TantraAutomatic(tk.Tk):
         return getattr(self, '_target_cache_result', True)
 
     def _verificar_mover(self):
-        """Si se alcanzaron los intentos maximos, resetea el contador y sigue buscando."""
+        """Si se alcanzaron los intentos maximos, resetea el contador, sigue buscando y se mueve."""
         if self.intentos_fallidos >= self.MAX_INTENTOS:
             self.intentos_fallidos = 0
             self.label_filtro_estado.config(
-                text="No encontrado, sigue buscando...", foreground="blue")
+                text="No encontrado, moviendo...", foreground="blue")
+            
+            hwnd = self.hwnd_objetivo
+            if hwnd:
+                cx, cy, cr, cb = obtener_rect_cliente(hwnd)
+                w = cr - cx
+                h = cb - cy
+                tar_x = w // 2
+                tar_y = int(h * 0.40) # un poco mas arriba del centro
+                lparam = (tar_y << 16) | tar_x
+                
+                # Dos clics izquierdos al centro-arriba
+                for _ in range(2):
+                    PostMessageW(hwnd, 0x0201, 1, lparam) # LBUTTONDOWN
+                    time.sleep(0.05)
+                    PostMessageW(hwnd, 0x0202, 0, lparam) # LBUTTONUP
+                    time.sleep(0.3)
 
     # ─── Timers de Ataque Basico ──────────────────────────────────
 
@@ -877,6 +1116,10 @@ class TantraAutomatic(tk.Tk):
         except (ValueError, tk.TclError):
             intervalo = 1000
 
+        if self.fuera_de_rango:
+            self.basic_e_timer_id = self.after(intervalo, self._tick_e)
+            return
+
         # Quieto: no enviar E (no busca nuevos targets, solo dispara al actual)
         if not self.huyendo and not self.modo_quieto.get():
             enviar_tecla(self.hwnd_objetivo, VK_CODES['E'])
@@ -889,6 +1132,10 @@ class TantraAutomatic(tk.Tk):
             intervalo = max(1, int(self.intervalo_r.get())) * 1000
         except (ValueError, tk.TclError):
             intervalo = 1000
+
+        if self.fuera_de_rango:
+            self.basic_r_timer_id = self.after(intervalo, self._tick_r)
+            return
 
         # No atacar si esta huyendo
         if not self.huyendo and self._target_permitido():
@@ -939,6 +1186,10 @@ class TantraAutomatic(tk.Tk):
                 intervalo = max(1, int(entry_intervalo.get())) * 1000
             except (ValueError, tk.TclError):
                 intervalo = 1000
+
+            if self.fuera_de_rango:
+                self.skill_timers[nombre_tecla] = self.after(intervalo, tick)
+                return
 
             # No usar skills si esta huyendo (excepto 9 y 0 que son pociones)
             if self.huyendo and nombre_tecla not in ('9', '0'):
@@ -1113,6 +1364,10 @@ class TantraAutomatic(tk.Tk):
             "mana_porcentaje": self.mana_porcentaje.get(),
             "filtro_activado": self.filtro_activado.get(),
             "monstruos": self._obtener_lista_monstruos(),
+            "geo_activada": self.geo_activada.get(),
+            "geo_x": self.geo_x.get(),
+            "geo_y": self.geo_y.get(),
+            "geo_radio": self.geo_radio.get(),
             "primarios": {},
             "secundarios": {},
         }
@@ -1155,6 +1410,11 @@ class TantraAutomatic(tk.Tk):
         self.listbox_monstruos.delete(0, tk.END)
         for nombre in config.get("monstruos", []):
             self.listbox_monstruos.insert(tk.END, nombre)
+
+        self.geo_activada.set(config.get("geo_activada", False))
+        self.geo_x.set(config.get("geo_x", "0"))
+        self.geo_y.set(config.get("geo_y", "0"))
+        self.geo_radio.set(config.get("geo_radio", "50"))
 
         teclas_primarias = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
         for i, tecla in enumerate(teclas_primarias):
