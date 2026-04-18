@@ -74,8 +74,8 @@ MANA_BAR_X_END = 228
 # Panel de target (nombre del monstruo seleccionado) - parte superior derecha
 TARGET_X1_PCT = 0.328   # 32.8% del ancho
 TARGET_X2_PCT = 0.625   # 62.5% del ancho
-TARGET_Y1 = 2           # fila inicio
-TARGET_Y2 = 60          # fila fin (aumentado para capturar nombre + sangre)
+TARGET_Y1 = 35          # fila inicio (bajado para evitar anuncios amarillos)
+TARGET_Y2 = 95          # fila fin (ajustado para capturar nombre y HP abajo)
 
 # Minimapa (Esquina superior derecha)
 MAP_X1_PCT = 0.75
@@ -375,6 +375,7 @@ class TantraAutomatic(tk.Tk):
         self.geo_y = tk.StringVar(value="0")
         self.geo_radio = tk.StringVar(value="50")
         self.geo_activada = tk.BooleanVar(value=False)
+        self.mover_si_no_encuentra = tk.BooleanVar(value=True)
 
         # Hilo de hotkey global
         self.hotkey_activo = True
@@ -523,8 +524,14 @@ class TantraAutomatic(tk.Tk):
 
         # Activar filtro
         self.filtro_activado = tk.BooleanVar(value=False)
-        ttk.Checkbutton(tab, text="Activar filtro de monstruos (solo atacar los indicados)",
-                        variable=self.filtro_activado).pack(anchor="w", pady=(0, 8))
+        f_filtro_opts = ttk.Frame(tab)
+        f_filtro_opts.pack(fill="x", pady=(0, 8))
+        
+        ttk.Checkbutton(f_filtro_opts, text="Activar filtro de monstruos",
+                        variable=self.filtro_activado).pack(side="left", padx=(0, 20))
+        
+        ttk.Checkbutton(f_filtro_opts, text="Auto-clic (moverse) si no encuentra target tras 5s",
+                        variable=self.mover_si_no_encuentra).pack(side="left")
 
         # Lista de nombres
         frame_nombres = ttk.LabelFrame(tab, text="Monstruos a atacar", padding=8)
@@ -871,6 +878,9 @@ class TantraAutomatic(tk.Tk):
         if self.autopot_activado.get():
             self._iniciar_autopot()
 
+        if self.geo_activada.get():
+            self._capturar_diagnostico_geo()
+
         self._iniciar_filtro_ocr()
 
     def _detener(self):
@@ -915,7 +925,7 @@ class TantraAutomatic(tk.Tk):
         if not self.activo or (not self.filtro_activado.get() and not self.geo_activada.get()):
             return
         if self._ocr_en_curso:
-            self._filtro_timer_id = self.after(400, self._tick_filtro_ocr)
+            self._filtro_timer_id = self.after(150, self._tick_filtro_ocr)
             return
 
         self._ocr_en_curso = True
@@ -933,7 +943,7 @@ class TantraAutomatic(tk.Tk):
             self.after(0, lambda: self._procesar_filtro_resultado(nombre, hp, map_x, map_y))
 
         threading.Thread(target=_leer, daemon=True).start()
-        self._filtro_timer_id = self.after(800, self._tick_filtro_ocr)
+        self._filtro_timer_id = self.after(300, self._tick_filtro_ocr)
 
     def _procesar_filtro_resultado(self, nombre, hp, map_x, map_y):
         """Procesa el resultado del OCR del filtro y de la Geocerca."""
@@ -1087,9 +1097,15 @@ class TantraAutomatic(tk.Tk):
         return getattr(self, '_target_cache_result', True)
 
     def _verificar_mover(self):
-        """Si se alcanzaron los intentos maximos, resetea el contador, sigue buscando y se mueve."""
+        """Si se alcanzaron los intentos maximos, resetea el contador, sigue buscando y se mueve (si esta activado)."""
         if self.intentos_fallidos >= self.MAX_INTENTOS:
             self.intentos_fallidos = 0
+            
+            if not self.mover_si_no_encuentra.get():
+                self.label_filtro_estado.config(
+                    text="No encontrado, esperando...", foreground="gray")
+                return
+                
             self.label_filtro_estado.config(
                 text="No encontrado, moviendo...", foreground="blue")
             
@@ -1346,6 +1362,40 @@ class TantraAutomatic(tk.Tk):
             self.intervalo_r.delete(0, tk.END)
             self.intervalo_r.insert(0, "1")
 
+    def _capturar_diagnostico_geo(self):
+        """Captura imagenes de referencia al iniciar la Geocerca para depuracion."""
+        if not self.hwnd_objetivo:
+            return
+        
+        try:
+            # Obtener base path
+            if getattr(sys, 'frozen', False):
+                base = os.path.dirname(sys.executable)
+            else:
+                base = os.path.dirname(os.path.abspath(__file__))
+            
+            cx, cy, cr, cb = obtener_rect_cliente(self.hwnd_objetivo)
+            cw = cr - cx
+            ch = cb - cy
+            
+            if cw < 100: return
+            
+            # 1. Juego Completo
+            img_full = ImageGrab.grab(bbox=(cx, cy, cr, cb), all_screens=True)
+            img_full.save(os.path.join(base, "debug_geo_completo.png"))
+            
+            # 2. Minimapa
+            mx1 = cx + int(cw * MAP_X1_PCT)
+            my1 = cy + MAP_Y1
+            mx2 = cx + int(cw * MAP_X2_PCT)
+            my2 = cy + MAP_Y2
+            
+            img_map = ImageGrab.grab(bbox=(mx1, my1, mx2, my2), all_screens=True)
+            img_map.save(os.path.join(base, "debug_geo_minimapa.png"))
+            
+        except Exception as e:
+            print(f"Error en captura geo: {e}")
+
     # ─── Presets ──────────────────────────────────────────────────
 
     def _obtener_dir_presets(self):
@@ -1373,6 +1423,7 @@ class TantraAutomatic(tk.Tk):
             "hp_porcentaje": self.hp_porcentaje.get(),
             "mana_porcentaje": self.mana_porcentaje.get(),
             "filtro_activado": self.filtro_activado.get(),
+            "mover_si_no_encuentra": self.mover_si_no_encuentra.get(),
             "monstruos": self._obtener_lista_monstruos(),
             "geo_activada": self.geo_activada.get(),
             "geo_x": self.geo_x.get(),
@@ -1417,6 +1468,7 @@ class TantraAutomatic(tk.Tk):
         self.mana_porcentaje.set(config.get("mana_porcentaje", 50))
 
         self.filtro_activado.set(config.get("filtro_activado", False))
+        self.mover_si_no_encuentra.set(config.get("mover_si_no_encuentra", True))
         self.listbox_monstruos.delete(0, tk.END)
         for nombre in config.get("monstruos", []):
             self.listbox_monstruos.insert(tk.END, nombre)
