@@ -791,7 +791,6 @@ class TantraAutomatic(tk.Tk):
         titulos = [titulo for _, titulo in ventanas]
         self.combo_proceso['values'] = titulos
 
-<<<<<<< HEAD
         for i, titulo in enumerate(titulos):
             t_low = titulo.lower()
             # El nombre exacto del juego segun el usuario
@@ -806,22 +805,6 @@ class TantraAutomatic(tk.Tk):
             elif 'kathana' in t_low and 'tantra automatic' not in t_low:
                 # Omitir si parece ser una ruta de carpeta (contiene barras o es muy corta)
                 if ':' not in titulo and '\\' not in titulo:
-=======
-        # Auto-conectar a Kathana
-        hwnd = FindWindow(None, 'Kathana - The Coming of the Dark Ages')
-        if hwnd:
-            self.hwnd_objetivo = hwnd
-            self.titulo_objetivo = 'Kathana - The Coming of the Dark Ages'
-            for i, titulo in enumerate(titulos):
-                if 'kathana' in titulo.lower():
-                    self.combo_proceso.current(i)
-                    break
-            self.entry_renombrar.delete(0, tk.END)
-            self.entry_renombrar.insert(0, self.titulo_objetivo)
-        else:
-            for i, titulo in enumerate(titulos):
-                if 'kathana' in titulo.lower() or 'tantra' in titulo.lower():
->>>>>>> 1a4863f7c995e2b48cef60814b846da57b289447
                     self.combo_proceso.current(i)
                     self._al_seleccionar_proceso(None)
                     break
@@ -977,18 +960,18 @@ class TantraAutomatic(tk.Tk):
                             # Regresó exitosamente
                             self.fuera_de_rango = False
                             self.lbl_geo_estado.config(text="DENTRO", foreground="green")
-                            # 3 clicks al frente para asegurar que entró
-                            self._clicks_frente(3)
                             self.distancia_anterior = 0
+                            # 3 clicks al frente para asegurar que entró (en hilo)
+                            threading.Thread(target=self._clicks_frente, args=(3,), daemon=True).start()
                         else:
                             # Sigue fuera, ejecutar Smart Return
-                            self._retorno_inteligente(distancia)
+                            self._iniciar_hilo_retorno(distancia)
                     else:
                         if distancia > cr:
                             self.fuera_de_rango = True
                             self.distancia_anterior = distancia
                             self.lbl_geo_estado.config(text="FUERA DE RANGO", foreground="red")
-                            self._retorno_inteligente(distancia)
+                            self._iniciar_hilo_retorno(distancia)
             except ValueError:
                 pass # Ignorar si las coordenadas en UI no son válidas
 
@@ -1022,53 +1005,63 @@ class TantraAutomatic(tk.Tk):
                 self._verificar_mover()
                 self._target_cache_result = False
 
+    def _iniciar_hilo_retorno(self, distancia):
+        """Lanza el retorno usando un hilo si no hay otro en curso para evitar superposiciones y liberar UI."""
+        if hasattr(self, '_retorno_en_curso') and self._retorno_en_curso:
+            return
+        self._retorno_en_curso = True
+        threading.Thread(target=self._retorno_inteligente, args=(distancia,), daemon=True).start()
+
     def _retorno_inteligente(self, distancia_actual):
         """Si la distancia subió o se mantuvo, gira cámara. Siempre avanza con clicks virtuales."""
-        hwnd = self.hwnd_objetivo
-        if not hwnd: return
+        try:
+            hwnd = self.hwnd_objetivo
+            if not hwnd: return
 
-        # Si aumentó o se mantuvo igual (se alejó o chocó)
-        if distancia_actual >= self.distancia_anterior:
-            try:
-                SetForegroundWindow(hwnd)
-            except Exception:
-                pass
-            time.sleep(0.05)
-            # Girar la camara 90 grados
-            inp = INPUT()
-            inp.type = INPUT_MOUSE
-            inp.ii.mi.dx = 0
-            inp.ii.mi.dy = 0
-            inp.ii.mi.mouseData = 0
-            inp.ii.mi.dwFlags = MOUSEEVENTF_RIGHTDOWN
-            inp.ii.mi.time = 0
-            inp.ii.mi.dwExtraInfo = ctypes.pointer(ctypes.c_ulong(0))
-            SendInput(1, ctypes.pointer(inp), ctypes.sizeof(INPUT))
-            
-            for _ in range(25):
-                inp_move = INPUT()
-                inp_move.type = INPUT_MOUSE
-                inp_move.ii.mi.dx = 18
-                inp_move.ii.mi.dy = 0
-                inp_move.ii.mi.mouseData = 0
-                inp_move.ii.mi.dwFlags = MOUSEEVENTF_MOVE
-                inp_move.ii.mi.time = 0
-                inp_move.ii.mi.dwExtraInfo = ctypes.pointer(ctypes.c_ulong(0))
-                SendInput(1, ctypes.pointer(inp_move), ctypes.sizeof(INPUT))
-                time.sleep(0.01)
+            # Si aumentó o se mantuvo igual (se alejó o chocó)
+            if distancia_actual >= self.distancia_anterior:
+                try:
+                    SetForegroundWindow(hwnd)
+                except Exception:
+                    pass
+                time.sleep(0.05)
+                # Girar la camara 90 grados
+                inp = INPUT()
+                inp.type = INPUT_MOUSE
+                inp.ii.mi.dx = 0
+                inp.ii.mi.dy = 0
+                inp.ii.mi.mouseData = 0
+                inp.ii.mi.dwFlags = MOUSEEVENTF_RIGHTDOWN
+                inp.ii.mi.time = 0
+                inp.ii.mi.dwExtraInfo = ctypes.pointer(ctypes.c_ulong(0))
+                SendInput(1, ctypes.pointer(inp), ctypes.sizeof(INPUT))
                 
-            inp_up = INPUT()
-            inp_up.type = INPUT_MOUSE
-            inp_up.ii.mi.dx = 0
-            inp_up.ii.mi.dy = 0
-            inp_up.ii.mi.mouseData = 0
-            inp_up.ii.mi.dwFlags = MOUSEEVENTF_RIGHTUP
-            inp_up.ii.mi.time = 0
-            inp_up.ii.mi.dwExtraInfo = ctypes.pointer(ctypes.c_ulong(0))
-            SendInput(1, ctypes.pointer(inp_up), ctypes.sizeof(INPUT))
+                for _ in range(25):
+                    inp_move = INPUT()
+                    inp_move.type = INPUT_MOUSE
+                    inp_move.ii.mi.dx = 18
+                    inp_move.ii.mi.dy = 0
+                    inp_move.ii.mi.mouseData = 0
+                    inp_move.ii.mi.dwFlags = MOUSEEVENTF_MOVE
+                    inp_move.ii.mi.time = 0
+                    inp_move.ii.mi.dwExtraInfo = ctypes.pointer(ctypes.c_ulong(0))
+                    SendInput(1, ctypes.pointer(inp_move), ctypes.sizeof(INPUT))
+                    time.sleep(0.01)
+                    
+                inp_up = INPUT()
+                inp_up.type = INPUT_MOUSE
+                inp_up.ii.mi.dx = 0
+                inp_up.ii.mi.dy = 0
+                inp_up.ii.mi.mouseData = 0
+                inp_up.ii.mi.dwFlags = MOUSEEVENTF_RIGHTUP
+                inp_up.ii.mi.time = 0
+                inp_up.ii.mi.dwExtraInfo = ctypes.pointer(ctypes.c_ulong(0))
+                SendInput(1, ctypes.pointer(inp_up), ctypes.sizeof(INPUT))
 
-        self.distancia_anterior = distancia_actual
-        self._clicks_frente(2)
+            self.distancia_anterior = distancia_actual
+            self._clicks_frente(2)
+        finally:
+            self._retorno_en_curso = False
 
     def _clicks_frente(self, cantidad):
         """Simula clicks virtuales enfrente del personaje usando PostMessageW."""
