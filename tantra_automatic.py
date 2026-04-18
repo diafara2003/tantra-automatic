@@ -661,22 +661,6 @@ class TantraAutomatic(tk.Tk):
         titulos = [titulo for _, titulo in ventanas]
         self.combo_proceso['values'] = titulos
 
-<<<<<<< HEAD
-        for i, titulo in enumerate(titulos):
-            t_low = titulo.lower()
-            # El nombre exacto del juego segun el usuario
-            nombre_exacto = 'kathana - the coming of the dark ages'
-            
-            # Intentar coincidencia exacta primero
-            if t_low == nombre_exacto:
-                self.combo_proceso.current(i)
-                self._al_seleccionar_proceso(None)
-                break
-            # Si no es exacto, buscar que contenga Kathana pero que NO sea el Bot ni una carpeta comun
-            elif 'kathana' in t_low and 'tantra automatic' not in t_low:
-                # Omitir si parece ser una ruta de carpeta (contiene barras o es muy corta)
-                if ':' not in titulo and '\\' not in titulo:
-=======
         # Auto-conectar a Kathana
         hwnd = FindWindow(None, 'Kathana - The Coming of the Dark Ages')
         if hwnd:
@@ -691,7 +675,6 @@ class TantraAutomatic(tk.Tk):
         else:
             for i, titulo in enumerate(titulos):
                 if 'kathana' in titulo.lower() or 'tantra' in titulo.lower():
->>>>>>> dd93c4486c34d376b17e0f153a442c4b9ab60a3d
                     self.combo_proceso.current(i)
                     self._al_seleccionar_proceso(None)
                     break
